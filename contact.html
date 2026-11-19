@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact &amp; 24/7 Dispatch · Book Direct | Umair Taxi &amp; Limo Ireland</title>
+  <meta name="description" content="Contact Umair Taxi and Limo for 24/7 airport transfers and executive chauffeur bookings across Ireland. Call +353 (0) 45 800 000 or message on WhatsApp for instant confirmation.">
+  <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    .contact-layout-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 50px;
+      align-items: flex-start;
+      margin-top: 30px;
+    }
+    .contact-card-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+      padding: 36px;
+      margin-bottom: 24px;
+    }
+    .contact-channel-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+    .contact-channel-item:last-child {
+      margin-bottom: 0;
+    }
+    .contact-channel-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(197, 160, 89, 0.1);
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--gold-primary);
+      flex-shrink: 0;
+    }
+    .channel-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold-primary);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .channel-value {
+      font-size: 18px;
+      font-weight: 600;
+      color: #FFF;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .channel-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Inquiry Form */
+    .inquiry-form-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 36px;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.6);
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-label {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+    .form-control {
+      width: 100%;
+      height: 46px;
+      background: #080A0E;
+      border: 1px solid var(--border-dark);
+      border-radius: 8px;
+      padding: 0 14px;
+      color: #FFF;
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      transition: border-color 0.2s;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--gold-primary);
+    }
+    textarea.form-control {
+      height: 100px;
+      padding: 12px 14px;
+      resize: vertical;
+    }
+
+    @media (max-width: 900px) {
+      .contact-layout-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="Umair Taxi and Limo Home">
+        <svg class="brand-svg-mark" viewBox="0 0 54 54" width="38" height="38" aria-hidden="true">
+          <defs>
+            <linearGradient id="headerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FCE8B3"/>
+              <stop offset="25%" stop-color="#E2C275"/>
+              <stop offset="50%" stop-color="#C5A059"/>
+              <stop offset="75%" stop-color="#A57F35"/>
+              <stop offset="100%" stop-color="#BF984E"/>
+            </linearGradient>
+          </defs>
+          <path d="M 12 9 L 21 14 L 21 35.5 C 21 41.5 25 46 29.5 46 C 34 46 38 41.5 38 35.5 L 38 14 L 47 9 L 47 35.5 C 47 45.5 39 52.5 29.5 52.5 C 20 52.5 12 45.5 12 35.5 Z" fill="url(#headerGoldGrad)"/>
+          <path d="M 40 11 L 47 7 L 50.5 15 L 47 16.5 Z" fill="url(#headerGoldGrad)" opacity="0.95"/>
+          <path d="M 12 9 L 18.5 5.5 L 21 14 Z" fill="url(#headerGoldGrad)" opacity="0.95"/>
+          <path d="M 29.5 13 C 29.5 18.5 30.8 20.5 35 20.5 C 30.8 20.5 29.5 22.5 29.5 28 C 29.5 22.5 28.2 20.5 24 20.5 C 28.2 20.5 29.5 18.5 29.5 13 Z" fill="#FFFFFF"/>
+          <path d="M 16 56 C 24.5 58 34.5 58 43 56" stroke="url(#headerGoldGrad)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        </svg>
+        <div class="brand-text-block">
+          <span class="brand-word-primary">UMAIR</span>
+          <span class="brand-word-secondary">TAXI &amp; LIMO</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="rates.html" class="nav-link">Fixed Rates</a></li>
+          <li><a href="fleet.html" class="nav-link">Fleet</a></li>
+          <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right">
+        <a href="tel:+35345800000" class="phone-badge">
+          <span class="phone-icon">&#9742;</span>
+          <span>+353 (0) 45 800 000</span>
+        </a>
+        <a href="tel:+35345800000" class="mobile-phone-btn" aria-label="Call Dispatch">
+          <span>&#9742;</span>
+        </a>
+        <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20book%20a%20chauffeur%20transfer." 
+           target="_blank" 
+           class="btn-header-cta">
+          <span class="cta-desktop-text">Reserve Chauffeur</span>
+          <span class="cta-mobile-text">Book</span>
+        </a>
+        <button class="burger-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <ul class="mobile-drawer-links">
+      <li><a href="services.html">Services <span>&rarr;</span></a></li>
+      <li><a href="rates.html">Fixed Rates &amp; Routes <span>&rarr;</span></a></li>
+      <li><a href="fleet.html">Our Fleet <span>&rarr;</span></a></li>
+      <li><a href="how-it-works.html">How It Works <span>&rarr;</span></a></li>
+      <li><a href="faq.html">FAQ <span>&rarr;</span></a></li>
+      <li><a href="contact.html" style="color: var(--gold-primary);">Contact Us <span>&rarr;</span></a></li>
+    </ul>
+    <div style="display: flex; gap: 10px;">
+      <a href="tel:+35345800000" class="btn-outline" style="flex: 1; font-size: 12px; padding: 11px; white-space: nowrap;">
+        &#9742; Call +353 45 800 000
+      </a>
+      <a href="https://wa.me/35345800000" target="_blank" class="btn-gold" style="flex: 1; font-size: 12px; padding: 11px; white-space: nowrap;">
+        &#128172; WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <img src="https://images.unsplash.com/photo-1555881400-89d5a9c86668?auto=format&fit=crop&q=80&w=1920" 
+         alt="Contact Umair Taxi and Limo" 
+         class="page-hero-bg">
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> &bull; <span>Contact Us</span>
+      </div>
+      <h1>Contact &amp; 24/7 Dispatch Desk</h1>
+      <p>
+        We operate round the clock. Connect with our Dublin Airport and Kildare dispatch team via WhatsApp, direct telephone, or our reservation form below.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT CONTENT -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-layout-grid">
+
+        <!-- Left Column: Direct Channels -->
+        <div>
+          <div class="contact-card-box">
+            <h3 style="font-family: var(--font-serif); font-size: 22px; color: #FFF; margin-bottom: 24px;">
+              Direct Dispatch Lines
+            </h3>
+
+            <!-- Channel 1: Phone -->
+            <div class="contact-channel-item">
+              <div class="contact-channel-icon">&#9742;</div>
+              <div>
+                <span class="channel-title">24/7 Phone Line</span>
+                <a href="tel:+35345800000" class="channel-value">+353 (0) 45 800 000</a>
+                <span class="channel-desc">Available 24 hours for instant booking and airport flight changes</span>
+              </div>
+            </div>
+
+            <!-- Channel 2: WhatsApp -->
+            <div class="contact-channel-item">
+              <div class="contact-channel-icon">&#128172;</div>
+              <div>
+                <span class="channel-title">WhatsApp Concierge</span>
+                <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20book%20a%20transfer." target="_blank" class="channel-value" style="color: #25D366;">
+                  Message on WhatsApp &rarr;
+                </a>
+                <span class="channel-desc">Instant reply within 2 minutes with confirmed fixed price</span>
+              </div>
+            </div>
+
+            <!-- Channel 3: Email -->
+            <div class="contact-channel-item">
+              <div class="contact-channel-icon">&#9993;</div>
+              <div>
+                <span class="channel-title">Email Reservations</span>
+                <a href="mailto:bookings@umairtaxilimo.ie" class="channel-value" style="font-size: 16px;">
+                  bookings@umairtaxilimo.ie
+                </a>
+                <span class="channel-desc">Corporate billing, tour inquiries, and itinerary scheduling</span>
+              </div>
+            </div>
+
+            <!-- Channel 4: Base -->
+            <div class="contact-channel-item">
+              <div class="contact-channel-icon">&#128205;</div>
+              <div>
+                <span class="channel-title">Operating Base &amp; Coverage</span>
+                <span class="channel-value" style="font-size: 16px;">Naas, Co. Kildare &bull; Dublin &bull; Ireland</span>
+                <span class="channel-desc">Serving Dublin Airport (DUB), Greater Dublin Area, Kildare, and Nationwide</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Online Booking Inquiry -->
+        <div>
+          <div class="inquiry-form-card">
+            <h3 style="font-family: var(--font-serif); font-size: 22px; color: #FFF; margin-bottom: 8px;">
+              Request a Reservation Quote
+            </h3>
+            <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 24px;">
+              Fill in your itinerary details and our dispatch team will reply immediately with your confirmed fixed price.
+            </p>
+
+            <form onsubmit="handleContactSubmit(event)">
+              <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <input type="text" id="cName" class="form-control" placeholder="e.g. David Thornton" required>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;" class="form-group">
+                <div>
+                  <label class="form-label">Phone / WhatsApp</label>
+                  <input type="tel" id="cPhone" class="form-control" placeholder="+353 ..." required>
+                </div>
+                <div>
+                  <label class="form-label">Email Address</label>
+                  <input type="email" id="cEmail" class="form-control" placeholder="name@domain.com" required>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;" class="form-group">
+                <div>
+                  <label class="form-label">Pickup Point</label>
+                  <input type="text" id="cPickup" class="form-control" placeholder="e.g. Dublin Airport T2" required>
+                </div>
+                <div>
+                  <label class="form-label">Destination</label>
+                  <input type="text" id="cDropoff" class="form-control" placeholder="e.g. The K Club, Naas" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Vehicle Type Required</label>
+                <select id="cVehicle" class="form-control">
+                  <option value="Executive Sedan (Mercedes E-Class / BMW 5)">Executive Business Sedan (up to 3 Pax)</option>
+                  <option value="First-Class VIP (Mercedes S-Class)">First-Class Luxury VIP S-Class (up to 3 Pax)</option>
+                  <option value="Executive MPV Van (Mercedes V-Class)">Executive MPV Chauffeur Van (up to 7 Pax)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Date, Flight Number &amp; Notes</label>
+                <textarea id="cNotes" class="form-control" placeholder="Inbound flight number, date/time, passenger count, luggage..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-gold" style="width: 100%; height: 48px; font-size: 13px;">
+                Submit Inquiry via WhatsApp &rarr;
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-link" style="margin-bottom: 16px;">
+            <svg class="brand-svg-mark" viewBox="0 0 54 54" width="36" height="36" aria-hidden="true">
+              <defs>
+                <linearGradient id="footerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FCE8B3"/>
+                  <stop offset="25%" stop-color="#E2C275"/>
+                  <stop offset="50%" stop-color="#C5A059"/>
+                  <stop offset="75%" stop-color="#A57F35"/>
+                  <stop offset="100%" stop-color="#BF984E"/>
+                </linearGradient>
+              </defs>
+              <path d="M 12 9 L 21 14 L 21 35.5 C 21 41.5 25 46 29.5 46 C 34 46 38 41.5 38 35.5 L 38 14 L 47 9 L 47 35.5 C 47 45.5 39 52.5 29.5 52.5 C 20 52.5 12 45.5 12 35.5 Z" fill="url(#footerGoldGrad)"/>
+              <path d="M 40 11 L 47 7 L 50.5 15 L 47 16.5 Z" fill="url(#footerGoldGrad)" opacity="0.95"/>
+              <path d="M 12 9 L 18.5 5.5 L 21 14 Z" fill="url(#footerGoldGrad)" opacity="0.95"/>
+              <path d="M 29.5 13 C 29.5 18.5 30.8 20.5 35 20.5 C 30.8 20.5 29.5 22.5 29.5 28 C 29.5 22.5 28.2 20.5 24 20.5 C 28.2 20.5 29.5 18.5 29.5 13 Z" fill="#FFFFFF"/>
+              <path d="M 16 56 C 24.5 58 34.5 58 43 56" stroke="url(#footerGoldGrad)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+            </svg>
+            <div class="brand-text-block">
+              <span class="brand-word-primary">UMAIR</span>
+              <span class="brand-word-secondary">TAXI &amp; LIMO</span>
+            </div>
+          </a>
+          <p>
+            Premium executive chauffeur service and airport transfers across Kildare, Dublin, and nationwide Ireland. Licensed by the National Transport Authority (NTA Ireland).
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="services/airport-transfers.html">Dublin Airport Transfers</a></li>
+            <li><a href="services/hotel-golf-transfers.html">The K Club &amp; Golf Chauffeur</a></li>
+            <li><a href="services/corporate-chauffeur.html">Corporate Travel</a></li>
+            <li><a href="services/city-to-city.html">City-to-City Transfers</a></li>
+            <li><a href="fleet.html">Executive Fleet</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Service Areas</h4>
+          <ul class="footer-links">
+            <li><a href="rates.html">Dublin Airport (DUB)</a></li>
+            <li><a href="rates.html">Naas &amp; Newbridge</a></li>
+            <li><a href="rates.html">Maynooth &amp; Celbridge</a></li>
+            <li><a href="rates.html">Kildare Town &amp; Curragh</a></li>
+            <li><a href="rates.html">Galway &amp; Cork</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">24/7 Dispatch</h4>
+          <div class="footer-contact-item">
+            <span>&#9742;</span>
+            <span><strong>+353 (0) 45 800 000</strong></span>
+          </div>
+          <div class="footer-contact-item">
+            <span>&#9993;</span>
+            <span>bookings@umairtaxilimo.ie</span>
+          </div>
+          <div class="footer-contact-item">
+            <span>&#128205;</span>
+            <span>Kildare &bull; Dublin &bull; Ireland</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Umair Taxi and Limo. All rights reserved. Registered SPSV Operator Ireland.</div>
+        <div>Luxury Black &amp; Muted Champagne Gold Brand Identity</div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20inquire%20about%20a%20chauffeur%20transfer." 
+     target="_blank" 
+     class="floating-whatsapp">
+    <span>&#128172;</span>
+    <span>WhatsApp Us</span>
+  </a>
+
+  <script>
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobileDrawer');
+      drawer.classList.toggle('is-open');
+    }
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('cName').value;
+      const phone = document.getElementById('cPhone').value;
+      const pickup = document.getElementById('cPickup').value;
+      const dropoff = document.getElementById('cDropoff').value;
+      const vehicle = document.getElementById('cVehicle').value;
+      const notes = document.getElementById('cNotes').value;
+
+      const message = `Hello Umair Taxi and Limo,\n\nNew Booking Request:\nName: ${name}\nPhone: ${phone}\nFrom: ${pickup}\nTo: ${dropoff}\nVehicle: ${vehicle}\nNotes: ${notes}`;
+      window.open('https://wa.me/35345800000?text=' + encodeURIComponent(message), '_blank');
+    }
+  </script>
+</body>
+</html>
+

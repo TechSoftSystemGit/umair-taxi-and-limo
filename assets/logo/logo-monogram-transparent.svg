@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="transpGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE8B3"/>
+      <stop offset="25%" stop-color="#E2C275"/>
+      <stop offset="50%" stop-color="#C5A059"/>
+      <stop offset="75%" stop-color="#A57F35"/>
+      <stop offset="100%" stop-color="#C5A059"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(3.5, 2)">
+    <!-- Architectural Chiseled U -->
+    <path d="M 11 8 L 20 13 L 20 34.5 C 20 40.5 24 45 28.5 45 C 33 45 37 40.5 37 34.5 L 37 13 L 46 8 L 46 34.5 C 46 44.5 38 51.5 28.5 51.5 C 19 51.5 11 44.5 11 34.5 Z" 
+          fill="url(#transpGold)"/>
+    <path d="M 39 10 L 46 6 L 49.5 14 L 46 15.5 Z" fill="url(#transpGold)" opacity="0.95"/>
+    <path d="M 11 8 L 17.5 4.5 L 20 13 Z" fill="url(#transpGold)" opacity="0.95"/>
+    <path d="M 28.5 12 C 28.5 17.5 29.8 19.5 34 19.5 C 29.8 19.5 28.5 21.5 28.5 27 C 28.5 21.5 27.2 19.5 23 19.5 C 27.2 19.5 28.5 17.5 28.5 12 Z" fill="#FFFFFF"/>
+    <path d="M 15 55 C 23.5 57 33.5 57 42 55" stroke="url(#transpGold)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  </g>
+</svg>

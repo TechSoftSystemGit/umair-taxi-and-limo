@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5-Star Hotel &amp; Golf Resort Chauffeur · The K Club, Carton House | Umair Taxi &amp; Limo</title>
+  <meta name="description" content="Luxury chauffeur transport to Ireland's premier 5-star hotels and championship golf resorts. The K Club, Carton House, Adare Manor, and Dublin luxury hotels.">
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    .resorts-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .resort-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+    .resort-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-4px);
+    }
+    .resort-img-wrap {
+      height: 240px;
+      position: relative;
+      overflow: hidden;
+    }
+    .resort-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .resort-card:hover .resort-img-wrap img {
+      transform: scale(1.06);
+    }
+    .resort-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(8, 10, 14, 0.88);
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .resort-body {
+      padding: 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .resort-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: #FFF;
+      margin-bottom: 8px;
+    }
+    .resort-location {
+      font-size: 12px;
+      color: var(--gold-primary);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .resort-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .resort-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-dark);
+      padding-top: 16px;
+    }
+    .resort-rate {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .resort-rate strong {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      color: var(--gold-light);
+      margin-left: 6px;
+    }
+
+    @media (max-width: 800px) {
+      .resorts-grid { grid-template-columns: 1fr !important; gap: 18px !important; }
+      .resort-img-wrap { height: 190px !important; }
+      .resort-body { padding: 20px 18px !important; }
+      .resort-title { font-size: 18px !important; }
+      .resort-desc { font-size: 13px !important; line-height: 1.5 !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand-link" aria-label="Umair Taxi and Limo Home">
+        <svg class="brand-svg-mark" viewBox="0 0 54 54" width="38" height="38" aria-hidden="true">
+          <defs>
+            <linearGradient id="headerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FCE8B3"/>
+              <stop offset="25%" stop-color="#E2C275"/>
+              <stop offset="50%" stop-color="#C5A059"/>
+              <stop offset="75%" stop-color="#A57F35"/>
+              <stop offset="100%" stop-color="#BF984E"/>
+            </linearGradient>
+          </defs>
+          <path d="M 12 9 L 21 14 L 21 35.5 C 21 41.5 25 46 29.5 46 C 34 46 38 41.5 38 35.5 L 38 14 L 47 9 L 47 35.5 C 47 45.5 39 52.5 29.5 52.5 C 20 52.5 12 45.5 12 35.5 Z" fill="url(#headerGoldGrad)"/>
+          <path d="M 40 11 L 47 7 L 50.5 15 L 47 16.5 Z" fill="url(#headerGoldGrad)" opacity="0.95"/>
+          <path d="M 12 9 L 18.5 5.5 L 21 14 Z" fill="url(#headerGoldGrad)" opacity="0.95"/>
+          <path d="M 29.5 13 C 29.5 18.5 30.8 20.5 35 20.5 C 30.8 20.5 29.5 22.5 29.5 28 C 29.5 22.5 28.2 20.5 24 20.5 C 28.2 20.5 29.5 18.5 29.5 13 Z" fill="#FFFFFF"/>
+          <path d="M 16 56 C 24.5 58 34.5 58 43 56" stroke="url(#headerGoldGrad)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        </svg>
+        <div class="brand-text-block">
+          <span class="brand-word-primary">UMAIR</span>
+          <span class="brand-word-secondary">TAXI &amp; LIMO</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="../services.html" class="nav-link active">Services</a></li>
+          <li><a href="../rates.html" class="nav-link">Fixed Rates</a></li>
+          <li><a href="../fleet.html" class="nav-link">Fleet</a></li>
+          <li><a href="../how-it-works.html" class="nav-link">How It Works</a></li>
+          <li><a href="../faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="../contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right">
+        <a href="tel:+35345800000" class="phone-badge">
+          <span class="phone-icon">&#9742;</span>
+          <span>+353 (0) 45 800 000</span>
+        </a>
+        <a href="tel:+35345800000" class="mobile-phone-btn" aria-label="Call Dispatch">
+          <span>&#9742;</span>
+        </a>
+        <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20book%20a%20hotel%20or%20golf%20transfer." 
+           target="_blank" 
+           class="btn-header-cta">
+          <span class="cta-desktop-text">Reserve Chauffeur</span>
+          <span class="cta-mobile-text">Book</span>
+        </a>
+        <button class="burger-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <ul class="mobile-drawer-links">
+      <li><a href="../services.html" style="color: var(--gold-primary);">Services <span>&rarr;</span></a></li>
+      <li><a href="../rates.html">Fixed Rates &amp; Routes <span>&rarr;</span></a></li>
+      <li><a href="../fleet.html">Our Fleet <span>&rarr;</span></a></li>
+      <li><a href="../how-it-works.html">How It Works <span>&rarr;</span></a></li>
+      <li><a href="../faq.html">FAQ <span>&rarr;</span></a></li>
+      <li><a href="../contact.html">Contact Us <span>&rarr;</span></a></li>
+    </ul>
+    <div style="display: flex; gap: 10px;">
+      <a href="tel:+35345800000" class="btn-outline" style="flex: 1; font-size: 12px; padding: 11px; white-space: nowrap;">
+        &#9742; Call +353 45 800 000
+      </a>
+      <a href="https://wa.me/35345800000" target="_blank" class="btn-gold" style="flex: 1; font-size: 12px; padding: 11px; white-space: nowrap;">
+        &#128172; WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1920" 
+         alt="5-Star Resort Ireland" 
+         class="page-hero-bg">
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> &bull; <a href="../services.html">Services</a> &bull; <span>Hotels &amp; Golf Resorts</span>
+      </div>
+      <h1>5-Star Hotels &amp; Championship Golf Chauffeur</h1>
+      <p>
+        Experience discreet luxury transit to Ireland's most distinguished country estates, Ryder Cup golf destinations, and five-star luxury hotels. Dedicated Mercedes-Benz fleet with ample capacity for golf bags and luggage.
+      </p>
+    </div>
+  </section>
+
+  <!-- RESORTS GRID -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Premier Destinations</span>
+        <h2 class="section-title">Ireland’s Finest Venues</h2>
+        <p class="section-desc">We provide scheduled transfers and on-call chauffeur services for guests and golf parties.</p>
+      </div>
+
+      <div class="resorts-grid">
+        <!-- The K Club -->
+        <div class="resort-card">
+          <div class="resort-img-wrap">
+            <span class="resort-badge">Ryder Cup Venue</span>
+            <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=900" alt="The K Club Golf Course">
+          </div>
+          <div class="resort-body">
+            <div>
+              <h3 class="resort-title">The K Club</h3>
+              <div class="resort-location">&#128205; Straffan, Co. Kildare</div>
+              <p class="resort-desc">
+                Home of the 2006 Ryder Cup and European Open. Direct private transfers from Dublin Airport (35 mins) in our executive Mercedes V-Class or S-Class, providing ample room for up to 7 golfers and their flight clubs.
+              </p>
+            </div>
+            <div class="resort-footer">
+              <div class="resort-rate">From Airport: <strong>€85</strong></div>
+              <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20book%20a%20transfer%20to%20The%20K%20Club." target="_blank" class="btn-gold" style="padding: 8px 16px; font-size: 11px;">Reserve Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carton House -->
+        <div class="resort-card">
+          <div class="resort-img-wrap">
+            <span class="resort-badge">Fairmont Estate</span>
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=900" alt="Carton House Fairmont">
+          </div>
+          <div class="resort-body">
+            <div>
+              <h3 class="resort-title">Carton House, Fairmont</h3>
+              <div class="resort-location">&#128205; Maynooth, Co. Kildare</div>
+              <p class="resort-desc">
+                Historic Georgian estate boasting two championship golf courses (Montgomerie and O’Meara). Located just 30 minutes from Dublin Airport, our chauffeurs ensure a punctual and regal arrival.
+              </p>
+            </div>
+            <div class="resort-footer">
+              <div class="resort-rate">From Airport: <strong>€75</strong></div>
+              <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20book%20a%20transfer%20to%20Carton%20House." target="_blank" class="btn-gold" style="padding: 8px 16px; font-size: 11px;">Reserve Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dublin 5-Star Hotels -->
+        <div class="resort-card">
+          <div class="resort-img-wrap">
+            <span class="resort-badge">City Elegance</span>
+            <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&q=80&w=900" alt="Dublin 5-Star Hotel">
+          </div>
+          <div class="resort-body">
+            <div>
+              <h3 class="resort-title">The Shelbourne &amp; The Merrion</h3>
+              <div class="resort-location">&#128205; St. Stephen's Green, Dublin 2</div>
+              <p class="resort-desc">
+                Dublin’s most iconic five-star addresses. Door-to-door concierge transfers to and from Dublin Airport, Kildare Village shopping excursions, and private evening dining escort.
+              </p>
+            </div>
+            <div class="resort-footer">
+              <div class="resort-rate">From Airport: <strong>€65</strong></div>
+              <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20book%20a%20Dublin%20Hotel%20transfer." target="_blank" class="btn-gold" style="padding: 8px 16px; font-size: 11px;">Reserve Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Adare Manor & Mount Juliet -->
+        <div class="resort-card">
+          <div class="resort-img-wrap">
+            <span class="resort-badge">Ryder Cup 2027</span>
+            <img src="https://images.unsplash.com/photo-1549918864-48ac978761a4?auto=format&fit=crop&q=80&w=900" alt="Adare Manor Resort">
+          </div>
+          <div class="resort-body">
+            <div>
+              <h3 class="resort-title">Adare Manor &amp; Mount Juliet</h3>
+              <div class="resort-location">&#128205; Co. Limerick &amp; Co. Kilkenny</div>
+              <p class="resort-desc">
+                Future host of the 2027 Ryder Cup. Direct executive long-distance chauffeur transfers from Dublin Airport across the scenic heartlands of Ireland without train changes or coach delays.
+              </p>
+            </div>
+            <div class="resort-footer">
+              <div class="resort-rate">From Dublin: <strong>€320</strong></div>
+              <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20book%20a%20transfer%20to%20Adare%20Manor." target="_blank" class="btn-gold" style="padding: 8px 16px; font-size: 11px;">Reserve Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand-link" style="margin-bottom: 16px;">
+            <svg class="brand-svg-mark" viewBox="0 0 54 54" width="36" height="36" aria-hidden="true">
+              <defs>
+                <linearGradient id="footerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FCE8B3"/>
+                  <stop offset="25%" stop-color="#E2C275"/>
+                  <stop offset="50%" stop-color="#C5A059"/>
+                  <stop offset="75%" stop-color="#A57F35"/>
+                  <stop offset="100%" stop-color="#BF984E"/>
+                </linearGradient>
+              </defs>
+              <path d="M 12 9 L 21 14 L 21 35.5 C 21 41.5 25 46 29.5 46 C 34 46 38 41.5 38 35.5 L 38 14 L 47 9 L 47 35.5 C 47 45.5 39 52.5 29.5 52.5 C 20 52.5 12 45.5 12 35.5 Z" fill="url(#footerGoldGrad)"/>
+              <path d="M 40 11 L 47 7 L 50.5 15 L 47 16.5 Z" fill="url(#footerGoldGrad)" opacity="0.95"/>
+              <path d="M 12 9 L 18.5 5.5 L 21 14 Z" fill="url(#footerGoldGrad)" opacity="0.95"/>
+              <path d="M 29.5 13 C 29.5 18.5 30.8 20.5 35 20.5 C 30.8 20.5 29.5 22.5 29.5 28 C 29.5 22.5 28.2 20.5 24 20.5 C 28.2 20.5 29.5 18.5 29.5 13 Z" fill="#FFFFFF"/>
+              <path d="M 16 56 C 24.5 58 34.5 58 43 56" stroke="url(#footerGoldGrad)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+            </svg>
+            <div class="brand-text-block">
+              <span class="brand-word-primary">UMAIR</span>
+              <span class="brand-word-secondary">TAXI &amp; LIMO</span>
+            </div>
+          </a>
+          <p>
+            Premium executive chauffeur service and airport transfers across Kildare, Dublin, and nationwide Ireland. Licensed by the National Transport Authority (NTA Ireland).
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="airport-transfers.html">Dublin Airport Transfers</a></li>
+            <li><a href="hotel-golf-transfers.html">The K Club &amp; Golf Chauffeur</a></li>
+            <li><a href="corporate-chauffeur.html">Corporate Travel</a></li>
+            <li><a href="city-to-city.html">City-to-City Transfers</a></li>
+            <li><a href="../fleet.html">Executive Fleet</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Service Areas</h4>
+          <ul class="footer-links">
+            <li><a href="../rates.html">Dublin Airport (DUB)</a></li>
+            <li><a href="../rates.html">Naas &amp; Newbridge</a></li>
+            <li><a href="../rates.html">Maynooth &amp; Celbridge</a></li>
+            <li><a href="../rates.html">Kildare Town &amp; Curragh</a></li>
+            <li><a href="../rates.html">Galway &amp; Cork</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">24/7 Dispatch</h4>
+          <div class="footer-contact-item">
+            <span>&#9742;</span>
+            <span><strong>+353 (0) 45 800 000</strong></span>
+          </div>
+          <div class="footer-contact-item">
+            <span>&#9993;</span>
+            <span>bookings@umairtaxilimo.ie</span>
+          </div>
+          <div class="footer-contact-item">
+            <span>&#128205;</span>
+            <span>Kildare &bull; Dublin &bull; Ireland</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Umair Taxi and Limo. All rights reserved. Registered SPSV Operator Ireland.</div>
+        <div>Luxury Black &amp; Muted Champagne Gold Brand Identity</div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20inquire%20about%20a%20chauffeur%20transfer." 
+     target="_blank" 
+     class="floating-whatsapp">
+    <span>&#128172;</span>
+    <span>WhatsApp Us</span>
+  </a>
+
+  <script>
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobileDrawer');
+      drawer.classList.toggle('is-open');
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How It Works · Booking &amp; Airport Meet &amp; Greet Guide | Umair Taxi &amp; Limo</title>
+  <meta name="description" content="Learn how easy it is to book a private transfer with Umair Taxi and Limo. 4 simple steps from fixed quote to personal airport arrivals meet and greet.">
+  <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    .workflow-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      position: relative;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .workflow-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 26px;
+      align-items: flex-start;
+      transition: all 0.25s ease;
+    }
+    .workflow-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-3px);
+    }
+    .workflow-step-num {
+      width: 70px;
+      height: 70px;
+      background: rgba(197, 160, 89, 0.12);
+      border: 1px solid var(--gold-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+    .workflow-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: #FFF;
+      margin-bottom: 8px;
+    }
+    .workflow-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+    .workflow-note {
+      font-size: 12.5px;
+      color: var(--gold-light);
+      background: rgba(197, 160, 89, 0.06);
+      border-radius: 8px;
+      padding: 8px 14px;
+      display: inline-block;
+    }
+
+    .meeting-guide-wrap {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 18px;
+      padding: 40px;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 700px) {
+      .workflow-card { grid-template-columns: 1fr; gap: 16px; }
+      .workflow-step-num { width: 50px; height: 50px; font-size: 20px; }
+      .meeting-guide-wrap { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="Umair Taxi and Limo Home">
+        <svg class="brand-svg-mark" viewBox="0 0 54 54" width="38" height="38" aria-hidden="true">
+          <defs>
+            <linearGradient id="headerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FCE8B3"/>
+              <stop offset="25%" stop-color="#E2C275"/>
+              <stop offset="50%" stop-color="#C5A059"/>
+              <stop offset="75%" stop-color="#A57F35"/>
+              <stop offset="100%" stop-color="#BF984E"/>
+            </linearGradient>
+          </defs>
+          <path d="M 12 9 L 21 14 L 21 35.5 C 21 41.5 25 46 29.5 46 C 34 46 38 41.5 38 35.5 L 38 14 L 47 9 L 47 35.5 C 47 45.5 39 52.5 29.5 52.5 C 20 52.5 12 45.5 12 35.5 Z" fill="url(#headerGoldGrad)"/>
+          <path d="M 40 11 L 47 7 L 50.5 15 L 47 16.5 Z" fill="url(#headerGoldGrad)" opacity="0.95"/>
+          <path d="M 12 9 L 18.5 5.5 L 21 14 Z" fill="url(#headerGoldGrad)" opacity="0.95"/>
+          <path d="M 29.5 13 C 29.5 18.5 30.8 20.5 35 20.5 C 30.8 20.5 29.5 22.5 29.5 28 C 29.5 22.5 28.2 20.5 24 20.5 C 28.2 20.5 29.5 18.5 29.5 13 Z" fill="#FFFFFF"/>
+          <path d="M 16 56 C 24.5 58 34.5 58 43 56" stroke="url(#headerGoldGrad)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        </svg>
+        <div class="brand-text-block">
+          <span class="brand-word-primary">UMAIR</span>
+          <span class="brand-word-secondary">TAXI &amp; LIMO</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="rates.html" class="nav-link">Fixed Rates</a></li>
+          <li><a href="fleet.html" class="nav-link">Fleet</a></li>
+          <li><a href="how-it-works.html" class="nav-link active">How It Works</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right">
+        <a href="tel:+35345800000" class="phone-badge">
+          <span class="phone-icon">&#9742;</span>
+          <span>+353 (0) 45 800 000</span>
+        </a>
+        <a href="tel:+35345800000" class="mobile-phone-btn" aria-label="Call Dispatch">
+          <span>&#9742;</span>
+        </a>
+        <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20book%20a%20chauffeur%20transfer." 
+           target="_blank" 
+           class="btn-header-cta">
+          <span class="cta-desktop-text">Reserve Chauffeur</span>
+          <span class="cta-mobile-text">Book</span>
+        </a>
+        <button class="burger-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <ul class="mobile-drawer-links">
+      <li><a href="services.html">Services <span>&rarr;</span></a></li>
+      <li><a href="rates.html">Fixed Rates &amp; Routes <span>&rarr;</span></a></li>
+      <li><a href="fleet.html">Our Fleet <span>&rarr;</span></a></li>
+      <li><a href="how-it-works.html" style="color: var(--gold-primary);">How It Works <span>&rarr;</span></a></li>
+      <li><a href="faq.html">FAQ <span>&rarr;</span></a></li>
+      <li><a href="contact.html">Contact Us <span>&rarr;</span></a></li>
+    </ul>
+    <div style="display: flex; gap: 10px;">
+      <a href="tel:+35345800000" class="btn-outline" style="flex: 1; font-size: 12px; padding: 11px; white-space: nowrap;">
+        &#9742; Call +353 45 800 000
+      </a>
+      <a href="https://wa.me/35345800000" target="_blank" class="btn-gold" style="flex: 1; font-size: 12px; padding: 11px; white-space: nowrap;">
+        &#128172; WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <img src="https://images.unsplash.com/photo-1554647286-f365d7defc2d?auto=format&fit=crop&q=80&w=1920" 
+         alt="Executive Chauffeur Service" 
+         class="page-hero-bg">
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> &bull; <span>How It Works</span>
+      </div>
+      <h1>Booked in a Minute. Picked up on Time.</h1>
+      <p>
+        From the moment you contact us to your final destination in Ireland, every step is designed for effortless clarity, punctual execution, and complete peace of mind.
+      </p>
+    </div>
+  </section>
+
+  <!-- 4-STEP TIMELINE -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Step-by-Step</span>
+        <h2 class="section-title">The Umair Chauffeur Process</h2>
+        <p class="section-desc">Four transparent steps with zero surprises.</p>
+      </div>
+
+      <div class="workflow-timeline">
+
+        <!-- Step 1 -->
+        <div class="workflow-card">
+          <div class="workflow-step-num">01</div>
+          <div>
+            <h3 class="workflow-title">Choose Your Route &amp; Vehicle</h3>
+            <p class="workflow-desc">
+              Browse our transparent fixed rates directory or message us directly via WhatsApp / Phone. Tell us your date, pickup point (e.g. Dublin Airport Terminal 1 or 2), destination, passenger count, and vehicle preference (Executive Sedan, VIP S-Class, or 7-Passenger MPV).
+            </p>
+            <span class="workflow-note">&#10004; Guaranteed fixed price quote with zero meter surprises</span>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="workflow-card">
+          <div class="workflow-step-num">02</div>
+          <div>
+            <h3 class="workflow-title">Instant Confirmation</h3>
+            <p class="workflow-desc">
+              Provide your inbound flight number and traveler name. You will receive an immediate confirmation message and email containing your booking reference, confirmed fixed price, and your chauffeur dispatch notification.
+            </p>
+            <span class="workflow-note">&#10004; No registration or app download needed</span>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="workflow-card">
+          <div class="workflow-step-num">03</div>
+          <div>
+            <h3 class="workflow-title">Flight Tracking &amp; Arrivals Meet &amp; Greet</h3>
+            <p class="workflow-desc">
+              We monitor your flight live via radar. If you land early or are held on the tarmac, your driver adjusts seamlessly. When you walk out of customs into the arrivals hall, your suited chauffeur will be waiting holding an executive digital tablet with your name clearly displayed.
+            </p>
+            <span class="workflow-note">&#10004; 60 minutes free waiting time included automatically</span>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="workflow-card">
+          <div class="workflow-step-num">04</div>
+          <div>
+            <h3 class="workflow-title">Relax &amp; Arrive in Serenity</h3>
+            <p class="workflow-desc">
+              Your chauffeur handles all your luggage, escorts you to the vehicle, and ensures your preferred cabin climate is set. Connect to 5G Wi-Fi, enjoy chilled Irish spring water, and arrive safely, smoothly, and punctually at your destination.
+            </p>
+            <span class="workflow-note">&#10004; Pay on board via Card, Apple Pay, or Corporate Account</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- DETAILED MEETING GUIDE -->
+      <div class="meeting-guide-wrap">
+        <h3 style="font-family: var(--font-serif); font-size: 24px; color: #FFF; margin-bottom: 14px;">
+          What to do when you land at Dublin Airport (DUB)
+        </h3>
+        <p style="font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px;">
+          1. Turn your phone on after touchdown. You will receive a WhatsApp/SMS from your chauffeur confirming they are on site.<br>
+          2. Clear passport control and collect your bags from the luggage carousel.<br>
+          3. Walk through the customs exit doors into the main public arrivals hall.<br>
+          4. Look for your chauffeur holding an executive tablet with your name.<br>
+          5. If you have any trouble spotting your driver, simply call or message our 24/7 dispatch at <strong>+353 (0) 45 800 000</strong>.
+        </p>
+        <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20have%20a%20question%20about%20booking." 
+           target="_blank" 
+           class="btn-gold">
+          Ask Us Anything on WhatsApp &rarr;
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-link" style="margin-bottom: 16px;">
+            <svg class="brand-svg-mark" viewBox="0 0 54 54" width="36" height="36" aria-hidden="true">
+              <defs>
+                <linearGradient id="footerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FCE8B3"/>
+                  <stop offset="25%" stop-color="#E2C275"/>
+                  <stop offset="50%" stop-color="#C5A059"/>
+                  <stop offset="75%" stop-color="#A57F35"/>
+                  <stop offset="100%" stop-color="#BF984E"/>
+                </linearGradient>
+              </defs>
+              <path d="M 12 9 L 21 14 L 21 35.5 C 21 41.5 25 46 29.5 46 C 34 46 38 41.5 38 35.5 L 38 14 L 47 9 L 47 35.5 C 47 45.5 39 52.5 29.5 52.5 C 20 52.5 12 45.5 12 35.5 Z" fill="url(#footerGoldGrad)"/>
+              <path d="M 40 11 L 47 7 L 50.5 15 L 47 16.5 Z" fill="url(#footerGoldGrad)" opacity="0.95"/>
+              <path d="M 12 9 L 18.5 5.5 L 21 14 Z" fill="url(#footerGoldGrad)" opacity="0.95"/>
+              <path d="M 29.5 13 C 29.5 18.5 30.8 20.5 35 20.5 C 30.8 20.5 29.5 22.5 29.5 28 C 29.5 22.5 28.2 20.5 24 20.5 C 28.2 20.5 29.5 18.5 29.5 13 Z" fill="#FFFFFF"/>
+              <path d="M 16 56 C 24.5 58 34.5 58 43 56" stroke="url(#footerGoldGrad)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+            </svg>
+            <div class="brand-text-block">
+              <span class="brand-word-primary">UMAIR</span>
+              <span class="brand-word-secondary">TAXI &amp; LIMO</span>
+            </div>
+          </a>
+          <p>
+            Premium executive chauffeur service and airport transfers across Kildare, Dublin, and nationwide Ireland. Licensed by the National Transport Authority (NTA Ireland).
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="services/airport-transfers.html">Dublin Airport Transfers</a></li>
+            <li><a href="services/hotel-golf-transfers.html">The K Club &amp; Golf Chauffeur</a></li>
+            <li><a href="services/corporate-chauffeur.html">Corporate Travel</a></li>
+            <li><a href="services/city-to-city.html">City-to-City Transfers</a></li>
+            <li><a href="fleet.html">Executive Fleet</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Service Areas</h4>
+          <ul class="footer-links">
+            <li><a href="rates.html">Dublin Airport (DUB)</a></li>
+            <li><a href="rates.html">Naas &amp; Newbridge</a></li>
+            <li><a href="rates.html">Maynooth &amp; Celbridge</a></li>
+            <li><a href="rates.html">Kildare Town &amp; Curragh</a></li>
+            <li><a href="rates.html">Galway &amp; Cork</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">24/7 Dispatch</h4>
+          <div class="footer-contact-item">
+            <span>&#9742;</span>
+            <span><strong>+353 (0) 45 800 000</strong></span>
+          </div>
+          <div class="footer-contact-item">
+            <span>&#9993;</span>
+            <span>bookings@umairtaxilimo.ie</span>
+          </div>
+          <div class="footer-contact-item">
+            <span>&#128205;</span>
+            <span>Kildare &bull; Dublin &bull; Ireland</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Umair Taxi and Limo. All rights reserved. Registered SPSV Operator Ireland.</div>
+        <div>Luxury Black &amp; Muted Champagne Gold Brand Identity</div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20inquire%20about%20a%20chauffeur%20transfer." 
+     target="_blank" 
+     class="floating-whatsapp">
+    <span>&#128172;</span>
+    <span>WhatsApp Us</span>
+  </a>
+
+  <script>
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobileDrawer');
+      drawer.classList.toggle('is-open');
+    }
+    function toggleFaq(el) {
+      const answer = el.nextElementSibling;
+      const arrow = el.querySelector('.faq-arrow');
+      if (answer.style.display === 'none' || !answer.style.display) {
+        answer.style.display = 'block';
+        arrow.innerHTML = '&uarr;';
+      } else {
+        answer.style.display = 'none';
+        arrow.innerHTML = '&darr;';
+      }
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,1730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Umair Taxi &amp; Limo · Dublin Airport Transfers at Fixed Prices | Kildare &amp; Nationwide Chauffeur</title>
+  <meta name="description" content="Private executive transfers from Dublin Airport (DUB) to Kildare, Dublin City Centre, and across Ireland. Fixed prices per vehicle, flight tracking, 60 min free waiting time, and personal meet & greet.">
+  <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold-primary: #C5A059;
+      --gold-light: #FCE8B3;
+      --gold-deep: #9E782E;
+      --gold-gradient: linear-gradient(135deg, #FCE8B3 0%, #C5A059 50%, #9E782E 100%);
+      
+      --bg-black: #080A0E;
+      --bg-header: #0B0D12;
+      --bg-card: #12151D;
+      --bg-card-hover: #171B26;
+      --border-dark: #1E2330;
+      --border-gold: rgba(197, 160, 89, 0.25);
+      
+      --text-white: #FFFFFF;
+      --text-light: #E2E4E9;
+      --text-muted: #8E94A5;
+      --text-gold: #C5A059;
+
+      --font-serif: 'Cinzel', 'Trajan Pro', 'Baskerville', 'Georgia', serif;
+      --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-black);
+      color: var(--text-light);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* =========================================================
+       1. COMPACT STICKY HEADER (Desktop: 72px, Mobile: 64px)
+       ========================================================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: 72px;
+      background: rgba(11, 13, 18, 0.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-gold);
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 16px;
+    }
+
+    /* Brand Vector Lockup (Inline SVG — Never Breaks or Missing Image) */
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .brand-svg-mark {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+    .brand-link:hover .brand-svg-mark {
+      transform: scale(1.05);
+    }
+
+    .brand-text-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      line-height: 1;
+    }
+
+    .brand-word-primary {
+      font-family: var(--font-serif);
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: #FFFFFF;
+      line-height: 1.1;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .brand-word-divider {
+      display: none !important;
+    }
+
+    .brand-word-secondary {
+      font-family: var(--font-sans);
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      line-height: 1;
+      margin-top: 3px;
+      white-space: nowrap;
+      display: block !important;
+    }
+
+    /* Desktop Navigation Menu */
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+      white-space: nowrap;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-link {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: #D1D5DB;
+      white-space: nowrap;
+      transition: color 0.2s;
+      padding: 6px 0;
+    }
+    .nav-link:hover {
+      color: var(--gold-primary);
+    }
+
+    /* Header Actions */
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .phone-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #FFF;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .phone-icon {
+      color: var(--gold-primary);
+      font-size: 14px;
+    }
+
+    .btn-header-cta {
+      background: var(--gold-gradient);
+      color: #080A0E;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 10px 18px;
+      border-radius: 6px;
+      border: none;
+      text-decoration: none;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(197, 160, 89, 0.25);
+    }
+    .btn-header-cta:hover {
+      box-shadow: 0 6px 20px rgba(197, 160, 89, 0.45);
+      transform: translateY(-1px);
+      color: #000;
+    }
+
+    .mobile-phone-btn {
+      display: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(197, 160, 89, 0.12);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-light);
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    .burger-btn {
+      display: none;
+      background: none;
+      border: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      flex-shrink: 0;
+    }
+    .burger-btn span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: var(--gold-primary);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* Mobile Drawer Overlay */
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: #0B0D12;
+      border-bottom: 1px solid var(--border-gold);
+      padding: 24px;
+      z-index: 999;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+    }
+    .mobile-drawer.is-open {
+      display: block;
+    }
+    .mobile-drawer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .mobile-drawer-links a {
+      font-size: 15px;
+      font-weight: 600;
+      color: #E2E4E9;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .mobile-drawer-links a:hover {
+      color: var(--gold-primary);
+    }
+
+    /* =========================================================
+       2. HERO SECTION (EXPANSIVE LUXURY CHAUFFEUR BANNER)
+       ========================================================= */
+    .hero-section {
+      position: relative;
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 0 110px;
+      background: #080A0E;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .hero-bg-media {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    .hero-bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      filter: brightness(0.32) contrast(1.15);
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(8,10,14,0.4) 0%, rgba(8,10,14,0.85) 70%, #080A0E 100%);
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(197, 160, 89, 0.12);
+      border: 1px solid rgba(197, 160, 89, 0.35);
+      border-radius: 30px;
+      padding: 7px 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 24px;
+    }
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--gold-primary);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--gold-primary);
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: 52px;
+      line-height: 1.18;
+      color: #FFFFFF;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 22px;
+    }
+    .hero-title span {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subhead {
+      font-size: 17px;
+      line-height: 1.75;
+      color: #C8CDD8;
+      margin: 0 auto 36px;
+      max-width: 720px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .btn-hero-primary {
+      background: var(--gold-gradient);
+      color: #080A0E;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 24px rgba(197, 160, 89, 0.35);
+      transition: all 0.25s ease;
+    }
+    .btn-hero-primary:hover {
+      box-shadow: 0 8px 30px rgba(197, 160, 89, 0.5);
+      transform: translateY(-2px);
+      color: #000;
+    }
+    .btn-hero-outline {
+      background: rgba(18, 21, 29, 0.8);
+      border: 1px solid var(--gold-primary);
+      color: #FFF;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 14px 26px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+    }
+    .btn-hero-outline:hover {
+      background: rgba(197, 160, 89, 0.15);
+      border-color: var(--gold-light);
+      color: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .hero-keypoints {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .hero-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #E2E4E9;
+    }
+    .hero-pill svg {
+      width: 18px;
+      height: 18px;
+      color: var(--gold-primary);
+    }
+
+    /* =========================================================
+       3. CORE PILLARS ("Transfers. Nothing else.")
+       ========================================================= */
+    .section {
+      padding: 90px 0;
+    }
+    .section-head {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 54px;
+    }
+    .section-tag {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      color: #FFFFFF;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      margin-bottom: 14px;
+    }
+    .section-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+    .pillar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 12px;
+      padding: 28px 24px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .pillar-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.5);
+    }
+    .pillar-icon-box {
+      width: 48px;
+      height: 48px;
+      background: rgba(197, 160, 89, 0.1);
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-primary);
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .pillar-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+    }
+    .pillar-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* =========================================================
+       4. SERVICE CATEGORIES (With High-Res Photos)
+       ========================================================= */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 14px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      transition: all 0.25s ease;
+    }
+    .service-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-3px);
+    }
+    .service-img-wrap {
+      height: 100%;
+      min-height: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .service-card:hover .service-img {
+      transform: scale(1.06);
+    }
+    .service-info {
+      padding: 26px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .service-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #FFF;
+      margin-bottom: 8px;
+    }
+    .service-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+    .service-link {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* =========================================================
+       5. POPULAR ROUTES & FIXED PRICES
+       ========================================================= */
+    .routes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .route-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 12px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s;
+    }
+    .route-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-3px);
+    }
+    .route-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .route-path {
+      font-size: 15px;
+      font-weight: 600;
+      color: #FFF;
+      line-height: 1.4;
+    }
+    .route-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .route-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-dark);
+      padding-top: 14px;
+    }
+    .route-price {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+
+    /* =========================================================
+       6. CLEAN CARS / EXECUTIVE FLEET (Room for Everyone)
+       ========================================================= */
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+    .fleet-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+    }
+    .fleet-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-4px);
+    }
+    .fleet-media {
+      height: 210px;
+      position: relative;
+      overflow: hidden;
+      background: #000;
+    }
+    .fleet-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .fleet-card:hover .fleet-media img {
+      transform: scale(1.05);
+    }
+    .fleet-tier-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(8, 10, 14, 0.85);
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .fleet-body {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .fleet-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: #FFF;
+      margin-bottom: 4px;
+    }
+    .fleet-models {
+      font-size: 12px;
+      color: var(--gold-primary);
+      margin-bottom: 14px;
+    }
+    .fleet-specs {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 18px;
+      padding: 10px 0;
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+      font-size: 12px;
+      color: #D1D5DB;
+    }
+    .fleet-specs span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .fleet-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .fleet-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .fleet-rate {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .fleet-rate strong {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      color: var(--gold-light);
+      margin-left: 4px;
+    }
+
+    /* =========================================================
+       7. 4-STEP WORKFLOW ("Booked in a minute. Picked up on time.")
+       ========================================================= */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      position: relative;
+    }
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 12px;
+      padding: 28px 20px;
+      position: relative;
+    }
+    .step-number {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 700;
+      color: rgba(197, 160, 89, 0.4);
+      margin-bottom: 12px;
+    }
+    .step-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #FFF;
+      margin-bottom: 8px;
+    }
+    .step-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* =========================================================
+       8. TESTIMONIALS & TRUST
+       ========================================================= */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .review-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 12px;
+      padding: 26px;
+    }
+    .stars {
+      color: var(--gold-primary);
+      font-size: 14px;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+    .review-text {
+      font-size: 14px;
+      color: #E2E4E9;
+      line-height: 1.7;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+    .review-author {
+      font-size: 13px;
+      font-weight: 600;
+      color: #FFF;
+    }
+    .review-route {
+      font-size: 11px;
+      color: var(--gold-primary);
+    }
+
+    /* =========================================================
+       9. FAQ ACCORDION
+       ========================================================= */
+    .faq-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 10px;
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+    .faq-question {
+      padding: 18px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #FFF;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+    .faq-question:hover {
+      background: var(--bg-card-hover);
+    }
+    .faq-arrow {
+      color: var(--gold-primary);
+      font-size: 18px;
+      transition: transform 0.2s;
+    }
+    .faq-answer {
+      padding: 0 24px 20px;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      border-top: 1px solid rgba(255,255,255,0.04);
+      padding-top: 14px;
+    }
+
+    /* =========================================================
+       10. LUXURY FOOTER
+       ========================================================= */
+    .site-footer {
+      background: #06070A;
+      border-top: 1px solid var(--border-gold);
+      padding: 70px 0 30px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    .footer-brand p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-top: 16px;
+      max-width: 320px;
+    }
+    .footer-heading {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #FFF;
+      margin-bottom: 18px;
+    }
+    .footer-links {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: var(--gold-primary);
+    }
+    .footer-contact-item {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-contact-item strong {
+      color: #FFF;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #6C7280;
+    }
+
+    /* Float WhatsApp Pill */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #25D366;
+      color: #FFF;
+      padding: 12px 20px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      transition: transform 0.2s ease;
+    }
+    .floating-whatsapp:hover {
+      transform: translateY(-2px);
+    }
+
+    .cta-mobile-text {
+      display: none;
+    }
+    .cta-desktop-text {
+      display: inline;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1100px) {
+      .nav-menu { gap: 16px; }
+      .nav-link { font-size: 12px; }
+      .phone-badge { font-size: 12px; }
+      .btn-header-cta { padding: 9px 14px; font-size: 11px; }
+    }
+
+    @media (max-width: 900px) {
+      .site-header { height: 64px; }
+      .nav-menu { display: none; }
+      .phone-badge { display: none; }
+      .mobile-phone-btn { display: inline-flex; }
+      .burger-btn { display: flex; }
+      .cta-desktop-text { display: none; }
+      .cta-mobile-text { display: inline; }
+      .btn-header-cta { padding: 8px 14px; font-size: 11px; }
+      .brand-svg-mark { width: 32px; height: 32px; }
+      .brand-word-primary { font-size: 18px; letter-spacing: 0.14em; }
+      .brand-word-secondary { font-size: 7.5px; letter-spacing: 0.28em; margin-top: 2px; }
+      .hero-title { font-size: 36px; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .pillars-grid { grid-template-columns: 1fr; gap: 16px; }
+      .steps-grid { grid-template-columns: 1fr; gap: 16px; }
+      .fleet-grid { grid-template-columns: 1fr; gap: 20px; }
+      .routes-grid { grid-template-columns: 1fr; gap: 16px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .pillar-card { padding: 22px 20px; }
+      .step-card { padding: 22px 20px; }
+      .route-card { padding: 20px 18px; }
+    }
+
+    @media (max-width: 520px) {
+      .site-header { height: 60px; }
+      .brand-link { gap: 8px; }
+      .brand-word-divider { display: none !important; } .brand-word-primary { font-size: 16px; letter-spacing: 0.12em; } .brand-word-secondary { font-size: 7px; letter-spacing: 0.26em; margin-top: 2px; display: block !important; }
+      .header-right { gap: 8px; }
+      .btn-header-cta { padding: 7px 12px; font-size: 11px; }
+      .routes-grid { grid-template-columns: 1fr; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 30px; }
+      .hero-subhead { font-size: 15px; }
+      .service-card { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================
+       1. STICKY COMPACT HEADER WITH INLINE BRAND VECTOR MARK
+       ========================================================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- Luxury Brand Mark (Vector + Typography) — Never Breaks -->
+      <a href="#hero" class="brand-link" aria-label="Umair Taxi and Limo Home">
+        <svg class="brand-svg-mark" viewBox="0 0 54 54" width="38" height="38" aria-hidden="true">
+          <defs>
+            <linearGradient id="headerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FCE8B3"/>
+              <stop offset="25%" stop-color="#E2C275"/>
+              <stop offset="50%" stop-color="#C5A059"/>
+              <stop offset="75%" stop-color="#A57F35"/>
+              <stop offset="100%" stop-color="#BF984E"/>
+            </linearGradient>
+          </defs>
+          <path d="M 12 9 L 21 14 L 21 35.5 C 21 41.5 25 46 29.5 46 C 34 46 38 41.5 38 35.5 L 38 14 L 47 9 L 47 35.5 C 47 45.5 39 52.5 29.5 52.5 C 20 52.5 12 45.5 12 35.5 Z" 
+                fill="url(#headerGoldGrad)"/>
+          <path d="M 40 11 L 47 7 L 50.5 15 L 47 16.5 Z" fill="url(#headerGoldGrad)" opacity="0.95"/>
+          <path d="M 12 9 L 18.5 5.5 L 21 14 Z" fill="url(#headerGoldGrad)" opacity="0.95"/>
+          <path d="M 29.5 13 C 29.5 18.5 30.8 20.5 35 20.5 C 30.8 20.5 29.5 22.5 29.5 28 C 29.5 22.5 28.2 20.5 24 20.5 C 28.2 20.5 29.5 18.5 29.5 13 Z" fill="#FFFFFF"/>
+          <path d="M 16 56 C 24.5 58 34.5 58 43 56" stroke="url(#headerGoldGrad)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        </svg>
+
+        <div class="brand-text-block">
+          <span class="brand-word-primary">UMAIR</span>
+          <span class="brand-word-secondary">TAXI &amp; LIMO</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu (Single Line, No Wrap) -->
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="rates.html" class="nav-link">Fixed Rates</a></li>
+          <li><a href="fleet.html" class="nav-link">Fleet</a></li>
+          <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Desktop & Mobile Header Actions -->
+      <div class="header-right">
+        <!-- Desktop Phone Link (Single Line, Hidden on Mobile) -->
+        <a href="tel:+35345800000" class="phone-badge">
+          <span class="phone-icon">&#9742;</span>
+          <span>+353 (0) 45 800 000</span>
+        </a>
+
+        <!-- Mobile Quick Call Button (Round Icon) -->
+        <a href="tel:+35345800000" class="mobile-phone-btn" aria-label="Call Dispatch">
+          <span>&#9742;</span>
+        </a>
+
+        <!-- Action CTA Button (Single Line: Reserve Chauffeur on Desktop, Book on Mobile) -->
+        <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20reserve%20a%20chauffeur%20transfer." 
+           target="_blank" 
+           class="btn-header-cta">
+          <span class="cta-desktop-text">Reserve Chauffeur</span>
+          <span class="cta-mobile-text">Book</span>
+        </a>
+
+        <!-- Mobile Drawer Toggle Button -->
+        <button class="burger-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Dropdown Navigation Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <ul class="mobile-drawer-links">
+      <li><a href="services.html">Services <span>&rarr;</span></a></li>
+      <li><a href="rates.html">Fixed Rates &amp; Routes <span>&rarr;</span></a></li>
+      <li><a href="fleet.html">Our Fleet <span>&rarr;</span></a></li>
+      <li><a href="how-it-works.html">How It Works <span>&rarr;</span></a></li>
+      <li><a href="faq.html">FAQ <span>&rarr;</span></a></li>
+      <li><a href="contact.html">Contact Us <span>&rarr;</span></a></li>
+    </ul>
+    <div style="display: flex; gap: 10px;">
+      <a href="tel:+35345800000" class="btn-hero-outline" style="flex: 1; justify-content: center; font-size: 12px; padding: 11px; white-space: nowrap;">
+        &#9742; Call +353 45 800 000
+      </a>
+      <a href="https://wa.me/35345800000" target="_blank" class="btn-hero-primary" style="flex: 1; justify-content: center; font-size: 12px; padding: 11px; white-space: nowrap;">
+        &#128172; WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       2. HERO SECTION (EXPANSIVE LUXURY CHAUFFEUR BANNER)
+       ========================================================= -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg-media">
+      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1920" 
+           alt="Executive Chauffeur Vehicle Ireland" 
+           class="hero-bg-img">
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Executive Chauffeur &amp; Airport Transfers Ireland
+      </div>
+      
+      <h1 class="hero-title">
+        Land in Ireland.<br>
+        <span>We’ll take it from here.</span>
+      </h1>
+      
+      <p class="hero-subhead">
+        Private, discreet executive transfers from <strong>Dublin Airport (DUB)</strong> to your hotel, Dublin city centre, Kildare, and destinations nationwide. Guaranteed fixed prices per vehicle, 24/7 flight tracking, 60 minutes complimentary waiting time, and personal meet &amp; greet in arrivals.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20reserve%20a%20chauffeur%20transfer." 
+           target="_blank" 
+           class="btn-hero-primary">
+          <span>&#128172;</span>
+          <span>Book via WhatsApp &bull; Instant Reply</span>
+        </a>
+
+        <a href="tel:+35345800000" class="btn-hero-outline">
+          <span>&#9742;</span>
+          <span>Call 24/7 Dispatch: +353 (0) 45 800 000</span>
+        </a>
+
+        <a href="#routes" class="btn-hero-outline">
+          <span>View Fixed Rates &darr;</span>
+        </a>
+      </div>
+
+      <div class="hero-keypoints">
+        <div class="hero-pill">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          <span>Fixed Transparent Prices</span>
+        </div>
+        <div class="hero-pill">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          <span>Live Flight Radar Tracking</span>
+        </div>
+        <div class="hero-pill">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          <span>60 Mins Complimentary Waiting</span>
+        </div>
+        <div class="hero-pill">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          <span>Arrivals Hall Meet &amp; Greet</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       3. CORE PILLARS ("Transfers. Nothing else.")
+       ========================================================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">First-Class Standards</span>
+        <h2 class="section-title">Transfers. Nothing else.</h2>
+        <p class="section-desc">We do not do shared shuttles or surge-priced ride-hailing. Every journey is a dedicated, private executive transfer tailored to your itinerary.</p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon-box">&#9992;</div>
+          <h3 class="pillar-title">Flight Tracking</h3>
+          <p class="pillar-desc">We monitor your flight in real time. Whether your landing is 40 minutes early or 2 hours delayed, your chauffeur will be waiting when you walk out.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon-box">&#9201;</div>
+          <h3 class="pillar-title">60 Mins Free Waiting</h3>
+          <p class="pillar-desc">Take your time at passport control and baggage claim. We include a full 60 minutes complimentary waiting time for all airport arrivals.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon-box">&#129309;</div>
+          <h3 class="pillar-title">Personal Meet &amp; Greet</h3>
+          <p class="pillar-desc">Your chauffeur meets you directly in the arrivals terminal with a bespoke digital nameboard, ready to assist with your luggage.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon-box">&#128179;</div>
+          <h3 class="pillar-title">Fixed Transparent Prices</h3>
+          <p class="pillar-desc">The price quoted is the price you pay. Airport tolls, M50 fees, parking charges, and VAT are always 100% included with no surprises.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       4. SERVICE CATEGORIES (With High-Res Visual Photos)
+       ========================================================= -->
+  <section class="section" id="services" style="background: #0B0D12;">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Executive Capabilities</span>
+        <h2 class="section-title">Airport Hotels &amp; Cities</h2>
+        <p class="section-desc">From Dublin Airport transfers to scenic Kildare estates and cross-country private travel.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1: Airport -->
+        <div class="service-card">
+          <div class="service-img-wrap">
+            <img src="https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&q=80&w=800" 
+                 alt="Airport Terminal Transfers" class="service-img">
+          </div>
+          <div class="service-info">
+            <h3 class="service-title"><a href="services/airport-transfers.html" style="color: inherit; text-decoration: none;">Dublin Airport Transfers</a></h3>
+            <p class="service-desc">Direct door-to-door luxury transfers between Dublin Airport (Terminals 1 &amp; 2) and any address in Dublin, Kildare, or Ireland.</p>
+            <a href="services/airport-transfers.html" class="service-link">View Airport Transfers &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Service 2: Hotel & Resorts -->
+        <div class="service-card">
+          <div class="service-img-wrap">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800" 
+                 alt="Luxury Hotel Transfers" class="service-img">
+          </div>
+          <div class="service-info">
+            <h3 class="service-title"><a href="services/hotel-golf-transfers.html" style="color: inherit; text-decoration: none;">5-Star Hotels &amp; Golf Resorts</a></h3>
+            <p class="service-desc">Seamless luxury transport to The K Club, Carton House, The Shelbourne, The Merrion, and premier championship golf venues.</p>
+            <a href="services/hotel-golf-transfers.html" class="service-link">View Hotel &amp; Golf Chauffeur &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Service 3: City to City -->
+        <div class="service-card">
+          <div class="service-img-wrap">
+            <img src="https://images.unsplash.com/photo-1549918864-48ac978761a4?auto=format&fit=crop&q=80&w=800" 
+                 alt="City to City Ireland" class="service-img">
+          </div>
+          <div class="service-info">
+            <h3 class="service-title"><a href="services/city-to-city.html" style="color: inherit; text-decoration: none;">City to City Chauffeur</a></h3>
+            <p class="service-desc">Long-distance private transport across Ireland. Travel between Dublin, Kildare, Galway, Cork, Limerick, and Belfast in peaceful comfort.</p>
+            <a href="services/city-to-city.html" class="service-link">View City-to-City Routes &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Service 4: Corporate & VIP -->
+        <div class="service-card">
+          <div class="service-img-wrap">
+            <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&q=80&w=800" 
+                 alt="Executive Leather Car Interior" class="service-img">
+          </div>
+          <div class="service-info">
+            <h3 class="service-title"><a href="services/corporate-chauffeur.html" style="color: inherit; text-decoration: none;">Corporate Roadshows &amp; VIP</a></h3>
+            <p class="service-desc">Discreet, professional chauffeur hire for corporate executives, visiting delegations, embassy personnel, and VIP events.</p>
+            <a href="services/corporate-chauffeur.html" class="service-link">View Corporate Chauffeur &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       5. POPULAR ROUTES & FIXED PRICES
+       ========================================================= -->
+  <section class="section" id="routes">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Transparent Pricing</span>
+        <h2 class="section-title">Popular routes. Honest prices.</h2>
+        <p class="section-desc">Fixed rates per vehicle. No peak surge charges, no meter running in traffic, and no surprise toll additions.</p>
+      </div>
+
+      <div class="routes-grid">
+        <div class="route-card">
+          <div>
+            <div class="route-header">
+              <div class="route-path">Dublin Airport (DUB) &harr; Dublin City Centre</div>
+            </div>
+            <div class="route-meta">
+              <span>&#128339; ~30 mins</span>
+              <span>&#128205; 14 km</span>
+            </div>
+          </div>
+          <div class="route-footer">
+            <span class="route-price">From €65</span>
+            <a href="#booking" class="btn-gold" style="padding: 7px 14px; font-size: 11px;">Book Route</a>
+          </div>
+        </div>
+
+        <div class="route-card">
+          <div>
+            <div class="route-header">
+              <div class="route-path">Dublin Airport (DUB) &harr; Naas / Newbridge</div>
+            </div>
+            <div class="route-meta">
+              <span>&#128339; ~45 mins</span>
+              <span>&#128205; 48 km</span>
+            </div>
+          </div>
+          <div class="route-footer">
+            <span class="route-price">From €95</span>
+            <a href="#booking" class="btn-gold" style="padding: 7px 14px; font-size: 11px;">Book Route</a>
+          </div>
+        </div>
+
+        <div class="route-card">
+          <div>
+            <div class="route-header">
+              <div class="route-path">Dublin Airport (DUB) &harr; The K Club, Straffan</div>
+            </div>
+            <div class="route-meta">
+              <span>&#128339; ~35 mins</span>
+              <span>&#128205; 38 km</span>
+            </div>
+          </div>
+          <div class="route-footer">
+            <span class="route-price">From €85</span>
+            <a href="#booking" class="btn-gold" style="padding: 7px 14px; font-size: 11px;">Book Route</a>
+          </div>
+        </div>
+
+        <div class="route-card">
+          <div>
+            <div class="route-header">
+              <div class="route-path">Dublin Airport (DUB) &harr; Maynooth / Carton House</div>
+            </div>
+            <div class="route-meta">
+              <span>&#128339; ~30 mins</span>
+              <span>&#128205; 32 km</span>
+            </div>
+          </div>
+          <div class="route-footer">
+            <span class="route-price">From €75</span>
+            <a href="#booking" class="btn-gold" style="padding: 7px 14px; font-size: 11px;">Book Route</a>
+          </div>
+        </div>
+
+        <div class="route-card">
+          <div>
+            <div class="route-header">
+              <div class="route-path">Dublin Airport (DUB) &harr; Galway City</div>
+            </div>
+            <div class="route-meta">
+              <span>&#128339; ~2h 15m</span>
+              <span>&#128205; 215 km</span>
+            </div>
+          </div>
+          <div class="route-footer">
+            <span class="route-price">From €290</span>
+            <a href="#booking" class="btn-gold" style="padding: 7px 14px; font-size: 11px;">Book Route</a>
+          </div>
+        </div>
+
+        <div class="route-card">
+          <div>
+            <div class="route-header">
+              <div class="route-path">Dublin Airport (DUB) &harr; Cork City</div>
+            </div>
+            <div class="route-meta">
+              <span>&#128339; ~2h 45m</span>
+              <span>&#128205; 260 km</span>
+            </div>
+          </div>
+          <div class="route-footer">
+            <span class="route-price">From €340</span>
+            <a href="#booking" class="btn-gold" style="padding: 7px 14px; font-size: 11px;">Book Route</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       6. CLEAN CARS / EXECUTIVE FLEET
+       ========================================================= -->
+  <section class="section" id="fleet" style="background: #0B0D12;">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Executive Vehicles</span>
+        <h2 class="section-title">Clean cars. Room for everyone.</h2>
+        <p class="section-desc">Meticulously maintained, valeted before every journey, and driven by licensed, suited Irish chauffeurs.</p>
+      </div>
+
+      <div class="fleet-grid">
+        <!-- Fleet 1: Executive Sedan -->
+        <div class="fleet-card">
+          <div class="fleet-media">
+            <div class="fleet-tier-badge">Business Class</div>
+            <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=900" alt="Mercedes E-Class Sedan">
+          </div>
+          <div class="fleet-body">
+            <div>
+              <h3 class="fleet-name">Executive Business Sedan</h3>
+              <div class="fleet-models">Mercedes-Benz E-Class &bull; BMW 5 Series</div>
+              <div class="fleet-specs">
+                <span>&#128100; Up to 3 passengers</span>
+                <span>&#129523; 2 large bags</span>
+              </div>
+              <p class="fleet-desc">The executive standard for airport transfers and corporate transit. Refined leather seating, dual-zone climate control, and on-board Wi-Fi.</p>
+            </div>
+            <div class="fleet-action">
+              <div class="fleet-rate">Starting from <strong>€65</strong></div>
+              <a href="#booking" class="btn-gold" style="padding: 8px 16px; font-size: 11px;">Select Sedan</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fleet 2: First Class VIP -->
+        <div class="fleet-card">
+          <div class="fleet-media">
+            <div class="fleet-tier-badge" style="background: rgba(197, 160, 89, 0.25); border-color: var(--gold-primary);">First Class VIP</div>
+            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80&w=900" alt="Mercedes S-Class VIP">
+          </div>
+          <div class="fleet-body">
+            <div>
+              <h3 class="fleet-name">First-Class Luxury VIP</h3>
+              <div class="fleet-models">Mercedes-Benz S-Class &bull; BMW 7 Series</div>
+              <div class="fleet-specs">
+                <span>&#128100; Up to 3 passengers</span>
+                <span>&#129523; 2 large bags</span>
+              </div>
+              <p class="fleet-desc">The pinnacle of luxury motoring. Reclining heated/ventilated seats, acoustic privacy glass, bottled Irish spring water, and phone charging docks.</p>
+            </div>
+            <div class="fleet-action">
+              <div class="fleet-rate">Starting from <strong>€110</strong></div>
+              <a href="#booking" class="btn-gold" style="padding: 8px 16px; font-size: 11px;">Select VIP</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fleet 3: Executive Van MPV -->
+        <div class="fleet-card">
+          <div class="fleet-media">
+            <div class="fleet-tier-badge">Group Chauffeur</div>
+            <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&q=80&w=900" alt="Mercedes V-Class Chauffeur Van">
+          </div>
+          <div class="fleet-body">
+            <div>
+              <h3 class="fleet-name">Executive Chauffeur MPV</h3>
+              <div class="fleet-models">Mercedes-Benz V-Class (Extra Long)</div>
+              <div class="fleet-specs">
+                <span>&#128100; Up to 7 passengers</span>
+                <span>&#129523; 7 large bags</span>
+              </div>
+              <p class="fleet-desc">Generous group capacity with conference-style face-to-face leather seating. Perfect for families, golf tours with clubs, and executive teams.</p>
+            </div>
+            <div class="fleet-action">
+              <div class="fleet-rate">Starting from <strong>€120</strong></div>
+              <a href="#booking" class="btn-gold" style="padding: 8px 16px; font-size: 11px;">Select MPV</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       7. 4-STEP WORKFLOW ("Booked in a minute. Picked up on time.")
+       ========================================================= -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Seamless Booking</span>
+        <h2 class="section-title">Booked in a minute. Picked up on time.</h2>
+        <p class="section-desc">Designed for effortless travel planning with zero stress and instant confirmation.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h3 class="step-title">Get your fixed price</h3>
+          <p class="step-desc">Enter your pickup and destination to get an instant, guaranteed rate. No registration required.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h3 class="step-title">Confirm in 60 seconds</h3>
+          <p class="step-desc">Enter flight and contact details. Receive immediate booking confirmation and chauffeur dispatch details.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h3 class="step-title">Meet your chauffeur</h3>
+          <p class="step-desc">Your driver tracks your flight, welcomes you in arrivals with a nameboard, and takes care of your bags.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <h3 class="step-title">Sit back and ride</h3>
+          <p class="step-desc">Relax in whisper-quiet executive comfort, connect to on-board Wi-Fi, and arrive smoothly at your destination.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       8. TESTIMONIALS
+       ========================================================= -->
+  <section class="section" style="background: #0B0D12;">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Client Reviews</span>
+        <h2 class="section-title">Trusted by travelers and corporate leaders</h2>
+        <p class="section-desc">Rated 5.0 stars on Google Reviews across Dublin, Kildare, and international travelers.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">“Our flight into Terminal 2 was delayed by over an hour. Umair was waiting right at arrivals with a clear nameboard. Spotless Mercedes, smooth drive to Naas. Simply first class.”</p>
+          <div class="review-author">David Thornton</div>
+          <div class="review-route">Dublin Airport &rarr; Naas</div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">“Booked the V-Class for 6 golfers traveling with clubs from Dublin Airport to The K Club. Plenty of space, punctual, professional, and very courteous chauffeur.”</p>
+          <div class="review-author">Markus Weber</div>
+          <div class="review-route">Dublin Airport &rarr; The K Club</div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">“Fixed transparent pricing with zero surprise charges. We now use Umair Taxi and Limo exclusively for all our corporate executives visiting Dublin and Kildare.”</p>
+          <div class="review-author">Sarah O’Connor</div>
+          <div class="review-route">Corporate Account &bull; Dublin 2</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       9. FAQ SECTION
+       ========================================================= -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Frequently Asked Questions</span>
+        <h2 class="section-title">Everything you need to know</h2>
+        <p class="section-desc">Got questions about your transfer? Find answers to our most common queries below.</p>
+      </div>
+
+      <div class="faq-wrap">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Where do I meet my chauffeur at Dublin Airport?</span>
+            <span class="faq-arrow">&darr;</span>
+          </div>
+          <div class="faq-answer">
+            For both Terminal 1 and Terminal 2, your chauffeur will be waiting inside the main arrivals hall directly after you exit baggage claim and customs, holding a discreet digital nameboard with your name.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>What happens if my inbound flight is delayed or lands early?</span>
+            <span class="faq-arrow">&darr;</span>
+          </div>
+          <div class="faq-answer">
+            We monitor all flights live through air traffic radar. If your flight is delayed or early, your chauffeur's arrival time is automatically calibrated. Your 60 minutes of complimentary waiting time begins only after your flight has physically landed.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Are tolls, parking, and airport fees included in the price?</span>
+            <span class="faq-arrow">&darr;</span>
+          </div>
+          <div class="faq-answer">
+            Yes, 100%. The price shown during booking is completely fixed and all-inclusive. It covers Dublin Airport access fees, Dublin Port Tunnel or M50 tolls, parking charges, and VAT. No surge pricing ever applies.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>What is the cancellation policy?</span>
+            <span class="faq-arrow">&darr;</span>
+          </div>
+          <div class="faq-answer">
+            You can modify or cancel your booking free of charge up to 12 hours prior to the scheduled pickup time.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Can you provide child and booster safety seats?</span>
+            <span class="faq-arrow">&darr;</span>
+          </div>
+          <div class="faq-answer">
+            Yes. We offer certified infant, toddler, and booster seats upon request at no extra charge. Simply specify your child's age in the booking notes or via WhatsApp.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       10. LUXURY FOOTER WITH HORIZONTAL LOGO
+       ========================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#hero" class="brand-link" style="margin-bottom: 16px;">
+            <svg class="brand-svg-mark" viewBox="0 0 54 54" width="36" height="36" aria-hidden="true">
+              <defs>
+                <linearGradient id="footerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FCE8B3"/>
+                  <stop offset="25%" stop-color="#E2C275"/>
+                  <stop offset="50%" stop-color="#C5A059"/>
+                  <stop offset="75%" stop-color="#A57F35"/>
+                  <stop offset="100%" stop-color="#BF984E"/>
+                </linearGradient>
+              </defs>
+              <path d="M 12 9 L 21 14 L 21 35.5 C 21 41.5 25 46 29.5 46 C 34 46 38 41.5 38 35.5 L 38 14 L 47 9 L 47 35.5 C 47 45.5 39 52.5 29.5 52.5 C 20 52.5 12 45.5 12 35.5 Z" 
+                    fill="url(#footerGoldGrad)"/>
+              <path d="M 40 11 L 47 7 L 50.5 15 L 47 16.5 Z" fill="url(#footerGoldGrad)" opacity="0.95"/>
+              <path d="M 12 9 L 18.5 5.5 L 21 14 Z" fill="url(#footerGoldGrad)" opacity="0.95"/>
+              <path d="M 29.5 13 C 29.5 18.5 30.8 20.5 35 20.5 C 30.8 20.5 29.5 22.5 29.5 28 C 29.5 22.5 28.2 20.5 24 20.5 C 28.2 20.5 29.5 18.5 29.5 13 Z" fill="#FFFFFF"/>
+              <path d="M 16 56 C 24.5 58 34.5 58 43 56" stroke="url(#footerGoldGrad)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+            </svg>
+            <div class="brand-text-block">
+              <span class="brand-word-primary">UMAIR</span>
+              <span class="brand-word-secondary">TAXI &amp; LIMO</span>
+            </div>
+          </a>
+          <p>
+            Premium executive chauffeur service and airport transfers across Kildare, Dublin, and nationwide Ireland. Licensed by the National Transport Authority (NTA Ireland).
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Dublin Airport Transfers</a></li>
+            <li><a href="#services">The K Club &amp; Golf Chauffeur</a></li>
+            <li><a href="#services">Corporate Travel</a></li>
+            <li><a href="#routes">City-to-City Transfers</a></li>
+            <li><a href="#fleet">Executive Fleet</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Service Areas</h4>
+          <ul class="footer-links">
+            <li><a href="#routes">Dublin Airport (DUB)</a></li>
+            <li><a href="#routes">Naas &amp; Newbridge</a></li>
+            <li><a href="#routes">Maynooth &amp; Celbridge</a></li>
+            <li><a href="#routes">Kildare Town &amp; Curragh</a></li>
+            <li><a href="#routes">Galway &amp; Cork</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">24/7 Dispatch</h4>
+          <div class="footer-contact-item">
+            <span>&#9742;</span>
+            <span><strong>+353 (0) 45 800 000</strong></span>
+          </div>
+          <div class="footer-contact-item">
+            <span>&#9993;</span>
+            <span>bookings@umairtaxilimo.ie</span>
+          </div>
+          <div class="footer-contact-item">
+            <span>&#128205;</span>
+            <span>Kildare &bull; Dublin &bull; Ireland</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Umair Taxi and Limo. All rights reserved. Registered SPSV Operator Ireland.</div>
+        <div>Luxury Black &amp; Muted Champagne Gold Brand Identity</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Pill -->
+  <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20inquire%20about%20a%20chauffeur%20transfer." 
+     target="_blank" 
+     class="floating-whatsapp">
+    <span>&#128172;</span>
+    <span>WhatsApp Us</span>
+  </a>
+
+  <script>
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobileDrawer');
+      drawer.classList.toggle('is-open');
+    }
+
+    function toggleFaq(el) {
+      const answer = el.nextElementSibling;
+      const arrow = el.querySelector('.faq-arrow');
+      if (answer.style.display === 'none' || !answer.style.display) {
+        answer.style.display = 'block';
+        arrow.innerHTML = '&uarr;';
+      } else {
+        answer.style.display = 'none';
+        arrow.innerHTML = '&darr;';
+      }
+    }
+  </script>
+</body>
+</html>
