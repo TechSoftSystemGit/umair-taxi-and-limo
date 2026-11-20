@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5-Star Hotel &amp; Golf Resort Chauffeur · The K Club, Carton House | Umair Taxi &amp; Limo</title>
-  <meta name="description" content="Luxury chauffeur transport to Ireland's premier 5-star hotels and championship golf resorts. The K Club, Carton House, Adare Manor, and Dublin luxury hotels.">
+  <title>5-Star Resorts &amp; Golf Transfers · Castlemartyr, Fota Island &amp; Old Head | Umair Taxi &amp; Tours</title>
+  <meta name="description" content="Private resort and championship golf transfers based in Youghal, Co. Cork. Door-to-door transport to Castlemartyr Resort, Fota Island, Old Head of Kinsale, and Dungarvan Golf.">
   <link rel="icon" type="image/svg+xml" href="../assets/logo/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
     .resorts-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
+      gap: 28px;
       margin-top: 30px;
     }
     .resort-card {
@@ -29,10 +29,10 @@
     }
     .resort-card:hover {
       border-color: var(--gold-primary);
-      transform: translateY(-4px);
+      transform: translateY(-3px);
     }
     .resort-img-wrap {
-      height: 240px;
+      height: 230px;
       position: relative;
       overflow: hidden;
     }
@@ -43,24 +43,24 @@
       transition: transform 0.5s ease;
     }
     .resort-card:hover .resort-img-wrap img {
-      transform: scale(1.06);
+      transform: scale(1.05);
     }
     .resort-badge {
       position: absolute;
       top: 14px;
       left: 14px;
-      background: rgba(8, 10, 14, 0.88);
+      background: rgba(8, 10, 14, 0.9);
       border: 1px solid var(--border-gold);
       border-radius: 20px;
       padding: 4px 12px;
       font-size: 11px;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--gold-light);
     }
     .resort-body {
-      padding: 28px;
+      padding: 24px 22px;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -68,14 +68,14 @@
     }
     .resort-title {
       font-family: var(--font-serif);
-      font-size: 22px;
+      font-size: 21px;
       color: #FFF;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .resort-location {
       font-size: 12px;
       color: var(--gold-primary);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -83,15 +83,15 @@
     .resort-desc {
       font-size: 13.5px;
       color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 20px;
+      line-height: 1.65;
+      margin-bottom: 18px;
     }
     .resort-footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-top: 1px solid var(--border-dark);
-      padding-top: 16px;
+      padding-top: 14px;
     }
     .resort-rate {
       font-size: 13px;
@@ -99,26 +99,27 @@
     }
     .resort-rate strong {
       font-family: var(--font-serif);
-      font-size: 20px;
+      font-size: 19px;
       color: var(--gold-light);
-      margin-left: 6px;
+      margin-left: 4px;
     }
 
     @media (max-width: 800px) {
-      .resorts-grid { grid-template-columns: 1fr !important; gap: 18px !important; }
-      .resort-img-wrap { height: 190px !important; }
-      .resort-body { padding: 20px 18px !important; }
-      .resort-title { font-size: 18px !important; }
-      .resort-desc { font-size: 13px !important; line-height: 1.5 !important; }
+      .resorts-grid {
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- =========================================================
+       1. STICKY COMPACT HEADER WITH BRAND & DROPDOWN MENU
+       ========================================================= -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="../index.html" class="brand-link" aria-label="Umair Taxi and Limo Home">
+      <a href="../index.html" class="brand-link" aria-label="Umair Taxi and Tours Home">
         <svg class="brand-svg-mark" viewBox="0 0 54 54" width="38" height="38" aria-hidden="true">
           <defs>
             <linearGradient id="headerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -135,41 +136,48 @@
           <path d="M 29.5 13 C 29.5 18.5 30.8 20.5 35 20.5 C 30.8 20.5 29.5 22.5 29.5 28 C 29.5 22.5 28.2 20.5 24 20.5 C 28.2 20.5 29.5 18.5 29.5 13 Z" fill="#FFFFFF"/>
           <path d="M 16 56 C 24.5 58 34.5 58 43 56" stroke="url(#headerGoldGrad)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
         </svg>
+
         <div class="brand-text-block">
           <span class="brand-word-primary">UMAIR</span>
-          <span class="brand-word-secondary">TAXI &amp; LIMO</span>
+          <span class="brand-word-secondary">TAXI &amp; TOURS</span>
         </div>
       </a>
 
+      <!-- Desktop Nav with Dropdowns -->
       <nav>
         <ul class="nav-menu">
-          <li><a href="../services.html" class="nav-link active">Services</a></li>
+          <li class="nav-item-dropdown">
+            <a href="../services.html" class="nav-link active">Services <span class="dropdown-chevron">&#9662;</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="airport-transfers.html">&#9992;&#65039; Airport Transfers (Cork &amp; Dublin)</a></li>
+              <li><a href="local-taxi.html">&#128662; Local Taxi (Youghal &amp; Cork)</a></li>
+              <li><a href="ireland-tours.html">&#9752;&#65039; Tours Around Ireland</a></li>
+              <li><a href="hotel-golf-transfers.html">&#127976; Hotel &amp; Golf Resorts</a></li>
+              <li><a href="../services.html">&#128203; All Services Overview</a></li>
+            </ul>
+          </li>
+          <li><a href="ireland-tours.html" class="nav-link">&#9752;&#65039; Ireland Tours</a></li>
           <li><a href="../rates.html" class="nav-link">Fixed Rates</a></li>
           <li><a href="../fleet.html" class="nav-link">Fleet</a></li>
           <li><a href="../how-it-works.html" class="nav-link">How It Works</a></li>
-          <li><a href="../faq.html" class="nav-link">FAQ</a></li>
           <li><a href="../contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
 
       <div class="header-right">
-        <a href="tel:+35345800000" class="phone-badge">
-          <span class="phone-icon">&#9742;</span>
-          <span>+353 (0) 45 800 000</span>
+        <a href="tel:+353870000000" class="phone-badge">
+          <span>&#128222;</span>
+          <span>+353 (0) 87 000 0000</span>
         </a>
-        <a href="tel:+35345800000" class="mobile-phone-btn" aria-label="Call Dispatch">
-          <span>&#9742;</span>
+        <a href="tel:+353870000000" class="mobile-phone-btn" aria-label="Call Dispatch">
+          <span>&#128222;</span>
         </a>
-        <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20book%20a%20hotel%20or%20golf%20transfer." 
-           target="_blank" 
-           class="btn-header-cta">
-          <span class="cta-desktop-text">Reserve Chauffeur</span>
+        <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20book%20a%20resort%20transfer." target="_blank" class="btn-header-cta">
+          <span class="cta-desktop-text">Book on WhatsApp</span>
           <span class="cta-mobile-text">Book</span>
         </a>
         <button class="burger-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
@@ -178,37 +186,54 @@
   <!-- Mobile Drawer -->
   <div class="mobile-drawer" id="mobileDrawer">
     <ul class="mobile-drawer-links">
-      <li><a href="../services.html" style="color: var(--gold-primary);">Services <span>&rarr;</span></a></li>
-      <li><a href="../rates.html">Fixed Rates &amp; Routes <span>&rarr;</span></a></li>
+      <li class="mobile-dropdown">
+        <div class="mobile-dropdown-header" onclick="toggleSubMenu()">
+          <span>&#128662; Services Menu</span>
+          <span id="subArrow">&#9662;</span>
+        </div>
+        <ul class="mobile-submenu" id="mobileSubMenu">
+          <li><a href="airport-transfers.html">&#9992;&#65039; Airport Transfers (Cork &amp; Dublin)</a></li>
+          <li><a href="local-taxi.html">&#128662; Local Taxi (Youghal &amp; Cork)</a></li>
+          <li><a href="ireland-tours.html">&#9752;&#65039; Tours Around Ireland</a></li>
+          <li><a href="hotel-golf-transfers.html">&#127976; Hotel &amp; Golf Resorts</a></li>
+          <li><a href="../services.html">&#128203; All Services Overview</a></li>
+        </ul>
+      </li>
+      <li><a href="ireland-tours.html">&#9752;&#65039; Tours Around Ireland <span>&rarr;</span></a></li>
+      <li><a href="../rates.html">Fixed Rates <span>&rarr;</span></a></li>
       <li><a href="../fleet.html">Our Fleet <span>&rarr;</span></a></li>
       <li><a href="../how-it-works.html">How It Works <span>&rarr;</span></a></li>
-      <li><a href="../faq.html">FAQ <span>&rarr;</span></a></li>
-      <li><a href="../contact.html">Contact Us <span>&rarr;</span></a></li>
+      <li><a href="../contact.html">Contact &amp; Book <span>&rarr;</span></a></li>
     </ul>
-    <div style="display: flex; gap: 10px;">
-      <a href="tel:+35345800000" class="btn-outline" style="flex: 1; font-size: 12px; padding: 11px; white-space: nowrap;">
-        &#9742; Call +353 45 800 000
+    <div style="margin-top: 18px; display: flex; flex-direction: column; gap: 10px;">
+      <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20need%20a%20golf%20transfer." target="_blank" class="btn-gold" style="width: 100%;">
+        &#128172; Book on WhatsApp
       </a>
-      <a href="https://wa.me/35345800000" target="_blank" class="btn-gold" style="flex: 1; font-size: 12px; padding: 11px; white-space: nowrap;">
-        &#128172; WhatsApp
+      <a href="tel:+353870000000" class="btn-outline" style="width: 100%; justify-content: center;">
+        &#128222; Call Dispatch
       </a>
     </div>
   </div>
 
   <!-- PAGE HERO -->
-  <section class="page-hero">
-    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1920" 
-         alt="5-Star Resort Ireland" 
-         class="page-hero-bg">
-    <div class="page-hero-overlay"></div>
-    <div class="container page-hero-content">
-      <div class="breadcrumb">
-        <a href="../index.html">Home</a> &bull; <a href="../services.html">Services</a> &bull; <span>Hotels &amp; Golf Resorts</span>
-      </div>
-      <h1>5-Star Hotels &amp; Championship Golf Chauffeur</h1>
-      <p>
-        Experience discreet luxury transit to Ireland's most distinguished country estates, Ryder Cup golf destinations, and five-star luxury hotels. Dedicated Mercedes-Benz fleet with ample capacity for golf bags and luggage.
+  <section class="page-hero" style="padding: 70px 0 50px; text-align: center; background: #080A0E; border-bottom: 1px solid var(--border-gold);">
+    <div class="container">
+      <span class="section-tag">&#127976; 5-Star Resorts &bull; Championship Golf</span>
+      <h1 class="page-title" style="font-family: var(--font-serif); font-size: 38px; color: #FFF; margin: 12px 0 16px;">
+        Luxury Hotels &amp; Golf Resort Transfers
+      </h1>
+      <p style="font-size: 15px; color: var(--text-muted); max-width: 720px; margin: 0 auto 20px;">
+        Private transport to Munster and Ireland's most celebrated 5-star estates and championship links courses. Spacious minivans and comfortable sedans with ample room for golf clubs and luggage.
       </p>
+
+      <div class="service-areas-pills" style="justify-content: center;">
+        <span class="area-pill base">&#128205; Base: Youghal</span>
+        <span class="area-pill">&#127976; Castlemartyr Resort (15m)</span>
+        <span class="area-pill">&#9971; Fota Island Resort (30m)</span>
+        <span class="area-pill">&#127958;&#65039; Old Head of Kinsale</span>
+        <span class="area-pill">&#127984; Waterford Castle</span>
+        <span class="area-pill">&#9971; Dungarvan Golf Club</span>
+      </div>
     </div>
   </section>
 
@@ -216,94 +241,120 @@
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <span class="section-tag">Premier Destinations</span>
-        <h2 class="section-title">Ireland’s Finest Venues</h2>
-        <p class="section-desc">We provide scheduled transfers and on-call chauffeur services for guests and golf parties.</p>
+        <span class="section-tag">Premier Regional Destinations</span>
+        <h2 class="section-title">Munster &amp; Ireland’s Finest Estates</h2>
+        <p class="section-desc">Convenient scheduled transfers and dedicated driver hire for golf outings and weddings.</p>
       </div>
 
       <div class="resorts-grid">
-        <!-- The K Club -->
+        <!-- Castlemartyr Resort -->
         <div class="resort-card">
           <div class="resort-img-wrap">
-            <span class="resort-badge">Ryder Cup Venue</span>
-            <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=900" alt="The K Club Golf Course">
+            <span class="resort-badge">5-Star Luxury &bull; 15 mins away</span>
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=900" alt="Castlemartyr Resort Cork">
           </div>
           <div class="resort-body">
             <div>
-              <h3 class="resort-title">The K Club</h3>
-              <div class="resort-location">&#128205; Straffan, Co. Kildare</div>
+              <h3 class="resort-title">Castlemartyr Resort &amp; Golf Links</h3>
+              <div class="resort-location">&#128205; Castlemartyr, Co. Cork (near Youghal)</div>
               <p class="resort-desc">
-                Home of the 2006 Ryder Cup and European Open. Direct private transfers from Dublin Airport (35 mins) in our executive Mercedes V-Class or S-Class, providing ample room for up to 7 golfers and their flight clubs.
+                An 18th-century manor set on 220 private acres featuring an inland links golf course and luxury spa. Located just 15 minutes from our Youghal base, we provide punctual guest transfers to Cork Airport, dinners, and tours.
               </p>
             </div>
             <div class="resort-footer">
-              <div class="resort-rate">From Airport: <strong>€85</strong></div>
-              <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20book%20a%20transfer%20to%20The%20K%20Club." target="_blank" class="btn-gold" style="padding: 8px 16px; font-size: 11px;">Reserve Now</a>
+              <div class="resort-rate">From Youghal: <strong>€35</strong></div>
+              <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20book%20a%20transfer%20to%20Castlemartyr%20Resort." target="_blank" class="btn-gold" style="padding: 7px 14px; font-size: 11px;">Book Transfer</a>
             </div>
           </div>
         </div>
 
-        <!-- Carton House -->
+        <!-- Fota Island Resort -->
         <div class="resort-card">
           <div class="resort-img-wrap">
-            <span class="resort-badge">Fairmont Estate</span>
-            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=900" alt="Carton House Fairmont">
+            <span class="resort-badge">3x Irish Open Host</span>
+            <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=900" alt="Fota Island Golf Resort">
           </div>
           <div class="resort-body">
             <div>
-              <h3 class="resort-title">Carton House, Fairmont</h3>
-              <div class="resort-location">&#128205; Maynooth, Co. Kildare</div>
+              <h3 class="resort-title">Fota Island Resort &amp; Golf Club</h3>
+              <div class="resort-location">&#128205; Fota Island, Co. Cork</div>
               <p class="resort-desc">
-                Historic Georgian estate boasting two championship golf courses (Montgomerie and O’Meara). Located just 30 minutes from Dublin Airport, our chauffeurs ensure a punctual and regal arrival.
+                Boasting three championship golf courses (Deerpark, Belvelly, and Barryscourt) nestled within a 780-acre private island. Generous boot space in our tour vans for golf clubs, trollies, and luggage.
               </p>
             </div>
             <div class="resort-footer">
-              <div class="resort-rate">From Airport: <strong>€75</strong></div>
-              <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20book%20a%20transfer%20to%20Carton%20House." target="_blank" class="btn-gold" style="padding: 8px 16px; font-size: 11px;">Reserve Now</a>
+              <div class="resort-rate">From Youghal: <strong>€65</strong></div>
+              <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20book%20a%20transfer%20to%20Fota%20Island." target="_blank" class="btn-gold" style="padding: 7px 14px; font-size: 11px;">Book Transfer</a>
             </div>
           </div>
         </div>
 
-        <!-- Dublin 5-Star Hotels -->
+        <!-- Old Head of Kinsale -->
         <div class="resort-card">
           <div class="resort-img-wrap">
-            <span class="resort-badge">City Elegance</span>
-            <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&q=80&w=900" alt="Dublin 5-Star Hotel">
+            <span class="resort-badge">World Top 10 Ocean Links</span>
+            <img src="https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?auto=format&fit=crop&q=80&w=900" alt="Old Head of Kinsale Golf">
           </div>
           <div class="resort-body">
             <div>
-              <h3 class="resort-title">The Shelbourne &amp; The Merrion</h3>
-              <div class="resort-location">&#128205; St. Stephen's Green, Dublin 2</div>
+              <h3 class="resort-title">Old Head Golf Links Kinsale</h3>
+              <div class="resort-location">&#128205; Kinsale, Co. Cork</div>
               <p class="resort-desc">
-                Dublin’s most iconic five-star addresses. Door-to-door concierge transfers to and from Dublin Airport, Kildare Village shopping excursions, and private evening dining escort.
+                One of the most spectacular golf courses on earth, jutting two miles into the Atlantic Ocean. We arrange full-day dedicated driver hire with pickup from Youghal or Cork Airport, waiting while you play.
               </p>
             </div>
             <div class="resort-footer">
-              <div class="resort-rate">From Airport: <strong>€65</strong></div>
-              <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20book%20a%20Dublin%20Hotel%20transfer." target="_blank" class="btn-gold" style="padding: 8px 16px; font-size: 11px;">Reserve Now</a>
+              <div class="resort-rate">Full Day Hire: <strong>Inquire</strong></div>
+              <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20a%20quote%20for%20Old%20Head%20Kinsale." target="_blank" class="btn-gold" style="padding: 7px 14px; font-size: 11px;">Get Quote</a>
             </div>
           </div>
         </div>
 
-        <!-- Adare Manor & Mount Juliet -->
+        <!-- Waterford Castle & Dungarvan -->
         <div class="resort-card">
           <div class="resort-img-wrap">
-            <span class="resort-badge">Ryder Cup 2027</span>
-            <img src="https://images.unsplash.com/photo-1549918864-48ac978761a4?auto=format&fit=crop&q=80&w=900" alt="Adare Manor Resort">
+            <span class="resort-badge">Island Castle &bull; East Region</span>
+            <img src="https://images.unsplash.com/photo-1549918864-48ac978761a4?auto=format&fit=crop&q=80&w=900" alt="Waterford Castle Hotel">
           </div>
           <div class="resort-body">
             <div>
-              <h3 class="resort-title">Adare Manor &amp; Mount Juliet</h3>
-              <div class="resort-location">&#128205; Co. Limerick &amp; Co. Kilkenny</div>
+              <h3 class="resort-title">Waterford Castle &amp; Dungarvan Golf</h3>
+              <div class="resort-location">&#128205; Waterford &amp; West Waterford</div>
               <p class="resort-desc">
-                Future host of the 2027 Ryder Cup. Direct executive long-distance chauffeur transfers from Dublin Airport across the scenic heartlands of Ireland without train changes or coach delays.
+                Private island castle golf resort accessible by private car ferry, along with Dungarvan Golf Club and Gold Coast Golf Resort. Direct transfers from Youghal along the scenic southern route.
               </p>
             </div>
             <div class="resort-footer">
-              <div class="resort-rate">From Dublin: <strong>€320</strong></div>
-              <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20book%20a%20transfer%20to%20Adare%20Manor." target="_blank" class="btn-gold" style="padding: 8px 16px; font-size: 11px;">Reserve Now</a>
+              <div class="resort-rate">From Youghal: <strong>From €45</strong></div>
+              <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20book%20a%20Waterford%20resort%20transfer." target="_blank" class="btn-gold" style="padding: 7px 14px; font-size: 11px;">Book Transfer</a>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PRE-FOOTER CALL TO ACTION (USER REQUIREMENT)
+       ========================================================= -->
+  <section class="pre-footer-cta">
+    <div class="container">
+      <div class="cta-inner-card">
+        <span class="cta-eyebrow">&#9971; Golf &amp; Hotel Service</span>
+        <h2 class="cta-title">Planning a golf trip or luxury resort stay?</h2>
+        <p class="cta-desc">
+          We cater to golfers traveling with flight bags, wedding guests, and corporate parties across Cork, Waterford, and beyond. Inquire for customized day packages.
+        </p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20book%20resort%20transfers." target="_blank" class="btn-gold">
+            &#128172; Book on WhatsApp
+          </a>
+          <a href="tel:+353870000000" class="btn-outline">
+            &#128222; Call Dispatch: +353 87 000 0000
+          </a>
+          <a href="ireland-tours.html" class="btn-outline">
+            &#9752;&#65039; Explore Ireland Tours
+          </a>
         </div>
       </div>
     </div>
@@ -333,61 +384,61 @@
             </svg>
             <div class="brand-text-block">
               <span class="brand-word-primary">UMAIR</span>
-              <span class="brand-word-secondary">TAXI &amp; LIMO</span>
+              <span class="brand-word-secondary">TAXI &amp; TOURS</span>
             </div>
           </a>
           <p>
-            Premium executive chauffeur service and airport transfers across Kildare, Dublin, and nationwide Ireland. Licensed by the National Transport Authority (NTA Ireland).
+            Reliable local taxi service, Cork &amp; Dublin airport transfers, and private tours all around Ireland. Proudly based in Youghal, Co. Cork. Licensed by the National Transport Authority (NTA Ireland).
           </p>
         </div>
 
         <div>
           <h4 class="footer-heading">Services</h4>
           <ul class="footer-links">
-            <li><a href="airport-transfers.html">Dublin Airport Transfers</a></li>
-            <li><a href="hotel-golf-transfers.html">The K Club &amp; Golf Chauffeur</a></li>
-            <li><a href="corporate-chauffeur.html">Corporate Travel</a></li>
-            <li><a href="city-to-city.html">City-to-City Transfers</a></li>
-            <li><a href="../fleet.html">Executive Fleet</a></li>
+            <li><a href="airport-transfers.html">Cork &amp; Dublin Airport</a></li>
+            <li><a href="local-taxi.html">Local Taxi Service (Youghal)</a></li>
+            <li><a href="ireland-tours.html">Private Ireland Day Tours</a></li>
+            <li><a href="hotel-golf-transfers.html">Resort &amp; Golf Transfers</a></li>
+            <li><a href="../fleet.html">Our Fleet</a></li>
           </ul>
         </div>
 
         <div>
           <h4 class="footer-heading">Service Areas</h4>
           <ul class="footer-links">
-            <li><a href="../rates.html">Dublin Airport (DUB)</a></li>
-            <li><a href="../rates.html">Naas &amp; Newbridge</a></li>
-            <li><a href="../rates.html">Maynooth &amp; Celbridge</a></li>
-            <li><a href="../rates.html">Kildare Town &amp; Curragh</a></li>
-            <li><a href="../rates.html">Galway &amp; Cork</a></li>
+            <li><a href="local-taxi.html">Youghal, Co. Cork (Base)</a></li>
+            <li><a href="airport-transfers.html">Cork Airport (ORK)</a></li>
+            <li><a href="../rates.html">Cork City Centre</a></li>
+            <li><a href="../rates.html">Dungarvan &amp; Waterford</a></li>
+            <li><a href="airport-transfers.html">Dublin Airport (DUB)</a></li>
           </ul>
         </div>
 
         <div>
           <h4 class="footer-heading">24/7 Dispatch</h4>
           <div class="footer-contact-item">
-            <span>&#9742;</span>
-            <span><strong>+353 (0) 45 800 000</strong></span>
+            <span>&#128222;</span>
+            <span><strong>+353 (0) 87 000 0000</strong></span>
           </div>
           <div class="footer-contact-item">
-            <span>&#9993;</span>
-            <span>bookings@umairtaxilimo.ie</span>
+            <span>&#128172;</span>
+            <span>WhatsApp: Instant Reply</span>
           </div>
           <div class="footer-contact-item">
             <span>&#128205;</span>
-            <span>Kildare &bull; Dublin &bull; Ireland</span>
+            <span>Youghal &bull; Cork &bull; Ireland</span>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <div>&copy; 2026 Umair Taxi and Limo. All rights reserved. Registered SPSV Operator Ireland.</div>
-        <div>Luxury Black &amp; Muted Champagne Gold Brand Identity</div>
+        <div>&copy; 2026 Umair Taxi &amp; Tours. All rights reserved. Licensed SPSV Operator Ireland.</div>
+        <div>Muted Champagne Gold &amp; Obsidian Black</div>
       </div>
     </div>
   </footer>
 
-  <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20inquire%20about%20a%20chauffeur%20transfer." 
+  <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20book%20a%20resort%20transfer." 
      target="_blank" 
      class="floating-whatsapp">
     <span>&#128172;</span>
@@ -399,7 +450,12 @@
       const drawer = document.getElementById('mobileDrawer');
       drawer.classList.toggle('is-open');
     }
+    function toggleSubMenu() {
+      const sub = document.getElementById('mobileSubMenu');
+      const arrow = document.getElementById('subArrow');
+      sub.classList.toggle('is-open');
+      arrow.innerHTML = sub.classList.contains('is-open') ? '&#9652;' : '&#9662;';
+    }
   </script>
 </body>
 </html>
-

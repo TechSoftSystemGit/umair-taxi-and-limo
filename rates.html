@@ -3,334 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Transfer Prices &amp; Fixed Rates · Dublin Airport &amp; Nationwide | Umair Taxi &amp; Limo</title>
-  <meta name="description" content="View transparent, fixed transfer prices from Dublin Airport (DUB) to Dublin City, Kildare, The K Club, Galway, Cork, and across Ireland. Guaranteed rates per vehicle with no surge pricing.">
+  <title>Fixed Rates &amp; Popular Routes · Youghal, Cork Airport &amp; Tours | Umair Taxi &amp; Tours</title>
+  <meta name="description" content="Guaranteed fixed taxi and transfer rates from Youghal, Co. Cork. Transparent fares to Cork Airport, Cork City, Dungarvan, Waterford, and Dublin Airport. No surge pricing.">
   <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-
-  <style>
-    .rates-filter-bar {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-    }
-    .filter-btn {
-      background: var(--bg-card);
-      border: 1px solid var(--border-dark);
-      color: var(--text-light);
-      padding: 10px 20px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-    .filter-btn.active, .filter-btn:hover {
-      background: var(--gold-primary);
-      color: #080A0E;
-      border-color: var(--gold-primary);
-    }
-
-    /* =========================================================
-   EXECUTIVE RESPONSIVE TABLES & MOBILE CARDS (Zero Scroll)
-   ========================================================= */
-.table-responsive-wrapper,
-.rates-table-wrap {
-  width: 100%;
-  background: var(--bg-card);
-  border: 1px solid var(--border-dark);
-  border-radius: 14px;
-  margin: 24px 0 36px;
-  position: relative;
-  box-sizing: border-box;
-}
-
-.rates-table,
-.rates-full-table,
-.compare-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-  box-sizing: border-box;
-}
-
-.rates-table th,
-.rates-full-table th,
-.compare-table th {
-  background: #0B0D12;
-  color: var(--gold-light);
-  font-size: 11.5px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 16px 20px;
-  border-bottom: 1px solid var(--border-gold);
-}
-
-.rates-table td,
-.rates-full-table td,
-.compare-table td {
-  padding: 16px 20px;
-  border-bottom: 1px solid var(--border-dark);
-  font-size: 13.5px;
-  color: #D1D5DB;
-  vertical-align: middle;
-}
-
-.rates-table tr:hover td,
-.rates-full-table tr:hover td,
-.compare-table tr:hover td {
-  background: rgba(197, 160, 89, 0.04);
-}
-
-.rate-highlight,
-.price-tag {
-  font-family: var(--font-serif);
-  font-size: 19px;
-  font-weight: 700;
-  color: var(--gold-light);
-}
-
-/* =========================================================
-   MOBILE CARDS VIEW (Under 768px - NO HORIZONTAL SCROLL)
-   ========================================================= */
-@media (max-width: 768px) {
-  .table-responsive-wrapper,
-  .rates-table-wrap {
-    overflow: visible !important;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    margin: 16px 0 !important;
-    padding: 0 !important;
-  }
-
-  .mobile-table-hint {
-    display: none !important;
-  }
-
-  .rates-table,
-  .rates-full-table,
-  .compare-table {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 14px !important;
-    width: 100% !important;
-    min-width: 100% !important;
-    border: none !important;
-    background: transparent !important;
-  }
-
-  .rates-table thead,
-  .rates-full-table thead,
-  .compare-table thead {
-    display: none !important;
-  }
-
-  .rates-table tbody,
-  .rates-full-table tbody,
-  .compare-table tbody {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 14px !important;
-    width: 100% !important;
-  }
-
-  .rates-table tr,
-  .rates-full-table tr,
-  .compare-table tr {
-    display: block !important;
-    background: var(--bg-card) !important;
-    border: 1px solid var(--border-dark) !important;
-    border-radius: 12px !important;
-    padding: 16px 18px !important;
-    box-sizing: border-box !important;
-    width: 100% !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
-  }
-
-  .rates-table td,
-  .rates-full-table td,
-  .compare-table td {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 9px 0 !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
-    font-size: 13px !important;
-    color: #D1D5DB !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    box-sizing: border-box !important;
-    white-space: normal !important;
-  }
-
-  .rates-table td:last-child,
-  .rates-full-table td:last-child,
-  .compare-table td:last-child {
-    border-bottom: none !important;
-    padding-bottom: 0 !important;
-  }
-
-  /* First column header (Destination / Route / Feature) */
-  .rates-table td:first-child,
-  .rates-full-table td:first-child,
-  .compare-table td:first-child {
-    display: block !important;
-    font-size: 15px !important;
-    font-weight: 700 !important;
-    color: #FFFFFF !important;
-    border-bottom: 1px solid var(--border-gold) !important;
-    padding-top: 0 !important;
-    padding-bottom: 10px !important;
-    margin-bottom: 4px !important;
-    line-height: 1.4 !important;
-  }
-
-  .rates-table td:first-child strong,
-  .rates-full-table td:first-child strong {
-    color: #FFFFFF !important;
-    font-size: 15px !important;
-  }
-
-  /* Rates Table (Airport Transfers) Data Labels */
-  .rates-table td:nth-child(2)::before {
-    content: "Distance & Time";
-    color: var(--text-muted);
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .rates-table td:nth-child(3)::before {
-    content: "Executive Sedan (1-3 Pax)";
-    color: var(--gold-primary);
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-
-  .rates-table td:nth-child(4)::before {
-    content: "First-Class VIP (1-3 Pax)";
-    color: #A3A8B8;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-
-  .rates-table td:nth-child(5)::before {
-    content: "Executive Van (1-7 Pax)";
-    color: #A3A8B8;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-
-  /* Full Rates Directory Data Labels */
-  .rates-full-table td:nth-child(2)::before {
-    content: "Distance & Time";
-    color: var(--text-muted);
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .rates-full-table td:nth-child(3)::before {
-    content: "Business Sedan";
-    color: var(--gold-primary);
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-
-  .rates-full-table td:nth-child(4)::before {
-    content: "First-Class VIP";
-    color: #A3A8B8;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-
-  .rates-full-table td:nth-child(5)::before {
-    content: "Executive Van";
-    color: #A3A8B8;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-
-  .rates-full-table td:nth-child(6) {
-    padding-top: 10px !important;
-    justify-content: stretch !important;
-  }
-  .rates-full-table td:nth-child(6)::before {
-    display: none !important;
-  }
-  .rates-full-table td:nth-child(6) a {
-    width: 100% !important;
-    text-align: center !important;
-    justify-content: center !important;
-    padding: 10px 16px !important;
-  }
-
-  /* Compare Table Data Labels */
-  .compare-table td:nth-child(2)::before {
-    content: "Business Sedan";
-    color: var(--gold-primary);
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-
-  .compare-table td:nth-child(3)::before {
-    content: "First-Class VIP";
-    color: var(--gold-primary);
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-
-  .compare-table td:nth-child(4)::before {
-    content: "Executive Van";
-    color: var(--gold-primary);
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-
-  /* Buttons on mobile - NEVER CROP, WRAP CLEANLY */
-  .btn-gold {
-    white-space: normal !important;
-    text-align: center !important;
-    padding: 13px 18px !important;
-    font-size: 12px !important;
-    line-height: 1.35 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    display: flex !important;
-    justify-content: center !important;
-  }
-
-  .container {
-    padding: 0 16px !important;
-  }
-}
-  </style>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- =========================================================
+       1. STICKY COMPACT HEADER WITH BRAND & DROPDOWN MENU
+       ========================================================= -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-link" aria-label="Umair Taxi and Limo Home">
+      <a href="index.html" class="brand-link" aria-label="Umair Taxi and Tours Home">
         <svg class="brand-svg-mark" viewBox="0 0 54 54" width="38" height="38" aria-hidden="true">
           <defs>
             <linearGradient id="headerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -347,41 +35,48 @@
           <path d="M 29.5 13 C 29.5 18.5 30.8 20.5 35 20.5 C 30.8 20.5 29.5 22.5 29.5 28 C 29.5 22.5 28.2 20.5 24 20.5 C 28.2 20.5 29.5 18.5 29.5 13 Z" fill="#FFFFFF"/>
           <path d="M 16 56 C 24.5 58 34.5 58 43 56" stroke="url(#headerGoldGrad)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
         </svg>
+
         <div class="brand-text-block">
           <span class="brand-word-primary">UMAIR</span>
-          <span class="brand-word-secondary">TAXI &amp; LIMO</span>
+          <span class="brand-word-secondary">TAXI &amp; TOURS</span>
         </div>
       </a>
 
+      <!-- Desktop Nav with Dropdown -->
       <nav>
         <ul class="nav-menu">
-          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li class="nav-item-dropdown">
+            <a href="services.html" class="nav-link">Services <span class="dropdown-chevron">&#9662;</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="services/airport-transfers.html">&#9992;&#65039; Airport Transfers (Cork &amp; Dublin)</a></li>
+              <li><a href="services/local-taxi.html">&#128662; Local Taxi (Youghal &amp; Cork)</a></li>
+              <li><a href="services/ireland-tours.html">&#9752;&#65039; Tours Around Ireland</a></li>
+              <li><a href="services/hotel-golf-transfers.html">&#127976; Hotel &amp; Golf Resorts</a></li>
+              <li><a href="services.html">&#128203; All Services Overview</a></li>
+            </ul>
+          </li>
+          <li><a href="services/ireland-tours.html" class="nav-link">&#9752;&#65039; Ireland Tours</a></li>
           <li><a href="rates.html" class="nav-link active">Fixed Rates</a></li>
           <li><a href="fleet.html" class="nav-link">Fleet</a></li>
           <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
-          <li><a href="faq.html" class="nav-link">FAQ</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
 
       <div class="header-right">
-        <a href="tel:+35345800000" class="phone-badge">
-          <span class="phone-icon">&#9742;</span>
-          <span>+353 (0) 45 800 000</span>
+        <a href="tel:+353870000000" class="phone-badge">
+          <span>&#128222;</span>
+          <span>+353 (0) 87 000 0000</span>
         </a>
-        <a href="tel:+35345800000" class="mobile-phone-btn" aria-label="Call Dispatch">
-          <span>&#9742;</span>
+        <a href="tel:+353870000000" class="mobile-phone-btn" aria-label="Call Dispatch">
+          <span>&#128222;</span>
         </a>
-        <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20inquire%20about%20a%20fixed%20rate%20booking." 
-           target="_blank" 
-           class="btn-header-cta">
-          <span class="cta-desktop-text">Reserve Chauffeur</span>
+        <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20inquire%20about%20a%20rate." target="_blank" class="btn-header-cta">
+          <span class="cta-desktop-text">Book on WhatsApp</span>
           <span class="cta-mobile-text">Book</span>
         </a>
         <button class="burger-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
@@ -390,179 +85,168 @@
   <!-- Mobile Drawer -->
   <div class="mobile-drawer" id="mobileDrawer">
     <ul class="mobile-drawer-links">
-      <li><a href="services.html">Services <span>&rarr;</span></a></li>
-      <li><a href="rates.html" style="color: var(--gold-primary);">Fixed Rates &amp; Routes <span>&rarr;</span></a></li>
+      <li class="mobile-dropdown">
+        <div class="mobile-dropdown-header" onclick="toggleSubMenu()">
+          <span>&#128662; Services Menu</span>
+          <span id="subArrow">&#9662;</span>
+        </div>
+        <ul class="mobile-submenu" id="mobileSubMenu">
+          <li><a href="services/airport-transfers.html">&#9992;&#65039; Airport Transfers (Cork &amp; Dublin)</a></li>
+          <li><a href="services/local-taxi.html">&#128662; Local Taxi (Youghal &amp; Cork)</a></li>
+          <li><a href="services/ireland-tours.html">&#9752;&#65039; Tours Around Ireland</a></li>
+          <li><a href="services/hotel-golf-transfers.html">&#127976; Hotel &amp; Golf Resorts</a></li>
+          <li><a href="services.html">&#128203; All Services Overview</a></li>
+        </ul>
+      </li>
+      <li><a href="services/ireland-tours.html">&#9752;&#65039; Tours Around Ireland <span>&rarr;</span></a></li>
+      <li><a href="rates.html" style="color: var(--gold-primary);">Fixed Rates <span>&rarr;</span></a></li>
       <li><a href="fleet.html">Our Fleet <span>&rarr;</span></a></li>
       <li><a href="how-it-works.html">How It Works <span>&rarr;</span></a></li>
-      <li><a href="faq.html">FAQ <span>&rarr;</span></a></li>
       <li><a href="contact.html">Contact Us <span>&rarr;</span></a></li>
     </ul>
-    <div style="display: flex; gap: 10px;">
-      <a href="tel:+35345800000" class="btn-outline" style="flex: 1; font-size: 12px; padding: 11px; white-space: nowrap;">
-        &#9742; Call +353 45 800 000
+    <div style="margin-top: 18px; display: flex; flex-direction: column; gap: 10px;">
+      <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20need%20a%20booking." target="_blank" class="btn-gold" style="width: 100%;">
+        &#128172; Book on WhatsApp
       </a>
-      <a href="https://wa.me/35345800000" target="_blank" class="btn-gold" style="flex: 1; font-size: 12px; padding: 11px; white-space: nowrap;">
-        &#128172; WhatsApp
+      <a href="tel:+353870000000" class="btn-outline" style="width: 100%; justify-content: center;">
+        &#128222; Call Dispatch
       </a>
     </div>
   </div>
 
   <!-- PAGE HERO -->
-  <section class="page-hero">
-    <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&q=80&w=1920" 
-         alt="Luxury Transfer Rates" 
-         class="page-hero-bg">
-    <div class="page-hero-overlay"></div>
-    <div class="container page-hero-content">
-      <div class="breadcrumb">
-        <a href="index.html">Home</a> &bull; <span>Fixed Rates</span>
-      </div>
-      <h1>Popular Routes &amp; Honest Fixed Prices</h1>
-      <p>
-        Fixed prices per vehicle, not per person. Every quote includes airport entrance fees, Dublin Port Tunnel tolls, M50 tolls, 60 minutes free waiting time, and VAT. No surprise charges ever.
+  <section class="page-hero" style="padding: 70px 0 50px; text-align: center; background: #080A0E; border-bottom: 1px solid var(--border-gold);">
+    <div class="container">
+      <span class="section-tag">&#128205; Base: Youghal, Co. Cork</span>
+      <h1 class="page-title" style="font-family: var(--font-serif); font-size: 38px; color: #FFF; margin: 12px 0 16px;">
+        Fixed Rates &amp; Popular Routes
+      </h1>
+      <p style="font-size: 15px; color: var(--text-muted); max-width: 720px; margin: 0 auto 20px;">
+        Transparent, guaranteed prices per vehicle. Never any surge pricing, meter running in traffic, or surprise toll additions.
       </p>
+
+      <div class="service-areas-pills" style="justify-content: center;">
+        <span class="area-pill base">&#128205; Base: Youghal</span>
+        <span class="area-pill">&#9992;&#65039; Cork Airport (ORK)</span>
+        <span class="area-pill">&#127963;&#65039; Cork City</span>
+        <span class="area-pill">&#127958;&#65039; Dungarvan</span>
+        <span class="area-pill">&#128331; Waterford</span>
+        <span class="area-pill">&#9992;&#65039; Dublin Airport (DUB)</span>
+      </div>
     </div>
   </section>
 
-  <!-- RATES SECTION -->
+  <!-- RATES SECTION (ZERO SCROLL DESKTOP + MOBILE) -->
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <span class="section-tag">Guaranteed Pricing</span>
-        <h2 class="section-title">Transparent Route Directory</h2>
-        <p class="section-desc">Select your desired route to see guaranteed all-inclusive fares across our vehicle classes.</p>
+        <span class="section-tag">Direct Pricing</span>
+        <h2 class="section-title">Regional Route Directory</h2>
+        <p class="section-desc">Fixed prices per vehicle for local pickups, airport runs, and regional transfers from Youghal.</p>
       </div>
 
       <div class="table-responsive-wrapper">
-        
         <table class="rates-full-table">
-        <thead>
-          <tr>
-            <th>Origin &amp; Destination</th>
-            <th>Distance / Approx Time</th>
-            <th>Executive Business Sedan (1–3 Pax)</th>
-            <th>First-Class Luxury VIP (1–3 Pax)</th>
-            <th>Executive MPV Van (1–7 Pax)</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <span class="route-primary">Dublin Airport (DUB) &harr; Dublin City Centre</span>
-              <span class="route-secondary">O’Connell St, Grafton St, Ballsbridge, Grand Canal Dock</span>
-            </td>
-            <td>14 km &bull; ~30 mins</td>
-            <td><span class="price-tag">€65</span></td>
-            <td><span class="price-tag">€110</span></td>
-            <td><span class="price-tag">€120</span></td>
-            <td><a href="https://wa.me/35345800000?text=I%20would%20like%20to%20book%20Dublin%20Airport%20to%20Dublin%20City%20Centre." target="_blank" class="btn-gold" style="padding: 7px 12px; font-size: 11px;">Book</a></td>
-          </tr>
-          <tr>
-            <td>
-              <span class="route-primary">Dublin Airport (DUB) &harr; Naas / Sallins</span>
-              <span class="route-secondary">Naas Town, Osprey Hotel, Naas Racecourse, Millennium Park</span>
-            </td>
-            <td>48 km &bull; ~45 mins</td>
-            <td><span class="price-tag">€95</span></td>
-            <td><span class="price-tag">€150</span></td>
-            <td><span class="price-tag">€165</span></td>
-            <td><a href="https://wa.me/35345800000?text=I%20would%20like%20to%20book%20Dublin%20Airport%20to%20Naas." target="_blank" class="btn-gold" style="padding: 7px 12px; font-size: 11px;">Book</a></td>
-          </tr>
-          <tr>
-            <td>
-              <span class="route-primary">Dublin Airport (DUB) &harr; The K Club, Straffan</span>
-              <span class="route-secondary">Straffan Village, The Palmer Course, K Club Spa</span>
-            </td>
-            <td>38 km &bull; ~35 mins</td>
-            <td><span class="price-tag">€85</span></td>
-            <td><span class="price-tag">€140</span></td>
-            <td><span class="price-tag">€150</span></td>
-            <td><a href="https://wa.me/35345800000?text=I%20would%20like%20to%20book%20Dublin%20Airport%20to%20The%20K%20Club." target="_blank" class="btn-gold" style="padding: 7px 12px; font-size: 11px;">Book</a></td>
-          </tr>
-          <tr>
-            <td>
-              <span class="route-primary">Dublin Airport (DUB) &harr; Maynooth / Carton House</span>
-              <span class="route-secondary">Maynooth University, Glenroyal Hotel, Carton House Fairmont</span>
-            </td>
-            <td>32 km &bull; ~30 mins</td>
-            <td><span class="price-tag">€75</span></td>
-            <td><span class="price-tag">€125</span></td>
-            <td><span class="price-tag">€140</span></td>
-            <td><a href="https://wa.me/35345800000?text=I%20would%20like%20to%20book%20Dublin%20Airport%20to%20Maynooth." target="_blank" class="btn-gold" style="padding: 7px 12px; font-size: 11px;">Book</a></td>
-          </tr>
-          <tr>
-            <td>
-              <span class="route-primary">Dublin Airport (DUB) &harr; Newbridge / Curragh</span>
-              <span class="route-secondary">Keadeen Hotel, Whitewater, Curragh Racecourse</span>
-            </td>
-            <td>58 km &bull; ~50 mins</td>
-            <td><span class="price-tag">€105</span></td>
-            <td><span class="price-tag">€165</span></td>
-            <td><span class="price-tag">€180</span></td>
-            <td><a href="https://wa.me/35345800000?text=I%20would%20like%20to%20book%20Dublin%20Airport%20to%20Newbridge." target="_blank" class="btn-gold" style="padding: 7px 12px; font-size: 11px;">Book</a></td>
-          </tr>
-          <tr>
-            <td>
-              <span class="route-primary">Dublin Airport (DUB) &harr; Kildare Town / Village</span>
-              <span class="route-secondary">Kildare Village Designer Outlet, Irish National Stud</span>
-            </td>
-            <td>65 km &bull; ~55 mins</td>
-            <td><span class="price-tag">€115</span></td>
-            <td><span class="price-tag">€175</span></td>
-            <td><span class="price-tag">€195</span></td>
-            <td><a href="https://wa.me/35345800000?text=I%20would%20like%20to%20book%20Dublin%20Airport%20to%20Kildare%20Town." target="_blank" class="btn-gold" style="padding: 7px 12px; font-size: 11px;">Book</a></td>
-          </tr>
-          <tr>
-            <td>
-              <span class="route-primary">Dublin Airport (DUB) &harr; Galway City</span>
-              <span class="route-secondary">Eyre Square, Salthill, Glenlo Abbey Hotel</span>
-            </td>
-            <td>215 km &bull; ~2h 15m</td>
-            <td><span class="price-tag">€290</span></td>
-            <td><span class="price-tag">€420</span></td>
-            <td><span class="price-tag">€450</span></td>
-            <td><a href="https://wa.me/35345800000?text=I%20would%20like%20to%20book%20Dublin%20Airport%20to%20Galway." target="_blank" class="btn-gold" style="padding: 7px 12px; font-size: 11px;">Book</a></td>
-          </tr>
-          <tr>
-            <td>
-              <span class="route-primary">Dublin Airport (DUB) &harr; Cork City</span>
-              <span class="route-secondary">Montenotte Hotel, The Kingsley, Hayfield Manor</span>
-            </td>
-            <td>260 km &bull; ~2h 45m</td>
-            <td><span class="price-tag">€340</span></td>
-            <td><span class="price-tag">€480</span></td>
-            <td><span class="price-tag">€520</span></td>
-            <td><a href="https://wa.me/35345800000?text=I%20would%20like%20to%20book%20Dublin%20Airport%20to%20Cork." target="_blank" class="btn-gold" style="padding: 7px 12px; font-size: 11px;">Book</a></td>
-          </tr>
-          <tr>
-            <td>
-              <span class="route-primary">Dublin Airport (DUB) &harr; Belfast City</span>
-              <span class="route-secondary">Titanic Quarter, Grand Central Hotel, Belfast City Airport</span>
-            </td>
-            <td>170 km &bull; ~1h 50m</td>
-            <td><span class="price-tag">€260</span></td>
-            <td><span class="price-tag">€390</span></td>
-            <td><span class="price-tag">€420</span></td>
-            <td><a href="https://wa.me/35345800000?text=I%20would%20like%20to%20book%20Dublin%20Airport%20to%20Belfast." target="_blank" class="btn-gold" style="padding: 7px 12px; font-size: 11px;">Book</a></td>
-          </tr>
-        </tbody>
-      </table>
+          <thead>
+            <tr>
+              <th>Route / Journey</th>
+              <th>Distance / Time</th>
+              <th>Saloon Taxi (1–4 Pax)</th>
+              <th>Tour MPV Van (1–8 Pax)</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Youghal Base &harr; Cork Airport (ORK)</strong></td>
+              <td>54 km &bull; ~45 mins</td>
+              <td><span class="rate-highlight">€85</span></td>
+              <td><span class="rate-highlight">€125</span></td>
+              <td><a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20book%20Youghal%20to%20Cork%20Airport." target="_blank" class="btn-gold" style="padding: 7px 14px; font-size: 11px;">Book Route</a></td>
+            </tr>
+            <tr>
+              <td><strong>Youghal Base &harr; Cork City Centre / Kent Station</strong></td>
+              <td>48 km &bull; ~40 mins</td>
+              <td><span class="rate-highlight">€75</span></td>
+              <td><span class="rate-highlight">€110</span></td>
+              <td><a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20book%20Youghal%20to%20Cork%20City." target="_blank" class="btn-gold" style="padding: 7px 14px; font-size: 11px;">Book Route</a></td>
+            </tr>
+            <tr>
+              <td><strong>Youghal Base &harr; Dungarvan (West Waterford)</strong></td>
+              <td>28 km &bull; ~25 mins</td>
+              <td><span class="rate-highlight">€45</span></td>
+              <td><span class="rate-highlight">€70</span></td>
+              <td><a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20book%20Youghal%20to%20Dungarvan." target="_blank" class="btn-gold" style="padding: 7px 14px; font-size: 11px;">Book Route</a></td>
+            </tr>
+            <tr>
+              <td><strong>Youghal Base &harr; Midleton (Jameson Distillery)</strong></td>
+              <td>24 km &bull; ~20 mins</td>
+              <td><span class="rate-highlight">€40</span></td>
+              <td><span class="rate-highlight">€65</span></td>
+              <td><a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20book%20Youghal%20to%20Midleton." target="_blank" class="btn-gold" style="padding: 7px 14px; font-size: 11px;">Book Route</a></td>
+            </tr>
+            <tr>
+              <td><strong>Youghal Base &harr; Waterford City Centre / Plunkett Station</strong></td>
+              <td>70 km &bull; ~55 mins</td>
+              <td><span class="rate-highlight">€110</span></td>
+              <td><span class="rate-highlight">€155</span></td>
+              <td><a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20book%20Youghal%20to%20Waterford." target="_blank" class="btn-gold" style="padding: 7px 14px; font-size: 11px;">Book Route</a></td>
+            </tr>
+            <tr>
+              <td><strong>Youghal Base &harr; Castlemartyr 5-Star Resort</strong></td>
+              <td>16 km &bull; ~15 mins</td>
+              <td><span class="rate-highlight">€35</span></td>
+              <td><span class="rate-highlight">€55</span></td>
+              <td><a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20book%20Youghal%20to%20Castlemartyr." target="_blank" class="btn-gold" style="padding: 7px 14px; font-size: 11px;">Book Route</a></td>
+            </tr>
+            <tr>
+              <td><strong>Youghal Base &harr; Fota Island Golf Resort</strong></td>
+              <td>38 km &bull; ~30 mins</td>
+              <td><span class="rate-highlight">€65</span></td>
+              <td><span class="rate-highlight">€95</span></td>
+              <td><a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20book%20Youghal%20to%20Fota%20Island." target="_blank" class="btn-gold" style="padding: 7px 14px; font-size: 11px;">Book Route</a></td>
+            </tr>
+            <tr>
+              <td><strong>Youghal Base &harr; Dublin Airport (DUB)</strong></td>
+              <td>245 km &bull; ~2h 45m</td>
+              <td><span class="rate-highlight">€320</span></td>
+              <td><span class="rate-highlight">€420</span></td>
+              <td><a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20book%20Youghal%20to%20Dublin%20Airport." target="_blank" class="btn-gold" style="padding: 7px 14px; font-size: 11px;">Book Route</a></td>
+            </tr>
+            <tr>
+              <td><strong>Dungarvan &harr; Dublin Airport (DUB)</strong></td>
+              <td>215 km &bull; ~2h 30m</td>
+              <td><span class="rate-highlight">€295</span></td>
+              <td><span class="rate-highlight">€390</span></td>
+              <td><a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20book%20Dungarvan%20to%20Dublin%20Airport." target="_blank" class="btn-gold" style="padding: 7px 14px; font-size: 11px;">Book Route</a></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+    </div>
+  </section>
 
-      <!-- PRICING GUARANTEES -->
-      <div class="pricing-guarantees-grid">
-        <div class="guarantee-card">
-          <h4>&#128179; All Tolls &amp; Parking Included</h4>
-          <p>No sudden add-ons for the M50 toll barrier, Port Tunnel fee, or Dublin Airport short-term parking. The price on this table is the complete final price.</p>
-        </div>
-        <div class="guarantee-card">
-          <h4>&#9201; No Rush Hour Meter Surcharges</h4>
-          <p>Unlike standard metered taxis, our executive chauffeurs operate on pre-agreed fixed fees. Heavy traffic on the M7 or M50 will never increase your cost.</p>
-        </div>
-        <div class="guarantee-card">
-          <h4>&#128179; Flexible Payment Options</h4>
-          <p>Pay comfortably via card inside the vehicle, secure online payment link, Apple Pay, Google Pay, or monthly invoice for registered business accounts.</p>
+  <!-- =========================================================
+       PRE-FOOTER CALL TO ACTION (USER REQUIREMENT)
+       ========================================================= -->
+  <section class="pre-footer-cta">
+    <div class="container">
+      <div class="cta-inner-card">
+        <span class="cta-eyebrow">&#128205; Custom Route?</span>
+        <h2 class="cta-title">Need a quote for a specific destination or tour?</h2>
+        <p class="cta-desc">
+          We provide local taxi trips, ferry port transfers, hospital appointments, and full-day bespoke tours all around Ireland. Send us your route for an instant fixed price.
+        </p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20need%20a%20quote%20for%20a%20custom%20route." target="_blank" class="btn-gold">
+            &#128172; Request Quote on WhatsApp
+          </a>
+          <a href="tel:+353870000000" class="btn-outline">
+            &#128222; Call Dispatch: +353 87 000 0000
+          </a>
+          <a href="services/ireland-tours.html" class="btn-outline">
+            &#9752;&#65039; Ireland Tours Itineraries
+          </a>
         </div>
       </div>
     </div>
@@ -592,61 +276,61 @@
             </svg>
             <div class="brand-text-block">
               <span class="brand-word-primary">UMAIR</span>
-              <span class="brand-word-secondary">TAXI &amp; LIMO</span>
+              <span class="brand-word-secondary">TAXI &amp; TOURS</span>
             </div>
           </a>
           <p>
-            Premium executive chauffeur service and airport transfers across Kildare, Dublin, and nationwide Ireland. Licensed by the National Transport Authority (NTA Ireland).
+            Reliable local taxi service, Cork &amp; Dublin airport transfers, and private tours all around Ireland. Proudly based in Youghal, Co. Cork. Licensed by the National Transport Authority (NTA Ireland).
           </p>
         </div>
 
         <div>
           <h4 class="footer-heading">Services</h4>
           <ul class="footer-links">
-            <li><a href="services/airport-transfers.html">Dublin Airport Transfers</a></li>
-            <li><a href="services/hotel-golf-transfers.html">The K Club &amp; Golf Chauffeur</a></li>
-            <li><a href="services/corporate-chauffeur.html">Corporate Travel</a></li>
-            <li><a href="services/city-to-city.html">City-to-City Transfers</a></li>
-            <li><a href="fleet.html">Executive Fleet</a></li>
+            <li><a href="services/airport-transfers.html">Airport Transfers (Cork &amp; Dublin)</a></li>
+            <li><a href="services/local-taxi.html">Local Taxi Service (Youghal)</a></li>
+            <li><a href="services/ireland-tours.html">Private Ireland Day Tours</a></li>
+            <li><a href="services/hotel-golf-transfers.html">Resort &amp; Golf Transfers</a></li>
+            <li><a href="fleet.html">Our Fleet</a></li>
           </ul>
         </div>
 
         <div>
           <h4 class="footer-heading">Service Areas</h4>
           <ul class="footer-links">
-            <li><a href="rates.html">Dublin Airport (DUB)</a></li>
-            <li><a href="rates.html">Naas &amp; Newbridge</a></li>
-            <li><a href="rates.html">Maynooth &amp; Celbridge</a></li>
-            <li><a href="rates.html">Kildare Town &amp; Curragh</a></li>
-            <li><a href="rates.html">Galway &amp; Cork</a></li>
+            <li><a href="services/local-taxi.html">Youghal, Co. Cork (Base)</a></li>
+            <li><a href="services/airport-transfers.html">Cork Airport (ORK)</a></li>
+            <li><a href="rates.html">Cork City Centre</a></li>
+            <li><a href="rates.html">Dungarvan &amp; Waterford</a></li>
+            <li><a href="services/airport-transfers.html">Dublin Airport (DUB)</a></li>
           </ul>
         </div>
 
         <div>
           <h4 class="footer-heading">24/7 Dispatch</h4>
           <div class="footer-contact-item">
-            <span>&#9742;</span>
-            <span><strong>+353 (0) 45 800 000</strong></span>
+            <span>&#128222;</span>
+            <span><strong>+353 (0) 87 000 0000</strong></span>
           </div>
           <div class="footer-contact-item">
-            <span>&#9993;</span>
-            <span>bookings@umairtaxilimo.ie</span>
+            <span>&#128172;</span>
+            <span>WhatsApp: Instant Reply</span>
           </div>
           <div class="footer-contact-item">
             <span>&#128205;</span>
-            <span>Kildare &bull; Dublin &bull; Ireland</span>
+            <span>Youghal &bull; Cork &bull; Ireland</span>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <div>&copy; 2026 Umair Taxi and Limo. All rights reserved. Registered SPSV Operator Ireland.</div>
-        <div>Luxury Black &amp; Muted Champagne Gold Brand Identity</div>
+        <div>&copy; 2026 Umair Taxi &amp; Tours. All rights reserved. Licensed SPSV Operator Ireland.</div>
+        <div>Muted Champagne Gold &amp; Obsidian Black</div>
       </div>
     </div>
   </footer>
 
-  <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20inquire%20about%20a%20chauffeur%20transfer." 
+  <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20inquire%20about%20a%20fixed%20rate%20booking." 
      target="_blank" 
      class="floating-whatsapp">
     <span>&#128172;</span>
@@ -658,7 +342,12 @@
       const drawer = document.getElementById('mobileDrawer');
       drawer.classList.toggle('is-open');
     }
+    function toggleSubMenu() {
+      const sub = document.getElementById('mobileSubMenu');
+      const arrow = document.getElementById('subArrow');
+      sub.classList.toggle('is-open');
+      arrow.innerHTML = sub.classList.contains('is-open') ? '&#9652;' : '&#9662;';
+    }
   </script>
 </body>
 </html>
-

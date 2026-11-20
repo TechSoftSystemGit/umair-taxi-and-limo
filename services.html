@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Executive Chauffeur &amp; Transfer Services in Ireland · Dublin Airport, Hotels &amp; Cities | Umair Taxi &amp; Limo</title>
-  <meta name="description" content="Discover private executive chauffeur services across Ireland. Dublin Airport transfers, 5-star hotel transfers, city-to-city travel, and corporate roadshows at fixed transparent prices.">
+  <title>Our Services · Airport Transfers, Local Taxi &amp; Ireland Tours | Umair Taxi &amp; Tours</title>
+  <meta name="description" content="Discover our full range of transportation services: Cork &amp; Dublin Airport transfers, 24/7 local taxi dispatch across Youghal &amp; East Cork, private Ireland day tours, and golf resort transfers.">
   <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,37 +12,34 @@
   <link rel="stylesheet" href="assets/css/style.css">
 
   <style>
-    /* Unique Services Layout Styles */
     .services-showcase {
       display: flex;
       flex-direction: column;
-      gap: 60px;
+      gap: 50px;
       margin-top: 20px;
     }
     .service-feature-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      gap: 40px;
       align-items: center;
       background: var(--bg-card);
       border: 1px solid var(--border-dark);
-      border-radius: 18px;
+      border-radius: 16px;
       overflow: hidden;
       padding: 0;
-      transition: border-color 0.3s;
+      transition: all 0.3s ease;
     }
     .service-feature-row:hover {
       border-color: var(--gold-primary);
-    }
-    .service-feature-row.reverse {
-      grid-template-columns: 1fr 1fr;
+      transform: translateY(-2px);
     }
     .service-feature-row.reverse .service-feature-media {
       order: 2;
     }
     .service-feature-media {
       height: 100%;
-      min-height: 380px;
+      min-height: 360px;
       position: relative;
       overflow: hidden;
     }
@@ -57,25 +54,25 @@
     }
     .service-badge-pill {
       position: absolute;
-      top: 18px;
-      left: 18px;
-      background: rgba(8, 10, 14, 0.88);
+      top: 16px;
+      left: 16px;
+      background: rgba(8, 10, 14, 0.9);
       border: 1px solid var(--border-gold);
       border-radius: 20px;
       padding: 5px 14px;
       font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
+      font-weight: 700;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--gold-light);
     }
     .service-feature-content {
-      padding: 40px;
+      padding: 36px 32px;
     }
     .service-cat {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--gold-primary);
       margin-bottom: 8px;
@@ -86,21 +83,21 @@
       font-size: 26px;
       font-weight: 700;
       color: #FFF;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       line-height: 1.3;
     }
     .service-text {
       font-size: 14px;
       color: var(--text-muted);
-      line-height: 1.75;
-      margin-bottom: 22px;
+      line-height: 1.7;
+      margin-bottom: 20px;
     }
     .service-features-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin-bottom: 26px;
+      gap: 9px;
+      margin-bottom: 24px;
     }
     .service-features-list li {
       font-size: 13px;
@@ -109,83 +106,48 @@
       align-items: center;
       gap: 10px;
     }
-    .service-features-list li svg {
-      width: 16px;
-      height: 16px;
+    .service-features-list li span.bullet {
       color: var(--gold-primary);
-      flex-shrink: 0;
+      font-weight: bold;
     }
 
-    /* What Every Transfer Includes Grid */
-    .inclusions-grid {
+    /* Positive Guarantee Standards Cards (Zero Red) */
+    .guarantee-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 24px;
-      margin-top: 30px;
+      margin-top: 28px;
     }
-    .inclusion-card {
+    .guarantee-card {
       background: var(--bg-card);
       border: 1px solid var(--border-dark);
-      border-radius: 14px;
-      padding: 28px 22px;
-      text-align: center;
+      border-left: 3px solid var(--gold-primary);
+      border-radius: 12px;
+      padding: 24px 22px;
       transition: all 0.25s ease;
     }
-    .inclusion-card:hover {
+    .guarantee-card:hover {
       border-color: var(--gold-primary);
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
-    .inclusion-icon {
-      width: 52px;
-      height: 52px;
-      margin: 0 auto 18px;
-      background: rgba(197, 160, 89, 0.1);
-      border: 1px solid rgba(197, 160, 89, 0.3);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      color: var(--gold-primary);
-    }
-    .inclusion-title {
+    .guarantee-title {
+      color: #FFF;
       font-size: 16px;
       font-weight: 600;
-      color: #FFF;
-      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
     }
-    .inclusion-desc {
+    .guarantee-title .check {
+      color: var(--gold-primary);
+      font-weight: 800;
+      font-size: 17px;
+    }
+    .guarantee-desc {
       font-size: 13px;
       color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* What We Don't Do Comparison */
-    .dont-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 26px;
-      margin-top: 30px;
-    }
-    .dont-card {
-      background: rgba(220, 38, 38, 0.04);
-      border: 1px solid rgba(220, 38, 38, 0.2);
-      border-radius: 14px;
-      padding: 26px;
-    }
-    .dont-title {
-      color: #F87171;
-      font-size: 16px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-    .dont-desc {
-      font-size: 13px;
-      color: #9CA3AF;
-      line-height: 1.7;
+      line-height: 1.65;
     }
 
     @media (max-width: 900px) {
@@ -196,21 +158,12 @@
         order: 0;
       }
       .service-feature-media {
-        min-height: 250px;
+        min-height: 240px;
       }
       .service-feature-content {
-        padding: 28px 20px;
+        padding: 26px 20px;
       }
-      .inclusions-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .dont-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .inclusions-grid {
+      .guarantee-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -219,11 +172,11 @@
 <body>
 
   <!-- =========================================================
-       1. STICKY COMPACT HEADER WITH INLINE BRAND VECTOR MARK
+       1. STICKY COMPACT HEADER WITH BRAND & DROPDOWN MENU
        ========================================================= -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-link" aria-label="Umair Taxi and Limo Home">
+      <a href="index.html" class="brand-link" aria-label="Umair Taxi and Tours Home">
         <svg class="brand-svg-mark" viewBox="0 0 54 54" width="38" height="38" aria-hidden="true">
           <defs>
             <linearGradient id="headerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -234,8 +187,7 @@
               <stop offset="100%" stop-color="#BF984E"/>
             </linearGradient>
           </defs>
-          <path d="M 12 9 L 21 14 L 21 35.5 C 21 41.5 25 46 29.5 46 C 34 46 38 41.5 38 35.5 L 38 14 L 47 9 L 47 35.5 C 47 45.5 39 52.5 29.5 52.5 C 20 52.5 12 45.5 12 35.5 Z" 
-                fill="url(#headerGoldGrad)"/>
+          <path d="M 12 9 L 21 14 L 21 35.5 C 21 41.5 25 46 29.5 46 C 34 46 38 41.5 38 35.5 L 38 14 L 47 9 L 47 35.5 C 47 45.5 39 52.5 29.5 52.5 C 20 52.5 12 45.5 12 35.5 Z" fill="url(#headerGoldGrad)"/>
           <path d="M 40 11 L 47 7 L 50.5 15 L 47 16.5 Z" fill="url(#headerGoldGrad)" opacity="0.95"/>
           <path d="M 12 9 L 18.5 5.5 L 21 14 Z" fill="url(#headerGoldGrad)" opacity="0.95"/>
           <path d="M 29.5 13 C 29.5 18.5 30.8 20.5 35 20.5 C 30.8 20.5 29.5 22.5 29.5 28 C 29.5 22.5 28.2 20.5 24 20.5 C 28.2 20.5 29.5 18.5 29.5 13 Z" fill="#FFFFFF"/>
@@ -244,226 +196,214 @@
 
         <div class="brand-text-block">
           <span class="brand-word-primary">UMAIR</span>
-          <span class="brand-word-secondary">TAXI &amp; LIMO</span>
+          <span class="brand-word-secondary">TAXI &amp; TOURS</span>
         </div>
       </a>
 
-      <!-- Desktop Nav -->
+      <!-- Desktop Nav with Dropdown -->
       <nav>
         <ul class="nav-menu">
-          <li><a href="services.html" class="nav-link active">Services</a></li>
+          <li class="nav-item-dropdown">
+            <a href="services.html" class="nav-link active">Services <span class="dropdown-chevron">&#9662;</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="services/airport-transfers.html">&#9992;&#65039; Airport Transfers (Cork &amp; Dublin)</a></li>
+              <li><a href="services/local-taxi.html">&#128662; Local Taxi (Youghal &amp; Cork)</a></li>
+              <li><a href="services/ireland-tours.html">&#9752;&#65039; Tours Around Ireland</a></li>
+              <li><a href="services/hotel-golf-transfers.html">&#127976; Hotel &amp; Golf Resorts</a></li>
+              <li><a href="services.html">&#128203; All Services Overview</a></li>
+            </ul>
+          </li>
+          <li><a href="services/ireland-tours.html" class="nav-link">&#9752;&#65039; Ireland Tours</a></li>
           <li><a href="rates.html" class="nav-link">Fixed Rates</a></li>
           <li><a href="fleet.html" class="nav-link">Fleet</a></li>
           <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
-          <li><a href="faq.html" class="nav-link">FAQ</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
 
-      <!-- Right Actions -->
+      <!-- Right Actions (Concise Buttons) -->
       <div class="header-right">
-        <a href="tel:+35345800000" class="phone-badge">
-          <span class="phone-icon">&#9742;</span>
-          <span>+353 (0) 45 800 000</span>
+        <a href="tel:+353870000000" class="phone-badge">
+          <span>&#128222;</span>
+          <span>+353 (0) 87 000 0000</span>
         </a>
-        <a href="tel:+35345800000" class="mobile-phone-btn" aria-label="Call Dispatch">
-          <span>&#9742;</span>
+        <a href="tel:+353870000000" class="mobile-phone-btn" aria-label="Call Dispatch">
+          <span>&#128222;</span>
         </a>
-        <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20reserve%20a%20chauffeur%20transfer." 
+        <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20make%20a%20booking." 
            target="_blank" 
            class="btn-header-cta">
-          <span class="cta-desktop-text">Reserve Chauffeur</span>
+          <span class="cta-desktop-text">Book on WhatsApp</span>
           <span class="cta-mobile-text">Book</span>
         </a>
         <button class="burger-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
+  <!-- Mobile Drawer with Collapsible Dropdown -->
   <div class="mobile-drawer" id="mobileDrawer">
     <ul class="mobile-drawer-links">
-      <li><a href="services.html" style="color: var(--gold-primary);">Services <span>&rarr;</span></a></li>
-      <li><a href="rates.html">Fixed Rates &amp; Routes <span>&rarr;</span></a></li>
+      <li class="mobile-dropdown">
+        <div class="mobile-dropdown-header" onclick="toggleSubMenu()">
+          <span>&#128662; Services Menu</span>
+          <span id="subArrow">&#9662;</span>
+        </div>
+        <ul class="mobile-submenu" id="mobileSubMenu">
+          <li><a href="services/airport-transfers.html">&#9992;&#65039; Airport Transfers (Cork &amp; Dublin)</a></li>
+          <li><a href="services/local-taxi.html">&#128662; Local Taxi (Youghal &amp; Cork)</a></li>
+          <li><a href="services/ireland-tours.html">&#9752;&#65039; Tours Around Ireland</a></li>
+          <li><a href="services/hotel-golf-transfers.html">&#127976; Hotel &amp; Golf Resorts</a></li>
+          <li><a href="services.html">&#128203; All Services Overview</a></li>
+        </ul>
+      </li>
+      <li><a href="services/ireland-tours.html">&#9752;&#65039; Tours Around Ireland <span>&rarr;</span></a></li>
+      <li><a href="rates.html">Fixed Rates <span>&rarr;</span></a></li>
       <li><a href="fleet.html">Our Fleet <span>&rarr;</span></a></li>
       <li><a href="how-it-works.html">How It Works <span>&rarr;</span></a></li>
-      <li><a href="faq.html">FAQ <span>&rarr;</span></a></li>
       <li><a href="contact.html">Contact Us <span>&rarr;</span></a></li>
     </ul>
-    <div style="display: flex; gap: 10px;">
-      <a href="tel:+35345800000" class="btn-outline" style="flex: 1; font-size: 12px; padding: 11px;">
-        &#9742; Call +353 45 800 000
+    <div style="margin-top: 18px; display: flex; flex-direction: column; gap: 10px;">
+      <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20need%20a%20booking." target="_blank" class="btn-gold" style="width: 100%;">
+        &#128172; Book on WhatsApp
       </a>
-      <a href="https://wa.me/35345800000" target="_blank" class="btn-gold" style="flex: 1; font-size: 12px; padding: 11px;">
-        &#128172; WhatsApp
+      <a href="tel:+353870000000" class="btn-outline" style="width: 100%; justify-content: center;">
+        &#128222; Call Dispatch
       </a>
     </div>
   </div>
 
   <!-- =========================================================
-       PAGE HERO BANNER
+       HERO BANNER
        ========================================================= -->
-  <section class="page-hero">
-    <img src="https://images.unsplash.com/photo-1549918864-48ac978761a4?auto=format&fit=crop&q=80&w=1920" 
-         alt="Private Chauffeur Ireland" 
-         class="page-hero-bg">
-    <div class="page-hero-overlay"></div>
-    <div class="container page-hero-content">
-      <div class="breadcrumb">
-        <a href="index.html">Home</a> &bull; <span>Our Services</span>
-      </div>
-      <h1>Private Transfer Services in Ireland</h1>
-      <p>
-        From Dublin Airport meet &amp; greet arrivals to premier Kildare golf resorts, cross-country city transfers, and corporate executive travel. All-inclusive fixed pricing, flight tracking, and suited professional Irish chauffeurs.
+  <section class="page-hero" style="padding: 70px 0 50px; text-align: center; background: #080A0E; border-bottom: 1px solid var(--border-gold);">
+    <div class="container">
+      <span class="section-tag">Youghal Base &bull; Cork, Waterford &amp; Nationwide</span>
+      <h1 class="page-title" style="font-family: var(--font-serif); font-size: 38px; color: #FFF; margin: 12px 0 16px;">
+        Our Core Services
+      </h1>
+      <p style="font-size: 15px; color: var(--text-muted); max-width: 680px; margin: 0 auto 20px;">
+        From 24/7 airport runs and fast local taxi pickups in Youghal to unforgettable private sightseeing tours across Ireland.
       </p>
+      
+      <!-- Service Area Badges -->
+      <div class="service-areas-pills" style="justify-content: center;">
+        <span class="area-pill base">&#128205; Base: Youghal, Co. Cork</span>
+        <span class="area-pill">&#9992;&#65039; Cork Airport (ORK)</span>
+        <span class="area-pill">&#127963;&#65039; Cork City</span>
+        <span class="area-pill">&#127958;&#65039; Dungarvan</span>
+        <span class="area-pill">&#128331; Waterford</span>
+        <span class="area-pill">&#9992;&#65039; Dublin Airport (DUB)</span>
+        <span class="area-pill">&#9752;&#65039; Ireland Day Tours</span>
+      </div>
     </div>
   </section>
 
   <!-- =========================================================
-       SERVICES SHOWCASE (FEATURE ROWS)
+       MAIN SERVICES SHOWCASE
        ========================================================= -->
   <section class="section">
     <div class="container">
-      <div class="section-head">
-        <span class="section-tag">Bespoke Solutions</span>
-        <h2 class="section-title">Where We Take You</h2>
-        <p class="section-desc">Every journey is direct, private, and catered to your personal or executive schedule.</p>
-      </div>
-
       <div class="services-showcase">
 
-        <!-- Service 1: Airport -->
+        <!-- 1. AIRPORT TRANSFERS (PRIMARY SERVICE) -->
         <div class="service-feature-row">
           <div class="service-feature-media">
-            <div class="service-badge-pill">Terminal 1 &amp; 2 Arrivals</div>
-            <img src="https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&q=80&w=1000" alt="Dublin Airport Arrivals">
+            <span class="service-badge-pill">&#9992;&#65039; Primary Service</span>
+            <img src="https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&q=80&w=900" alt="Cork and Dublin Airport Transfers">
           </div>
           <div class="service-feature-content">
-            <span class="service-cat">Airport Transfers</span>
-            <h3 class="service-heading">Dublin Airport (DUB) Meet &amp; Greet</h3>
+            <span class="service-cat">Service 01 &bull; Punctual Airport Transit</span>
+            <h2 class="service-heading">Cork &amp; Dublin Airport Transfers</h2>
             <p class="service-text">
-              Step off your plane and into effortless executive comfort. We track your flight live from takeoff to touchdown. Whether your flight is early or delayed, your personal chauffeur is waiting directly inside the arrivals hall with a customized digital nameboard, ready to assist with luggage and escort you straight to your executive vehicle.
+              Direct, comfortable transfers between <strong>Cork Airport (ORK)</strong>, <strong>Dublin Airport (DUB)</strong>, and Youghal, Dungarvan, Midleton, and Waterford. Fixed fares per car, free flight tracking, and complimentary 60 minutes waiting time.
             </p>
             <ul class="service-features-list">
-              <li>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <span>Live flight tracking calibration included automatically</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <span>60 minutes complimentary waiting time after wheels touch down</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <span>Fixed fares from €65 (City) &amp; €95 (Kildare / Naas)</span>
-              </li>
+              <li><span class="bullet">&#10003;</span> Real-time flight tracking for early or delayed landings</li>
+              <li><span class="bullet">&#10003;</span> Terminal meet &amp; greet with luggage assistance</li>
+              <li><span class="bullet">&#10003;</span> Fixed price per vehicle with tolls included</li>
+              <li><span class="bullet">&#10003;</span> Saloon cars and 7-8 passenger tour minivans</li>
             </ul>
             <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-              <a href="services/airport-transfers.html" class="btn-gold">Explore Airport Service &rarr;</a>
-              <a href="rates.html" class="btn-outline">View Airport Rates</a>
+              <a href="services/airport-transfers.html" class="btn-gold">View Airport Rates &rarr;</a>
+              <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20need%20an%20airport%20transfer." target="_blank" class="btn-outline">&#128172; Book Airport Run</a>
             </div>
           </div>
         </div>
 
-        <!-- Service 2: Hotel & Golf Resorts -->
+        <!-- 2. LOCAL TAXI SERVICE -->
         <div class="service-feature-row reverse">
           <div class="service-feature-media">
-            <div class="service-badge-pill">VIP Resorts</div>
-            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1000" alt="The K Club Luxury Resort">
+            <span class="service-badge-pill">&#128662; 24/7 Local Taxi</span>
+            <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=900" alt="Local Taxi Service Youghal and Cork">
           </div>
           <div class="service-feature-content">
-            <span class="service-cat">Luxury Resorts &amp; Golf</span>
-            <h3 class="service-heading">5-Star Hotels &amp; Golf Chauffeur</h3>
+            <span class="service-cat">Service 02 &bull; On-Demand Regional Mobility</span>
+            <h2 class="service-heading">Local Taxi Service (Youghal &amp; Region)</h2>
             <p class="service-text">
-              Direct door-to-door luxury transport for guests visiting The K Club (Straffan), Carton House (Maynooth), The Merrion, The Shelbourne, and Adare Manor. Spacious extra-long Mercedes V-Class vehicles readily accommodate golf travel bags, flight cases, and up to 7 passengers with total ease.
+              Fast, courteous local taxi dispatch in <strong>Youghal, County Cork</strong> and surrounding towns including Dungarvan, Killeagh, Castlemartyr, Midleton, and Cork City. Available 24 hours a day for train connections, hospital appointments, social events, and daily trips.
             </p>
             <ul class="service-features-list">
-              <li>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <span>Golf club bags and excess luggage accommodated</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <span>Direct transfers between airport, hotel, and golf tee times</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <span>Bottled spring water and on-board high-speed Wi-Fi</span>
-              </li>
+              <li><span class="bullet">&#10003;</span> Fast dispatch across Youghal and East Cork</li>
+              <li><span class="bullet">&#10003;</span> Transparent, fair fares with cash, card &amp; contactless accepted</li>
+              <li><span class="bullet">&#10003;</span> Punctual pickups for trains, ferries, and appointments</li>
+              <li><span class="bullet">&#10003;</span> Clean, smoke-free, comfortable vehicles</li>
             </ul>
             <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-              <a href="services/hotel-golf-transfers.html" class="btn-gold">Explore Golf &amp; Hotels &rarr;</a>
-              <a href="rates.html" class="btn-outline">Check Resort Rates</a>
+              <a href="services/local-taxi.html" class="btn-gold">Local Taxi Details &rarr;</a>
+              <a href="tel:+353870000000" class="btn-outline">&#128222; Call Local Dispatch</a>
             </div>
           </div>
         </div>
 
-        <!-- Service 3: City to City -->
+        <!-- 3. PRIVATE TOURS ALL AROUND IRELAND -->
         <div class="service-feature-row">
           <div class="service-feature-media">
-            <div class="service-badge-pill">Nationwide Ireland</div>
-            <img src="https://images.unsplash.com/photo-1549918864-48ac978761a4?auto=format&fit=crop&q=80&w=1000" alt="City to City Ireland">
+            <span class="service-badge-pill">&#9752;&#65039; Private Day Tours</span>
+            <img src="https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?auto=format&fit=crop&q=80&w=900" alt="Private Tours Around Ireland">
           </div>
           <div class="service-feature-content">
-            <span class="service-cat">Intercity Travel</span>
-            <h3 class="service-heading">City to City Long Distance Chauffeur</h3>
+            <span class="service-cat">Service 03 &bull; Inspired by AboutIrelandTaxiTours</span>
+            <h2 class="service-heading">Tours All Around Ireland</h2>
             <p class="service-text">
-              Avoid crowded trains, multiple luggage transfers, and timetable delays. Travel in private, whisper-quiet executive serenity between Dublin, Kildare, Galway, Cork, Limerick, and Belfast. Work comfortably on your laptop with on-board 5G Wi-Fi or relax in reclining leather comfort.
+              Experience the beauty of Ireland with your private driver-guide. Tailored private day tours to <strong>Blarney Castle &amp; Kinsale</strong>, <strong>Ring of Kerry</strong>, <strong>Copper Coast &amp; Waterford Crystal</strong>, <strong>Jameson Midleton</strong>, and <strong>Cliffs of Moher</strong>. Travel at your own pace with photo stops wherever you wish.
             </p>
             <ul class="service-features-list">
-              <li>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <span>Direct door-to-door without connection hassles</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <span>Complimentary comfort stops at your convenience</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <span>Galway from €290 &bull; Cork from €340 &bull; Belfast from €260</span>
-              </li>
+              <li><span class="bullet">&#10003;</span> Exclusive private vehicle — no crowded bus tours</li>
+              <li><span class="bullet">&#10003;</span> Friendly, knowledgeable local Irish driver-guide</li>
+              <li><span class="bullet">&#10003;</span> Custom itineraries tailored to your interests and pace</li>
+              <li><span class="bullet">&#10003;</span> Spacious 7-8 seater tour vans with large panoramic windows</li>
             </ul>
             <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-              <a href="services/city-to-city.html" class="btn-gold">Explore Intercity &rarr;</a>
-              <a href="rates.html" class="btn-outline">View Route Matrix</a>
+              <a href="services/ireland-tours.html" class="btn-gold">Explore Ireland Tours &rarr;</a>
+              <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20am%20interested%20in%20a%20private%20Ireland%20tour." target="_blank" class="btn-outline">&#128172; Custom Tour Quote</a>
             </div>
           </div>
         </div>
 
-        <!-- Service 4: Corporate -->
+        <!-- 4. HOTELS & GOLF RESORTS -->
         <div class="service-feature-row reverse">
           <div class="service-feature-media">
-            <div class="service-badge-pill">Business &amp; Diplomatic</div>
-            <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&q=80&w=1000" alt="Executive Interior">
+            <span class="service-badge-pill">&#127976; 5-Star Resorts &amp; Golf</span>
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=900" alt="Luxury Hotel and Golf Transfers">
           </div>
           <div class="service-feature-content">
-            <span class="service-cat">Corporate Travel</span>
-            <h3 class="service-heading">Corporate Accounts &amp; VIP Roadshows</h3>
+            <span class="service-cat">Service 04 &bull; Resort &amp; Golf Transit</span>
+            <h2 class="service-heading">Resorts &amp; Championship Golf</h2>
             <p class="service-text">
-              Trusted transport for visiting multinational leadership, diplomatic delegations, board meetings, and client roadshows across Dublin and Kildare's tech and pharmaceutical hubs. We provide monthly consolidated invoicing, priority booking, and complete non-disclosure discretion.
+              Seamless private transport to Munster and Ireland's premier luxury estates: <strong>Castlemartyr Resort</strong>, <strong>Fota Island Resort</strong>, <strong>Old Head of Kinsale Golf Links</strong>, <strong>Waterford Castle</strong>, and <strong>Dungarvan Golf Club</strong>. Room for all golf clubs and heavy luggage.
             </p>
             <ul class="service-features-list">
-              <li>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <span>Monthly itemized corporate billing &amp; VAT receipts</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <span>Dedicated account manager and priority dispatch</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <span>Strict privacy, NDA compliance, and discreet unmarked cars</span>
-              </li>
+              <li><span class="bullet">&#10003;</span> Door-to-door direct travel between airport and luxury hotels</li>
+              <li><span class="bullet">&#10003;</span> Dedicated spacious boot space for golf bags and luggage</li>
+              <li><span class="bullet">&#10003;</span> Multi-day driver standby available on request</li>
+              <li><span class="bullet">&#10003;</span> Professional, suited, discreet service</li>
             </ul>
             <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-              <a href="services/corporate-chauffeur.html" class="btn-gold">Explore Corporate &rarr;</a>
-              <a href="contact.html" class="btn-outline">Open Business Account</a>
+              <a href="services/hotel-golf-transfers.html" class="btn-gold">Resort Transfers &rarr;</a>
+              <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20need%20resort%20or%20golf%20transfers." target="_blank" class="btn-outline">&#128172; Inquire on WhatsApp</a>
             </div>
           </div>
         </div>
@@ -473,96 +413,62 @@
   </section>
 
   <!-- =========================================================
-       WHAT EVERY TRANSFER INCLUDES (LusiDriver Pattern)
+       OUR QUALITY GUARANTEE (POSITIVE COMMITMENTS - ZERO RED)
        ========================================================= -->
-  <section class="section section-alt">
+  <section class="section" style="background: #0B0D12;">
     <div class="container">
       <div class="section-head">
-        <span class="section-tag">Executive Inclusions</span>
-        <h2 class="section-title">What Every Transfer Includes</h2>
-        <p class="section-desc">There are no hidden extras. Every booking with Umair Taxi &amp; Limo comes with our full suite of premium amenities.</p>
+        <span class="section-tag">Quality &amp; Trust</span>
+        <h2 class="section-title">Our Passenger Commitment</h2>
+        <p class="section-desc">Reliable local taxi, airport transfers &amp; scenic Ireland tours. Here is our personal standard on every journey.</p>
       </div>
 
-      <div class="inclusions-grid">
-        <div class="inclusion-card">
-          <div class="inclusion-icon">&#9992;</div>
-          <h3 class="inclusion-title">Live Flight Tracking</h3>
-          <p class="inclusion-desc">We monitor your flight continuously. If you land early or late, your pickup time is updated automatically with zero extra charge.</p>
+      <div class="guarantee-grid">
+        <div class="guarantee-card">
+          <h4 class="guarantee-title"><span class="check">&#10003;</span> 100% Private Dedicated Transfers</h4>
+          <p class="guarantee-desc">We never combine bookings with strangers. You and your party enjoy exclusive private use of the vehicle for a relaxed, direct trip.</p>
         </div>
 
-        <div class="inclusion-card">
-          <div class="inclusion-icon">&#9201;</div>
-          <h3 class="inclusion-title">60 Mins Free Waiting</h3>
-          <p class="inclusion-desc">Take your time deplaning, clearing passport control, and collecting baggage without rush or waiting surcharges.</p>
+        <div class="guarantee-card">
+          <h4 class="guarantee-title"><span class="check">&#10003;</span> Guaranteed Fixed Prices &bull; Zero Surge</h4>
+          <p class="guarantee-desc">Your price is agreed upfront. Bad weather, rush hour traffic, or flight delays will never increase your quoted rate.</p>
         </div>
 
-        <div class="inclusion-card">
-          <div class="inclusion-icon">&#129309;</div>
-          <h3 class="inclusion-title">Arrivals Meet &amp; Greet</h3>
-          <p class="inclusion-desc">Your chauffeur meets you inside the arrivals hall with a clean digital nameboard and assists with all luggage.</p>
+        <div class="guarantee-card">
+          <h4 class="guarantee-title"><span class="check">&#10003;</span> No Anxious Meter In Traffic</h4>
+          <p class="guarantee-desc">You will never watch an unpredictable meter ticking up during road delays. Honest, transparent fixed prices every time.</p>
         </div>
 
-        <div class="inclusion-card">
-          <div class="inclusion-icon">&#128179;</div>
-          <h3 class="inclusion-title">All Tolls &amp; VAT Included</h3>
-          <p class="inclusion-desc">Dublin Port Tunnel, M50 tolls, airport access charges, and VAT are 100% included in the quoted price.</p>
-        </div>
-
-        <div class="inclusion-card">
-          <div class="inclusion-icon">&#128246;</div>
-          <h3 class="inclusion-title">Wi-Fi &amp; USB Power</h3>
-          <p class="inclusion-desc">Stay fully connected on the road with high-speed 5G mobile Wi-Fi and multi-device fast charging ports.</p>
-        </div>
-
-        <div class="inclusion-card">
-          <div class="inclusion-icon">&#129523;</div>
-          <h3 class="inclusion-title">Mineral Water &amp; Mints</h3>
-          <p class="inclusion-desc">Complimentary chilled Irish spring water, refreshing confectionery, and daily valeted leather cabins.</p>
+        <div class="guarantee-card">
+          <h4 class="guarantee-title"><span class="check">&#10003;</span> Licensed, Vetted &amp; Local Irish Drivers</h4>
+          <p class="guarantee-desc">Every driver is fully licensed by the National Transport Authority (NTA Ireland), background-checked, insured, and thoroughly experienced.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- =========================================================
-       WHAT WE DON'T OFFER (Honest Transparency)
+       PRE-FOOTER CALL TO ACTION (USER REQUIREMENT)
        ========================================================= -->
-  <section class="section">
+  <section class="pre-footer-cta">
     <div class="container">
-      <div class="section-head">
-        <span class="section-tag">Clarity &amp; Focus</span>
-        <h2 class="section-title">What We Don’t Do</h2>
-        <p class="section-desc">We are an executive private chauffeur service, not a low-cost ride-hail app. Here is our commitment to standards.</p>
-      </div>
-
-      <div class="dont-grid">
-        <div class="dont-card">
-          <h4 class="dont-title">&#10006; No Shared Shuttles or Stranger Rides</h4>
-          <p class="dont-desc">We never combine bookings. You and your party have exclusive private use of the executive vehicle for the entire journey.</p>
+      <div class="cta-inner-card">
+        <span class="cta-eyebrow">&#128662; 24/7 Direct Booking</span>
+        <h2 class="cta-title">Ready to book your taxi, airport run, or Ireland tour?</h2>
+        <p class="cta-desc">
+          Based in Youghal, Co. Cork. Serving Cork Airport, Cork City, Dungarvan, Waterford, and scenic private day tours across Ireland. Get an instant quote or book via WhatsApp now.
+        </p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20book%20a%20ride." target="_blank" class="btn-gold">
+            &#128172; Book on WhatsApp
+          </a>
+          <a href="tel:+353870000000" class="btn-outline">
+            &#128222; Call Dispatch: +353 87 000 0000
+          </a>
+          <a href="rates.html" class="btn-outline">
+            &#128205; View Fixed Rates
+          </a>
         </div>
-
-        <div class="dont-card">
-          <h4 class="dont-title">&#10006; No Surge Pricing in Bad Weather or Rush Hour</h4>
-          <p class="dont-desc">Your price is fixed when you book. Rain, traffic on the M50, or flight delays will never increase your quoted rate.</p>
-        </div>
-
-        <div class="dont-card">
-          <h4 class="dont-title">&#10006; No Meters Running in Traffic</h4>
-          <p class="dont-desc">You will never watch an anxious meter ticking up in motorway delays. The agreed fixed price remains firm.</p>
-        </div>
-
-        <div class="dont-card">
-          <h4 class="dont-title">&#10006; No Unvetted or Casual Drivers</h4>
-          <p class="dont-desc">Every chauffeur is licensed by the National Transport Authority (NTA Ireland), fully insured, suited, and background-checked.</p>
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 50px;">
-        <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20book%20a%20private%20chauffeur%20transfer." 
-           target="_blank" 
-           class="btn-gold" 
-           style="font-size: 14px; padding: 14px 32px;">
-          Reserve Your Chauffeur on WhatsApp &rarr;
-        </a>
       </div>
     </div>
   </section>
@@ -585,8 +491,7 @@
                   <stop offset="100%" stop-color="#BF984E"/>
                 </linearGradient>
               </defs>
-              <path d="M 12 9 L 21 14 L 21 35.5 C 21 41.5 25 46 29.5 46 C 34 46 38 41.5 38 35.5 L 38 14 L 47 9 L 47 35.5 C 47 45.5 39 52.5 29.5 52.5 C 20 52.5 12 45.5 12 35.5 Z" 
-                    fill="url(#footerGoldGrad)"/>
+              <path d="M 12 9 L 21 14 L 21 35.5 C 21 41.5 25 46 29.5 46 C 34 46 38 41.5 38 35.5 L 38 14 L 47 9 L 47 35.5 C 47 45.5 39 52.5 29.5 52.5 C 20 52.5 12 45.5 12 35.5 Z" fill="url(#footerGoldGrad)"/>
               <path d="M 40 11 L 47 7 L 50.5 15 L 47 16.5 Z" fill="url(#footerGoldGrad)" opacity="0.95"/>
               <path d="M 12 9 L 18.5 5.5 L 21 14 Z" fill="url(#footerGoldGrad)" opacity="0.95"/>
               <path d="M 29.5 13 C 29.5 18.5 30.8 20.5 35 20.5 C 30.8 20.5 29.5 22.5 29.5 28 C 29.5 22.5 28.2 20.5 24 20.5 C 28.2 20.5 29.5 18.5 29.5 13 Z" fill="#FFFFFF"/>
@@ -594,62 +499,62 @@
             </svg>
             <div class="brand-text-block">
               <span class="brand-word-primary">UMAIR</span>
-              <span class="brand-word-secondary">TAXI &amp; LIMO</span>
+              <span class="brand-word-secondary">TAXI &amp; TOURS</span>
             </div>
           </a>
           <p>
-            Premium executive chauffeur service and airport transfers across Kildare, Dublin, and nationwide Ireland. Licensed by the National Transport Authority (NTA Ireland).
+            Reliable local taxi service, Cork &amp; Dublin airport transfers, and private sightseeing tours all around Ireland. Proudly based in Youghal, Co. Cork. Licensed by the National Transport Authority (NTA Ireland).
           </p>
         </div>
 
         <div>
           <h4 class="footer-heading">Services</h4>
           <ul class="footer-links">
-            <li><a href="services/airport-transfers.html">Dublin Airport Transfers</a></li>
-            <li><a href="services/hotel-golf-transfers.html">The K Club &amp; Golf Chauffeur</a></li>
-            <li><a href="services/corporate-chauffeur.html">Corporate Travel</a></li>
-            <li><a href="services/city-to-city.html">City-to-City Transfers</a></li>
-            <li><a href="fleet.html">Executive Fleet</a></li>
+            <li><a href="services/airport-transfers.html">Airport Transfers (Cork &amp; Dublin)</a></li>
+            <li><a href="services/local-taxi.html">Local Taxi Service (Youghal)</a></li>
+            <li><a href="services/ireland-tours.html">Private Ireland Day Tours</a></li>
+            <li><a href="services/hotel-golf-transfers.html">Resort &amp; Golf Transfers</a></li>
+            <li><a href="fleet.html">Our Fleet</a></li>
           </ul>
         </div>
 
         <div>
           <h4 class="footer-heading">Service Areas</h4>
           <ul class="footer-links">
-            <li><a href="rates.html">Dublin Airport (DUB)</a></li>
-            <li><a href="rates.html">Naas &amp; Newbridge</a></li>
-            <li><a href="rates.html">Maynooth &amp; Celbridge</a></li>
-            <li><a href="rates.html">Kildare Town &amp; Curragh</a></li>
-            <li><a href="rates.html">Galway &amp; Cork</a></li>
+            <li><a href="services/local-taxi.html">Youghal, Co. Cork (Base)</a></li>
+            <li><a href="services/airport-transfers.html">Cork Airport (ORK)</a></li>
+            <li><a href="rates.html">Cork City Centre</a></li>
+            <li><a href="rates.html">Dungarvan &amp; Waterford</a></li>
+            <li><a href="services/airport-transfers.html">Dublin Airport (DUB)</a></li>
           </ul>
         </div>
 
         <div>
           <h4 class="footer-heading">24/7 Dispatch</h4>
           <div class="footer-contact-item">
-            <span>&#9742;</span>
-            <span><strong>+353 (0) 45 800 000</strong></span>
+            <span>&#128222;</span>
+            <span><strong>+353 (0) 87 000 0000</strong></span>
           </div>
           <div class="footer-contact-item">
-            <span>&#9993;</span>
-            <span>bookings@umairtaxilimo.ie</span>
+            <span>&#128172;</span>
+            <span>WhatsApp: Instant Reply</span>
           </div>
           <div class="footer-contact-item">
             <span>&#128205;</span>
-            <span>Kildare &bull; Dublin &bull; Ireland</span>
+            <span>Youghal &bull; Cork &bull; Ireland</span>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <div>&copy; 2026 Umair Taxi and Limo. All rights reserved. Registered SPSV Operator Ireland.</div>
-        <div>Luxury Black &amp; Muted Champagne Gold Brand Identity</div>
+        <div>&copy; 2026 Umair Taxi &amp; Tours. All rights reserved. Licensed SPSV Operator Ireland.</div>
+        <div>Muted Champagne Gold &amp; Obsidian Black</div>
       </div>
     </div>
   </footer>
 
   <!-- Floating WhatsApp Pill -->
-  <a href="https://wa.me/35345800000?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20inquire%20about%20a%20chauffeur%20transfer." 
+  <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20make%20a%20booking." 
      target="_blank" 
      class="floating-whatsapp">
     <span>&#128172;</span>
@@ -661,7 +566,12 @@
       const drawer = document.getElementById('mobileDrawer');
       drawer.classList.toggle('is-open');
     }
+    function toggleSubMenu() {
+      const sub = document.getElementById('mobileSubMenu');
+      const arrow = document.getElementById('subArrow');
+      sub.classList.toggle('is-open');
+      arrow.innerHTML = sub.classList.contains('is-open') ? '&#9652;' : '&#9662;';
+    }
   </script>
 </body>
 </html>
-
