@@ -1,0 +1,12 @@
+{
+  "name": "umair-taxi-and-limo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "node site/build.mjs",
+    "dev": "npm run build && node server.mjs",
+    "start": "node server.mjs"
+  }
+}
