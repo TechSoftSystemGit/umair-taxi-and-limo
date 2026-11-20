@@ -54,7 +54,7 @@ export function footer() {
         <div><h2>Plan your journey</h2>${link('/fleet/', 'Fleet')}${link('/how-it-works/', 'How It Works')}${link('/rates/', 'Get a Quote')}${link('/faq/', 'FAQs')}</div>
         <div><h2>Contact</h2><address>${renderIcon('pin')}${escape(business.address)}<br>${link(call, business.phone, '', 'phone')}${link(`mailto:${business.email}`, business.email, '', 'mail')}</address></div>
       </div>
-      <div class="footer-bottom"><span>© Umair Taxi and Limo</span><div>${link('/privacy-policy/', 'Privacy Policy')}${link('/terms/', 'Terms')}</div></div>
+      <div class="footer-bottom"><span>© Umair Taxi and Limo</span><span>Developed by ${link('https://techsoftsystem.com/', 'TechSoftSystem')}</span></div>
     </div></footer>`;
 }
 
@@ -80,7 +80,7 @@ export function bookingForm(compact = false) {
           <label class="full">Notes <span>(optional)</span><textarea name="notes" rows="3" maxlength="400" placeholder="Return timing, meeting point or special requests"></textarea></label>`}
       </div>
       <button class="button button--gold form-submit" ${compact ? '' : 'hidden'}>${renderIcon(compact ? 'calendar' : 'chat')}${compact ? 'Continue to Booking' : 'Continue to WhatsApp'}</button>
-      ${compact ? '' : `<p class="form-note">Your journey is confirmed after we agree the details with you.</p>
+      ${compact ? '' : `<p class="form-note">Your journey is confirmed after we agree the details with you. See our ${link('/terms/', 'Booking Terms')} and ${link('/privacy-policy/', 'Privacy Policy')}.</p>
       <noscript><p>Send your journey details directly via ${link(whatsapp, 'WhatsApp')} or ${link(call, 'call us')}.</p></noscript>`}
     </form>
   </section>`;
@@ -103,6 +103,7 @@ export function contactForm() {
         <button class="button button--dark" type="submit" value="email">${renderIcon('mail')}Open email app</button>
       </div>
       <noscript><p>To send your enquiry, ${link(whatsapp, 'open WhatsApp')} or ${link('mailto:' + business.email, 'email us')}.</p></noscript>
+      <p class="form-note">${link('/privacy-policy/', 'Privacy Policy')}</p>
     </form>
   </section>`;
 }
