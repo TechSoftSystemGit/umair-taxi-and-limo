@@ -11,7 +11,7 @@ The horizontal wordmark pairs an interlocked UT monogram with a two-line serif w
 
 ## Colour and type
 
-Use charcoal for navigation, warm ivory for reading surfaces and champagne gold for primary actions. The website uses Instrument Serif for display headings and DM Sans for body copy and controls. The colour values are defined in `site/assets/site.css`.
+Use black and warm charcoal for backgrounds and surfaces, champagne gold for primary actions and highlights, and warm ivory for readable text. The website uses Instrument Serif for display headings and DM Sans for body copy and controls. The colour values are defined in `site/assets/site.css`.
 
 ## Imagery and copy
 

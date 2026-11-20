@@ -7,6 +7,15 @@ export const serviceMedia = {
   'aircoach-transfers': ['coach-stop-connection', 'Traveller with luggage waiting near an intercity coach'],
 };
 
+export const serviceHeroMedia = {
+  'airport-transfers': ['airport-transfer-at-dusk', 'Illustrative taxi pickup beneath a terminal canopy at dusk'],
+  'local-taxi-youghal': ['youghal-taxi-at-dawn', 'Illustrative taxi on a waterfront town street in early morning light'],
+  'golf-tours': ['links-golf-travel', 'Golf bags beside a vehicle at a coastal links course'],
+  'corporate-travel': ['conference-hotel-arrival', 'Illustrative taxi arrival at a conference hotel'],
+  'hospital-runs': ['clinic-taxi-arrival', 'Illustrative passenger pickup outside a clinic'],
+  'aircoach-transfers': ['coach-connection-at-dusk', 'Traveller with a suitcase beside a coach at dusk'],
+};
+
 export const areaMedia = {
   youghal: ['youghal-waterfront', 'Illustrative Youghal waterfront with stone harbour walls'],
   cork: ['cork-riverfront', 'Illustrative Cork City riverfront with a bridge and terraces'],

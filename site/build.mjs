@@ -1,7 +1,7 @@
 import { cp, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { business, services, tours, areas, faqs, nationwideTours } from './content.mjs';
-import { areaMedia, areaPlanning, serviceMedia, servicePlanning } from './detail-content.mjs';
+import { areaMedia, areaPlanning, serviceHeroMedia, servicePlanning } from './detail-content.mjs';
 import { icon } from './icons.mjs';
 import {
   areaPath, areaTiles, bookingForm, contactForm, escape, fleet, footer, header, home, image,
@@ -30,11 +30,11 @@ for (const [slug, title, icon, description, blocks] of services) {
   }[slug];
   const booking = '/book/?' + new URLSearchParams({ trip });
   page(servicePath(slug), slug === 'airport-transfers' ? 'Cork Airport Transfers' : title, description,
-    `<div class="shell reading detail-layout">${prose([...blocks, servicePlanning[slug]])}
-      <aside class="detail-aside"><h2>Request a quote</h2><p>Send your route, travel date and passenger count so we can discuss availability and price.</p>
+    `<div class="shell reading service-layout">${prose([...blocks, servicePlanning[slug]])}
+      <aside class="quote-band"><div><h2>Request a quote</h2><p>Send your route, travel date and passenger count so we can discuss availability and price.</p></div>
       <div class="actions">${link(booking, 'Get Quote', 'button button--gold', 'calendar')}${link('/service-areas/', 'Service Areas', 'button button--dark', 'pin')}</div></aside></div>
       ${section('Explore other services', serviceTiles(services.filter(([otherSlug]) => otherSlug !== slug)), 'surface')}`,
-    { parent: ['/services/', 'Services'], schema: 'Service', media: serviceMedia[slug], icon, booking });
+    { parent: ['/services/', 'Services'], schema: 'Service', media: serviceHeroMedia[slug], icon, booking, introStyle: 'service-intro' });
 }
 const nationwideCards = nationwideTours.map(([title, description]) => [
   '/book/?' + new URLSearchParams({ trip: 'Tour', destination: title }), title, description, 'map',
@@ -62,10 +62,20 @@ for (const [slug, place, description, detail, route, tour] of areas) {
 }
 
 page('/fleet/', 'Vehicle Options', 'Discuss saloon, people carrier and group vehicle options when enquiring about a taxi, airport transfer or Irish tour.', section('Find a vehicle for your journey', fleet()), { crumb: 'Fleet' });
-page('/about/', 'About Umair Taxi and Limo', 'Meet Umair Taxi and Limo, a Youghal-based taxi, airport transfer and private tour business serving Cork and Waterford.', `<div class="shell reading">${prose([
-  ['Based in Youghal', 'We arrange local taxi trips in and around Youghal, journeys to and from Cork Airport, and private tours across Ireland. Ask about pickups from East Cork, Dungarvan and Waterford.'],
-  ['Tell us where you need to go', 'Get in touch with your pickup, destination and travel date. For tours, share the places you want to visit and we can discuss a route.'],
-])}${related([['/contact/', 'Contact'], ['/airport-transfers/', 'Airport Transfers'], ['/tours/', 'View Tours']])}</div>`, { schema: 'AboutPage', crumb: 'About' });
+page('/about/', 'About Umair Taxi and Limo', 'Meet Umair Taxi and Limo, a Youghal-based taxi, airport transfer and private tour business serving Cork and Waterford.', `
+  <section class="shell reading about-story">
+    <div><p class="eyebrow">Based in Youghal</p><h2>From the East Cork coast</h2>
+      <p>Youghal is our starting point. We arrange local taxi trips around town, pickups and drop-offs at Cork Airport, and private tours across Ireland.</p>
+      <p>For journeys starting in Cork, Waterford or Dungarvan, share your pickup point and the time you need to arrive. For tours, tell us which stops you’d like to include.</p>
+      <div class="actions">${link('/service-areas/', 'Service Areas', 'button button--dark', 'pin')}${link('/contact/', 'Contact Us', 'button button--gold', 'mail')}</div>
+    </div>
+    <figure>${image('about-journey-detail', 'Illustrative close-up of a passenger door being opened beside luggage')}</figure>
+  </section>
+  ${section('How we can help you travel', tiles([
+    ['/airport-transfers/', 'Cork Airport Transfers', services[0][3], 'plane'],
+    ['/local-taxi-youghal/', 'Local Taxi', services[1][3], 'taxi'],
+    ['/tours/', 'Private Ireland Tours', 'Discuss a private itinerary from the East Cork coast or across Ireland.', 'map'],
+  ]), 'surface')}`, { schema: 'AboutPage', crumb: 'About', media: ['about-youghal-harbour', 'Illustrative view of the Youghal waterfront and harbour at dawn'], introStyle: 'about-intro' });
 page('/contact/', 'Contact Umair Taxi and Limo', 'Contact our Youghal taxi and transfer business by phone, WhatsApp or email to discuss your journey.', `<div class="shell reading contact-layout">
   <section class="contact detail-aside"><h2>Get in touch</h2>
   <address><p>${icon('pin')}${escape(address)}</p><p>${link('tel:' + intl, phone, '', 'phone')}<br>${link('mailto:' + email, email, '', 'mail')}<br>${link(whatsapp, 'WhatsApp', '', 'chat')}</p></address>
@@ -144,14 +154,14 @@ function render(path, data) {
   <meta property="og:image" content="${origin}/assets/photos/${data.media?.[0] || 'cork-coast-drive'}.webp">
   <link rel="icon" type="image/svg+xml" href="/assets/logo/umair-icon.svg?v=2">
   <link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/site.css?v=4">
+  <link rel="stylesheet" href="/assets/site.css?v=5">
   <script src="/assets/site.js?v=2" defer></script>
   <script type="application/ld+json">${schema(path, data, data.home ? [['/', 'Home']] : crumbs)}</script>
 </head>
 <body>
   ${header()}
-  <main id="main">${data.home ? '' : `<div class="page-intro"><div class="shell intro-grid">
-    <div><nav class="crumbs" aria-label="Breadcrumb"><ol>${crumbs.map(([href, label], index) => `<li>${index === crumbs.length - 1 ? `<span aria-current="page">${escape(label)}</span>` : link(href, label)}</li>`).join('')}</ol></nav>
+  <main id="main">${data.home ? '' : `<div class="page-intro${data.introStyle ? ' ' + data.introStyle : ''}"><div class="shell intro-grid">
+    <div class="page-intro-copy"><nav class="crumbs" aria-label="Breadcrumb"><ol>${crumbs.map(([href, label], index) => `<li>${index === crumbs.length - 1 ? `<span aria-current="page">${escape(label)}</span>` : link(href, label)}</li>`).join('')}</ol></nav>
     <h1>${icon(data.icon)}${escape(data.title)}</h1><p>${escape(data.description)}</p>
     ${path === '/book/' || path === '/contact/' ? '' : link(data.booking || '/book/', 'Book Now', 'button button--gold', 'calendar')}</div>
     ${data.media ? `<figure>${image(...data.media, true)}</figure>` : ''}
