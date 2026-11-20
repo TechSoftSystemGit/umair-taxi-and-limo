@@ -1,5 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="235" height="48" viewBox="0 0 235 48">
-  <path d="M4 38 22 7h12L16 38M23 38 41 7" fill="none" stroke="#e7c589" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="m14 26 2.8-4.8m3.9-6.7 2.7-4.6" stroke="#e7c589" fill="none" stroke-width="1.2" stroke-linecap="round"/>
-  <text x="50" y="30" fill="#f9f7f0" font-family="Georgia,serif" font-size="18" textLength="179" lengthAdjust="spacingAndGlyphs">UMAIR TAXI &amp; LIMO</text>
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="188" height="56" viewBox="0 0 188 56">
+  <rect x="2" y="3" width="49" height="49" rx="16" fill="none" stroke="#dab67d" stroke-opacity=".65"/>
+  <path d="M13 15h13m-10 0v14c0 7 3 11 10 11 6 0 10-4 10-11V15m-4 0h8M19 15v14c0 6 2 9 7 9" fill="none" stroke="#dab67d" stroke-width="1.25" stroke-linecap="round"/>
+  <path d="M26 22h13m-6 0v20m-4 0h8" fill="none" stroke="#dab67d" stroke-width="1.35" stroke-linecap="round"/>
+  <path d="M60 12v32" stroke="#dab67d" stroke-opacity=".6"/>
+  <text x="70" y="30" fill="#f8efdf" font-family="Georgia,serif" font-size="27" letter-spacing="4.6">UMAIR</text>
+  <text x="72" y="46" fill="#dab67d" font-family="Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="2.8">TAXI &amp; LIMO</text>
 </svg>

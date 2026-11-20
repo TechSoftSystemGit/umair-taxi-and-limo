@@ -1,8 +1,13 @@
 const header = document.querySelector('.site-header');
 const menu = header.querySelector('.menu-toggle');
 const navigation = document.querySelector('#site-nav');
-const mobile = matchMedia('(max-width: 1050px)');
+const mobile = matchMedia('(max-width: 1110px)');
 const groups = [...navigation.querySelectorAll('details')];
+function updateHeader() {
+  header.classList.toggle('is-scrolled', window.scrollY > 24);
+}
+updateHeader();
+window.addEventListener('scroll', updateHeader, { passive: true });
 
 function setMenu(open) {
   menu.setAttribute('aria-expanded', String(open));
@@ -53,6 +58,39 @@ const query = new URLSearchParams(location.search);
 const today = new Intl.DateTimeFormat('sv-SE', {
   timeZone: 'Europe/Dublin', year: 'numeric', month: '2-digit', day: '2-digit',
 }).format();
+
+const contactForm = document.querySelector('[data-contact]');
+if (contactForm) {
+  const requiredText = ['name', 'message'];
+  for (const name of requiredText) {
+    contactForm.elements.namedItem(name).addEventListener('input', (event) => event.target.setCustomValidity(''));
+  }
+  contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    for (const name of requiredText) {
+      const field = contactForm.elements.namedItem(name);
+      field.setCustomValidity(field.value.trim() ? '' : 'Please enter a value.');
+    }
+    if (!contactForm.reportValidity()) return;
+    const data = new FormData(contactForm);
+    const subject = data.get('subject');
+    const phone = data.get('phone').trim();
+    const details = [
+      'Name: ' + data.get('name').trim(),
+      'Email: ' + data.get('email').trim(),
+      ...(phone ? ['Phone: ' + phone] : []),
+      '',
+      data.get('message').trim(),
+    ].join('\n');
+    if (event.submitter?.value === 'email') {
+      const mail = 'mailto:' + contactForm.dataset.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(details);
+      location.assign(mail);
+    } else {
+      location.assign(contactForm.dataset.whatsapp + '?text=' + encodeURIComponent('Subject: ' + subject + '\n' + details));
+    }
+  });
+  contactForm.querySelector('.contact-actions').hidden = false;
+}
 
 for (const form of document.querySelectorAll('[data-quick-booking], [data-full-booking]')) {
   const fields = form.elements;

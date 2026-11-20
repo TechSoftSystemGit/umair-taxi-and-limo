@@ -1,8 +1,9 @@
 import { cp, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { business, services, tours, areas, faqs } from './content.mjs';
+import { areaMedia, areaPlanning, serviceMedia, servicePlanning } from './detail-content.mjs';
 import {
-  areaPath, areaTiles, bookingForm, escape, fleet, footer, header, home, image,
+  areaPath, areaTiles, bookingForm, contactForm, emoji, escape, fleet, footer, header, home, image,
   link, process, prose, questions, section, servicePath, serviceTiles, tourMedia, tourPath, tourTiles,
 } from './templates.mjs';
 
@@ -20,16 +21,19 @@ function related(items) {
 
 page('/', 'Cork Airport Transfers & Taxi from Youghal', 'Arrange a Cork Airport transfer, local taxi or private Ireland tour with Umair Taxi and Limo in Youghal, County Cork.', home(), { home: true });
 page('/services/', 'Taxi & Transfer Services', 'Explore airport transfers, local taxis, golf transport, corporate trips, hospital runs and Aircoach connections from Youghal.', section('Book a journey', serviceTiles()));
-for (const [slug, title, , description, blocks] of services) {
+for (const [slug, title, icon, description, blocks] of services) {
   const trip = {
     'airport-transfers': 'Airport Transfer', 'local-taxi-youghal': 'Local Taxi',
     'golf-tours': 'Golf Tour', 'corporate-travel': 'Corporate Travel',
     'hospital-runs': 'Hospital Run', 'aircoach-transfers': 'Aircoach Run',
   }[slug];
+  const booking = '/book/?' + new URLSearchParams({ trip });
   page(servicePath(slug), slug === 'airport-transfers' ? 'Cork Airport Transfers' : title, description,
-    `<div class="shell reading">${prose(blocks)}${related([['/book/?' + new URLSearchParams({ trip }), 'Get Quote'], ['/service-areas/', 'Service Areas']])}</div>`,
-    { parent: ['/services/', 'Services'], schema: 'Service', media: ['airport-transfers', 'local-taxi-youghal'].includes(slug)
-      ? ['cork-coast-drive-small', 'Illustrative saloon car on an Irish coastal road'] : undefined });
+    `<div class="shell reading detail-layout">${prose([...blocks, servicePlanning[slug]])}
+      <aside class="detail-aside"><h2>Request a quote</h2><p>Send your route, travel date and passenger count so we can discuss availability and price.</p>
+      <div class="actions">${link(booking, 'Get Quote', 'button button--gold', '📅')}${link('/service-areas/', 'Service Areas', 'button button--dark', '📍')}</div></aside></div>
+      ${section('Explore other services', serviceTiles(services.filter(([otherSlug]) => otherSlug !== slug)), 'surface')}`,
+    { parent: ['/services/', 'Services'], schema: 'Service', media: serviceMedia[slug], icon, booking });
 }
 page('/tours/', 'Private Ireland Tours', 'Plan a private tour from Youghal through Cork, Waterford, Dungarvan or further across Ireland.', section('Choose a region or plan your own route', tourTiles()), { media: tourMedia.ireland });
 for (const [slug, title, description, detail] of tours) {
@@ -43,10 +47,13 @@ page('/service-areas/', 'Taxi and Transfer Service Areas', 'Explore pickups from
 for (const [slug, place, description, detail, route, tour] of areas) {
   const [pickup, destination] = route.split(' → ');
   const query = new URLSearchParams({ pickup, destination, trip: destination.includes('Airport') ? 'Airport Transfer' : 'Local Taxi' });
+  const booking = '/book/?' + new URLSearchParams({ pickup: place });
   page(areaPath(slug), `Taxi and Airport Transfers in ${place}`, description,
-    `<div class="shell reading">${prose([[ `Pickups in ${place}`, detail ]])}
-    <section class="related"><h2>Example journey</h2><p>${link('/book/?' + query, route, 'text-link')}</p></section>
-    ${related([['/book/?' + new URLSearchParams({ pickup: place }), 'Book Now'], [whatsapp, 'WhatsApp'], ['/airport-transfers/', 'Airport Transfers'], ['/local-taxi-youghal/', 'Local Taxi'], [tourPath(tour), 'Local Tours']])}</div>`, { parent: ['/service-areas/', 'Service Areas'], schema: 'Service' });
+    `<div class="shell reading detail-layout">${prose([[ `Pickups in ${place}`, detail ], areaPlanning[slug]])}
+    <aside class="detail-aside"><h2>Example journey</h2><p>${link('/book/?' + query, route, 'text-link', '📍')}</p>
+      <div class="actions">${link(booking, 'Book Now', 'button button--gold', '📅')}${link(whatsapp, 'WhatsApp', 'button button--dark', '💬')}</div></aside></div>
+    ${section(`Travel options in ${place}`, serviceTiles(services.slice(0, 2)) + `<p class="section-note">${link(tourPath(tour), 'Explore Local Tours', 'button button--dark', '🗺️')}</p>`, 'surface')}`,
+    { parent: ['/service-areas/', 'Service Areas'], schema: 'Service', media: areaMedia[slug], icon: '📍', booking });
 }
 
 page('/fleet/', 'Vehicle Options', 'Discuss saloon, people carrier and group vehicle options when enquiring about a taxi, airport transfer or Irish tour.', section('Find a vehicle for your journey', fleet()), { crumb: 'Fleet' });
@@ -54,9 +61,11 @@ page('/about/', 'About Umair Taxi and Limo', 'Meet Umair Taxi and Limo, a Yougha
   ['Based in Youghal', 'We arrange local taxi trips in and around Youghal, journeys to and from Cork Airport, and private tours across Ireland. Ask about pickups from East Cork, Dungarvan and Waterford.'],
   ['Tell us where you need to go', 'Get in touch with your pickup, destination and travel date. For tours, share the places you want to visit and we can discuss a route.'],
 ])}${related([['/contact/', 'Contact'], ['/airport-transfers/', 'Airport Transfers'], ['/tours/', 'View Tours']])}</div>`, { schema: 'AboutPage', crumb: 'About' });
-page('/contact/', 'Contact Umair Taxi and Limo', 'Contact our Youghal taxi and transfer business by phone, WhatsApp or email to discuss your journey.', `<section class="shell reading contact"><h2>Get in touch</h2>
-  <address><p>${escape(address)}</p><p>${link('tel:' + intl, phone)}<br>${link('mailto:' + email, email)}<br>${link(whatsapp, 'WhatsApp')}</p></address>
-  ${link('/book/', 'Book Now', 'button button--dark')}</section>`, { schema: 'ContactPage', crumb: 'Contact' });
+page('/contact/', 'Contact Umair Taxi and Limo', 'Contact our Youghal taxi and transfer business by phone, WhatsApp or email to discuss your journey.', `<div class="shell reading contact-layout">
+  <section class="contact detail-aside"><h2>Get in touch</h2>
+  <address><p>${emoji('📍')}${escape(address)}</p><p>${link('tel:' + intl, phone, '', '📞')}<br>${link('mailto:' + email, email, '', '✉️')}<br>${link(whatsapp, 'WhatsApp', '', '💬')}</p></address>
+  ${link('/book/', 'Book Now', 'button button--dark', '📅')}</section>
+  ${contactForm()}</div>`, { schema: 'ContactPage', crumb: 'Contact', icon: '✉️' });
 page('/book/', 'Book a Taxi or Transfer', 'Request a quote for an airport transfer, local taxi or private Ireland tour with pickup and travel details.', `<div class="shell reading book-layout">${bookingForm()}</div>`, { crumb: 'Book' });
 page('/how-it-works/', 'How Booking Works', 'See how to request a journey, share pickup details and confirm a booking with Umair Taxi and Limo.', section('From enquiry to pickup', process()));
 page('/rates/', 'Request a Taxi Quote', 'Request a quote for your taxi, airport transfer or tour based on your route and group details.', `<div class="shell reading">${prose([
@@ -64,7 +73,7 @@ page('/rates/', 'Request a Taxi Quote', 'Request a quote for your taxi, airport 
 ])}${related([['/book/', 'Get Quote'], [whatsapp, 'WhatsApp']])}</div>`);
 page('/faq/', 'Taxi, Transfer and Tour FAQs', 'Find answers about arranging local taxis, airport pickups, quotes and private Ireland tours from Youghal.', section('Booking questions', questions()), { schema: 'FAQPage', crumb: 'FAQs' });
 page('/privacy-policy/', 'Privacy Policy', 'How the booking form prepares your enquiry and how to contact Umair Taxi and Limo about your information.', `<div class="shell reading">${prose([
-  ['Information in an enquiry', 'The booking form prepares a message in your browser. If you send it through WhatsApp, we receive the trip details and contact information you choose to share so we can respond to your enquiry. WhatsApp processes messages through its own service.'],
+  ['Information in an enquiry', 'The booking and contact forms prepare a message in your browser. If you send it through WhatsApp or your email app, we receive the details you choose to share so we can respond to your enquiry. Your chosen messaging service also processes the message.'],
   ['Contact us about your information', `Email ${email} to ask about information you have shared with us or request a correction.`],
 ])}</div>`);
 page('/terms/', 'Booking Terms', 'What to expect when you request and confirm travel with Umair Taxi and Limo.', `<div class="shell reading">${prose([
@@ -128,19 +137,19 @@ function render(path, data) {
   <meta property="og:description" content="${escape(data.description)}">
   <meta property="og:url" content="${url}">
   <meta property="og:image" content="${origin}/assets/photos/${data.media?.[0] || 'cork-coast-drive'}.webp">
-  <link rel="icon" type="image/svg+xml" href="/assets/logo/umair-icon.svg">
+  <link rel="icon" type="image/svg+xml" href="/assets/logo/umair-icon.svg?v=2">
   <link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/site.css">
-  <script src="/assets/site.js" defer></script>
+  <link rel="stylesheet" href="/assets/site.css?v=2">
+  <script src="/assets/site.js?v=2" defer></script>
   <script type="application/ld+json">${schema(path, data, data.home ? [['/', 'Home']] : crumbs)}</script>
 </head>
 <body>
   ${header()}
   <main id="main">${data.home ? '' : `<div class="page-intro"><div class="shell intro-grid">
     <div><nav class="crumbs" aria-label="Breadcrumb"><ol>${crumbs.map(([href, label], index) => `<li>${index === crumbs.length - 1 ? `<span aria-current="page">${escape(label)}</span>` : link(href, label)}</li>`).join('')}</ol></nav>
-    <h1>${escape(data.title)}</h1><p>${escape(data.description)}</p>
-    ${path === '/book/' ? '' : link('/book/', 'Book Now', 'button button--gold')}</div>
-    ${data.media ? `<figure>${image(...data.media)}</figure>` : ''}
+    <h1>${emoji(data.icon)}${escape(data.title)}</h1><p>${escape(data.description)}</p>
+    ${path === '/book/' || path === '/contact/' ? '' : link(data.booking || '/book/', 'Book Now', 'button button--gold', '📅')}</div>
+    ${data.media ? `<figure>${image(...data.media, true)}</figure>` : ''}
   </div></div>`}
   ${data.content}
   </main>

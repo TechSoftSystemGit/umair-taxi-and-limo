@@ -22,7 +22,7 @@ export const services = [
     ['Plan around your tee time', 'Send your accommodation, course and tee time, along with any return pickup you need. For several rounds, include the date and course for each day.'],
     ['Make room for the clubs', 'Tell us how many golfers are travelling and how many golf bags, travel cases and suitcases you will bring.'],
   ]],
-  ['corporate-travel', 'Corporate Travel', '', 'Arrange business travel for meetings, conferences and events in Cork, Waterford and the surrounding area.', [
+  ['corporate-travel', 'Corporate Travel', '💼', 'Arrange business travel for meetings, conferences and events in Cork, Waterford and the surrounding area.', [
     ['Airport, hotel and venue connections', 'Share the arrival details for your group, the hotel address and the time guests should reach the venue. Include separate pickups where your guests arrive on different flights.'],
     ['Travel between meetings', 'Send the meeting addresses and expected finish times so you can discuss the journeys your team needs.'],
   ]],
