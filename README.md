@@ -22,6 +22,10 @@ The build generates `dist/` from `site/`. The Node entry point serves the genera
 
 ## Hostinger deployment
 
+The existing Hostinger Git deployment can serve the checked-in website directly from the repository root. After editing `site/`, run `npm run publish:static` and commit the regenerated HTML, assets, sitemap and redirect rules with the source changes. This deployment mode uses the built-in static file server, and booking continues to hand off to WhatsApp.
+
+### Node.js Web App
+
 In hPanel, create a **Web App** and import the GitHub repository. Use a plan with Node.js Web App support.
 
 | Setting | Value |

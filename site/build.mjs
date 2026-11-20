@@ -165,7 +165,7 @@ for (const [path, data] of pages) {
   if (titles.has(data.title) || descriptions.has(data.description)) throw new Error(`Duplicate metadata at ${path}`);
   titles.add(data.title);
   descriptions.add(data.description);
-  const html = render(path, data);
+  const html = render(path, data).replace(/[ \t]+$/gm, '');
   if ((html.match(/<h1>/g) || []).length !== 1) throw new Error(`Invalid H1 at ${path}`);
   documents.set(path, html);
 }
@@ -183,3 +183,5 @@ await writeFile(join(output, 'redirects.json'), JSON.stringify(redirects, null, 
 await writeFile(join(output, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`);
 await writeFile(join(output, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...pages.keys()].map((path) => `  <url><loc>${origin}${path}</loc></url>`).join('\n')}\n</urlset>\n`);
 console.log(`Built ${pages.size} pages and ${Object.keys(redirects).length} legacy redirects.`);
+
+export const generatedPages = [...pages.keys()].map((path) => path.slice(1) + 'index.html');
