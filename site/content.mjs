@@ -9,28 +9,28 @@ export const business = {
 };
 
 export const services = [
-  ['airport-transfers', 'Airport Transfers', '✈️', 'Cork Airport transfers from Youghal, Dungarvan and Waterford. Arrange a private pickup or drop-off for your flight.', [
+  ['airport-transfers', 'Airport Transfers', 'plane', 'Cork Airport transfers from Youghal, Dungarvan and Waterford. Arrange a private pickup or drop-off for your flight.', [
     ['Flying through Cork Airport?', 'Share your flight number, pickup address and travel date. For arrivals, include your scheduled landing time and a contact number. For departures, tell us when you want to arrive at the terminal.'],
     ['Travelling with family or colleagues', 'Include the number of adults and children, cabin bags and checked luggage. Mention bulky items or specific travel needs when you enquire so the journey can be discussed in advance.'],
     ['Where we pick up', 'Ask about journeys between Cork Airport and Youghal, Cork City, Dungarvan or Waterford. Add your return plans to the same enquiry if you need both legs.'],
   ]],
-  ['local-taxi-youghal', 'Local Taxi in Youghal', '🚕', 'Book a local taxi for hotels, restaurants, appointments and events in Youghal and nearby towns.', [
+  ['local-taxi-youghal', 'Local Taxi in Youghal', 'taxi', 'Book a local taxi for hotels, restaurants, appointments and events in Youghal and nearby towns.', [
     ['Around town', 'Arrange a pickup at your accommodation, a lift to dinner or transport home from an event. For a busy venue, include a clear meeting point.'],
     ['Beyond Youghal', 'Ask about journeys to nearby towns, an onward coach connection or a pickup in the evening. Call when you need to check availability for a trip today.'],
   ]],
-  ['golf-tours', 'Golf Tours', '🏌️', 'Arrange transport between the airport, your hotel and the courses on your Irish golf itinerary.', [
+  ['golf-tours', 'Golf Tours', 'golf', 'Arrange transport between the airport, your hotel and the courses on your Irish golf itinerary.', [
     ['Plan around your tee time', 'Send your accommodation, course and tee time, along with any return pickup you need. For several rounds, include the date and course for each day.'],
     ['Make room for the clubs', 'Tell us how many golfers are travelling and how many golf bags, travel cases and suitcases you will bring.'],
   ]],
-  ['corporate-travel', 'Corporate Travel', '💼', 'Arrange business travel for meetings, conferences and events in Cork, Waterford and the surrounding area.', [
+  ['corporate-travel', 'Corporate Travel', 'case', 'Arrange business travel for meetings, conferences and events in Cork, Waterford and the surrounding area.', [
     ['Airport, hotel and venue connections', 'Share the arrival details for your group, the hotel address and the time guests should reach the venue. Include separate pickups where your guests arrive on different flights.'],
     ['Travel between meetings', 'Send the meeting addresses and expected finish times so you can discuss the journeys your team needs.'],
   ]],
-  ['hospital-runs', 'Hospital Runs', '🏥', 'Enquire about planned taxi journeys for hospital appointments, clinic visits and discharge collection.', [
+  ['hospital-runs', 'Hospital Runs', 'health', 'Enquire about planned taxi journeys for hospital appointments, clinic visits and discharge collection.', [
     ['Plan your pickup', 'Include your appointment time and the hospital entrance or clinic address. If a companion is travelling with you, include them in the passenger count.'],
     ['Arranging your return', 'If the finish time is uncertain, call to discuss how to arrange collection. Mention any transport or mobility needs when you enquire.'],
   ]],
-  ['aircoach-transfers', 'Aircoach Runs', '🚌', 'Arrange a local taxi between your home or accommodation and your Aircoach connection point.', [
+  ['aircoach-transfers', 'Aircoach Runs', 'bus', 'Arrange a local taxi between your home or accommodation and your Aircoach connection point.', [
     ['Connecting to your coach', 'Send the exact stop from your coach ticket, your departure time and your pickup address. Include time to reach the stop and load your bags.'],
     ['Pickup after arrival', 'Share your scheduled arrival at the stop and the address you are heading to. Keep your coach booking details handy if your plans change.'],
   ]],
@@ -45,6 +45,14 @@ export const tours = [
   ['west-cork', 'West Cork Tours', 'Discuss a private trip through West Cork’s harbour towns and coastal roads.', 'Tell us which towns you want to prioritise and whether you would like time for a lunch stop or a short walk.'],
   ['scenic', 'Scenic Ireland Tours', 'Plan a journey around Ireland’s coastal viewpoints and countryside.', 'The Wild Atlantic Way and Ring of Kerry are ideas for a wider itinerary. Share the landscapes you want to see and your preferred start and finish points.'],
   ['custom', 'Custom Ireland Tours', 'Shape a private tour around your interests, your group and your starting point.', 'Send your wish list, pickup address and any dates you already have. Mention your group size and preferred pace so the route can be discussed.'],
+];
+
+export const nationwideTours = [
+  ['Kerry and the southwest', 'Discuss a route through Killarney, the Ring of Kerry or the Dingle Peninsula. Choose the scenic stops your group most wants to spend time at.'],
+  ['Clare and the west coast', 'Build a tour around the Cliffs of Moher, the Burren or Galway. Tell us whether your group prefers a coastal drive, a town visit or time to walk.'],
+  ['The midlands and Ireland’s Ancient East', 'Pair stops such as the Rock of Cashel and Kilkenny, or plan time in Wicklow and Glendalough. Let us know which heritage sites you want to prioritise.'],
+  ['Donegal and the northwest', 'Explore ideas around Donegal’s coastline and Glenveagh. Share your starting point, where you’re staying and how many days you have in mind.'],
+  ['Northern Ireland', 'Ask about a route that takes in the Causeway Coast, Belfast or Derry. Tell us your preferred stops so we can discuss a workable itinerary and availability.'],
 ];
 
 export const areas = [

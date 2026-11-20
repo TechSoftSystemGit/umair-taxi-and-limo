@@ -1,13 +1,13 @@
 import { business, services, tours, areas, routes, steps, faqs } from './content.mjs';
 import { areaMedia, serviceMedia } from './detail-content.mjs';
+import { icon as renderIcon } from './icons.mjs';
 
 export const escape = (value) => String(value).replace(/[&<>"']/g, (character) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
 })[character]);
 
-export const emoji = (icon) => icon ? `<span class="emoji" aria-hidden="true">${icon}</span> ` : '';
 export const link = (href, label, className = '', icon = '') =>
-  `<a${className ? ` class="${className}"` : ''} href="${escape(href)}">${emoji(icon)}${escape(label)}</a>`;
+  `<a${className ? ` class="${className}"` : ''} href="${escape(href)}">${renderIcon(icon)}${escape(label)}</a>`;
 
 export const servicePath = (slug) => `/${slug}/`;
 export const tourPath = (slug) => `/tours/${slug}/`;
@@ -18,28 +18,28 @@ const book = '/book/';
 const call = `tel:${business.intl}`;
 const { whatsapp } = business;
 
-function navGroup(label, icon, items) {
-  return `<li><details class="nav-group"><summary>${emoji(icon)}${label}${emoji('🔽')}</summary><ul>${items.map(([href, text, itemIcon]) => `<li>${link(href, text, '', itemIcon)}</li>`).join('')}</ul></details></li>`;
+function navGroup(label, items) {
+  return `<li><details class="nav-group"><summary>${label}</summary><ul>${items.map(([href, text]) => `<li>${link(href, text)}</li>`).join('')}</ul></details></li>`;
 }
 
 export function header() {
   return `<a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header"><div class="shell header-inner">
-      <a href="/" class="brand"><img src="/assets/logo/umair-dark.svg?v=2" width="188" height="56" alt="Umair Taxi and Limo home"></a>
-      <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" hidden>${emoji('📋')}Menu</button>
+      <a href="/" class="brand"><img src="/assets/logo/umair-dark.svg?v=3" width="188" height="56" alt="Umair Taxi and Limo home"></a>
+      <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" hidden>Menu</button>
       <nav id="site-nav" aria-label="Main navigation"><ul class="nav-list">
-        <li>${link('/', 'Home', '', '🏠')}</li>
-        ${navGroup('Services', '🧳', [['/services/', 'All Services', '🧳'], ...services.map(([slug, title, icon]) => [servicePath(slug), title, icon])])}
-        ${navGroup('Tours', '🗺️', [['/tours/', 'All Tours', '🗺️'], ...tours.map(([slug, title]) => [tourPath(slug), title, '🌿']), ['/golf-tours/', 'Golf Tours', '🏌️']])}
-        ${navGroup('Service Areas', '📍', [['/service-areas/', 'All Service Areas', '📍'], ...areas.map(([slug, title]) => [areaPath(slug), title, '📍'])])}
-        <li>${link('/fleet/', 'Fleet', '', '🚘')}</li><li>${link('/about/', 'About', '', 'ℹ️')}</li><li>${link('/contact/', 'Contact', '', '✉️')}</li>
+        <li>${link('/', 'Home')}</li>
+        ${navGroup('Services', [['/services/', 'All Services'], ...services.map(([slug, title]) => [servicePath(slug), title])])}
+        ${navGroup('Tours', [['/tours/', 'All Tours'], ...tours.map(([slug, title]) => [tourPath(slug), title]), ['/golf-tours/', 'Golf Tours']])}
+        ${navGroup('Service Areas', [['/service-areas/', 'All Service Areas'], ...areas.map(([slug, title]) => [areaPath(slug), title])])}
+        <li>${link('/fleet/', 'Fleet')}</li><li>${link('/about/', 'About')}</li><li>${link('/contact/', 'Contact')}</li>
       </ul></nav>
-      ${link(book, 'Book Now', 'button button--gold header-book', '📅')}
+      ${link(book, 'Book Now', 'button button--gold header-book')}
     </div></header>`;
 }
 
 export function actions(booking = book) {
-  return `<div class="actions">${link(booking, 'Book Now', 'button button--gold', '📅')}${link(whatsapp, 'WhatsApp', 'button button--outline', '💬')}${link(call, 'Call', 'button button--outline', '📞')}</div>`;
+  return `<div class="actions">${link(booking, 'Book Now', 'button button--gold', 'calendar')}${link(whatsapp, 'WhatsApp', 'button button--outline', 'chat')}${link(call, 'Call', 'button button--outline', 'phone')}</div>`;
 }
 
 export function footer() {
@@ -49,10 +49,10 @@ export function footer() {
     </div></section>
     <footer class="site-footer"><div class="shell">
       <div class="footer-grid">
-        <div><a href="/"><img src="/assets/logo/umair-dark.svg?v=2" width="188" height="56" alt="Umair Taxi and Limo home"></a><p>Airport transfers, local taxis and private tours from Youghal, Ireland.</p></div>
+        <div><a href="/"><img src="/assets/logo/umair-dark.svg?v=3" width="188" height="56" alt="Umair Taxi and Limo home"></a><p>Airport transfers, local taxis and private tours from Youghal, Ireland.</p></div>
         <div><h2>Explore</h2>${link('/airport-transfers/', 'Airport Transfers')}${link('/local-taxi-youghal/', 'Local Taxi')}${link('/tours/', 'Ireland Tours')}${link('/service-areas/', 'Service Areas')}</div>
         <div><h2>Plan your journey</h2>${link('/fleet/', 'Fleet')}${link('/how-it-works/', 'How It Works')}${link('/rates/', 'Get a Quote')}${link('/faq/', 'FAQs')}</div>
-        <div><h2>Contact</h2><address>${emoji('📍')}${escape(business.address)}<br>${link(call, business.phone, '', '📞')}${link(`mailto:${business.email}`, business.email, '', '✉️')}</address></div>
+        <div><h2>Contact</h2><address>${renderIcon('pin')}${escape(business.address)}<br>${link(call, business.phone, '', 'phone')}${link(`mailto:${business.email}`, business.email, '', 'mail')}</address></div>
       </div>
       <div class="footer-bottom"><span>© Umair Taxi and Limo</span><div>${link('/privacy-policy/', 'Privacy Policy')}${link('/terms/', 'Terms')}</div></div>
     </div></footer>`;
@@ -79,7 +79,7 @@ export function bookingForm(compact = false) {
           <label>Email <span>(optional)</span><input type="email" name="email" autocomplete="email" maxlength="140"></label>
           <label class="full">Notes <span>(optional)</span><textarea name="notes" rows="3" maxlength="400" placeholder="Return timing, meeting point or special requests"></textarea></label>`}
       </div>
-      <button class="button button--gold form-submit" ${compact ? '' : 'hidden'}>${emoji(compact ? '📅' : '💬')}${compact ? 'Continue to Booking' : 'Continue to WhatsApp'}</button>
+      <button class="button button--gold form-submit" ${compact ? '' : 'hidden'}>${renderIcon(compact ? 'calendar' : 'chat')}${compact ? 'Continue to Booking' : 'Continue to WhatsApp'}</button>
       ${compact ? '' : `<p class="form-note">Your journey is confirmed after we agree the details with you.</p>
       <noscript><p>Send your journey details directly via ${link(whatsapp, 'WhatsApp')} or ${link(call, 'call us')}.</p></noscript>`}
     </form>
@@ -99,8 +99,8 @@ export function contactForm() {
         <label class="full">Message<textarea name="message" rows="5" required maxlength="1000"></textarea></label>
       </div>
       <div class="actions contact-actions" hidden>
-        <button class="button button--gold" type="submit" value="whatsapp">${emoji('💬')}Continue to WhatsApp</button>
-        <button class="button button--dark" type="submit" value="email">${emoji('✉️')}Open email app</button>
+        <button class="button button--gold" type="submit" value="whatsapp">${renderIcon('chat')}Continue to WhatsApp</button>
+        <button class="button button--dark" type="submit" value="email">${renderIcon('mail')}Open email app</button>
       </div>
       <noscript><p>To send your enquiry, ${link(whatsapp, 'open WhatsApp')} or ${link('mailto:' + business.email, 'email us')}.</p></noscript>
     </form>
@@ -122,9 +122,9 @@ export function tiles(items) {
 }
 
 export const serviceTiles = (selection = services) => tiles(selection.map(([slug, title, icon, description]) => [servicePath(slug), title, description, icon, '', serviceMedia[slug]]));
-export const areaTiles = () => tiles(areas.map(([slug, title, description]) => [areaPath(slug), title, description, '📍', slug === 'county-cork' ? 'co-cork' : slug, areaMedia[slug]]));
+export const areaTiles = () => tiles(areas.map(([slug, title, description]) => [areaPath(slug), title, description, 'pin', slug === 'county-cork' ? 'co-cork' : slug, areaMedia[slug]]));
 export const process = () => `<ol class="steps">${steps.map(([title, description]) => `<li data-reveal><h3>${title}</h3><p>${description}</p></li>`).join('')}</ol>`;
-export const questions = () => `<div class="questions">${faqs.map(([title, answer]) => `<details><summary><span>${emoji('❓')}${title}</span>${emoji('➕')}${emoji('➖')}</summary><p>${answer}</p></details>`).join('')}</div>`;
+export const questions = () => `<div class="questions">${faqs.map(([title, answer]) => `<details><summary><span>${renderIcon('question')}${title}</span>${renderIcon('plus')}${renderIcon('minus')}</summary><p>${answer}</p></details>`).join('')}</div>`;
 export const section = (title, body, className = '', id = '') => `<section class="section ${className}"${id ? ` id="${id}"` : ''}><div class="shell"><h2>${title}</h2>${body}</div></section>`;
 
 export const tourMedia = {
@@ -140,18 +140,18 @@ export const tourMedia = {
 
 export function tourTiles(selection = tours) {
   return `<div class="tiles fleet-tiles">${selection.map(([slug, title, description]) => `<article class="tile" id="${slug}" data-reveal>
-    ${image(...tourMedia[slug])}<div class="tile-copy"><h3>${link(tourPath(slug), title, '', '🗺️')}</h3><p>${escape(description)}</p></div>
+    ${image(...tourMedia[slug])}<div class="tile-copy"><h3>${link(tourPath(slug), title, '', 'map')}</h3><p>${escape(description)}</p></div>
   </article>`).join('')}</div>`;
 }
 
 const vehicles = [
-  ['saloon-taxi', 'Saloon taxi', 'A vehicle category to ask about for local trips and airport transfers with standard luggage.', '🚕'],
-  ['people-carrier', 'MPV / people carrier', 'Discuss a people carrier for family airport trips and private tours with extra bags.', '🚐'],
-  ['group-vehicle', 'Large group vehicle', 'Enquire about transport for a group tour, corporate event or airport trip with several passengers.', '🚌'],
+  ['saloon-taxi', 'Saloon taxi', 'A vehicle category to ask about for local trips and airport transfers with standard luggage.', 'taxi'],
+  ['people-carrier', 'MPV / people carrier', 'Discuss a people carrier for family airport trips and private tours with extra bags.', 'car'],
+  ['group-vehicle', 'Large group vehicle', 'Enquire about transport for a group tour, corporate event or airport trip with several passengers.', 'bus'],
 ];
 export function fleet() {
   return `<div class="tiles fleet-tiles">${vehicles.map(([name, title, description, icon]) => `<article class="tile" data-reveal>
-    ${image(name, `Illustrative example of a ${title.toLowerCase()}`)}<div class="tile-copy"><h3>${emoji(icon)}${title}</h3><p>${description}</p></div>
+    ${image(name, `Illustrative example of a ${title.toLowerCase()}`)}<div class="tile-copy"><h3>${renderIcon(icon)}${title}</h3><p>${description}</p></div>
   </article>`).join('')}</div><p class="section-note">Images illustrate vehicle categories. Share your passenger and luggage requirements to discuss availability.</p>`;
 }
 
@@ -161,8 +161,8 @@ export function home() {
     <div class="shell hero-inner">
       <div class="hero-copy">
         <p class="eyebrow">Based in Youghal, Ireland</p>
-        <h1>Airport transfers<br> &amp; local taxi<br> <em>from Youghal.</em></h1>
-        <p class="hero-intro">From a Cork Airport pickup to a day exploring Ireland, arrange a journey around your plans.</p>
+        <h1>Cork Airport<br> transfers<br> <em>from Youghal.</em></h1>
+        <p class="hero-intro">Based in Youghal for Cork Airport transfers, local taxi rides and private tours across Ireland. Ask about pickups in Cork, Waterford and Dungarvan.</p>
         ${actions('#booking')}
       </div>
       ${bookingForm(true)}
@@ -171,23 +171,23 @@ export function home() {
   <section class="section"><div class="shell">
     <h2>Find the right ride</h2>
     ${tiles([
-      ['/airport-transfers/', 'Airport Transfers', services[0][3], '✈️'],
-      ['/local-taxi-youghal/', 'Local Taxi', services[1][3], '🚕'],
-      ['/tours/', 'Ireland Tours', 'Plan a private trip through Cork, Waterford or further across Ireland.', '🗺️'],
+      ['/airport-transfers/', 'Airport Transfers', services[0][3], 'plane'],
+      ['/local-taxi-youghal/', 'Local Taxi', services[1][3], 'taxi'],
+      ['/tours/', 'Ireland Tours', 'Plan a private trip through Cork, Waterford or further across Ireland.', 'map'],
     ])}
     <p class="section-note">${link('/services/', 'View all services', 'text-link')}</p>
   </div></section>
   <section class="tour-feature" id="tours"><div class="shell feature-grid">
     <figure data-reveal>${image('irish-atlantic-coast', 'Green headlands overlooking the Atlantic on the Irish coast')}</figure>
-    <div data-reveal><h2>Explore Ireland with us.</h2><p>Make time for harbour towns, coastal roads and the places you’ve always wanted to see. Start with a region or tell us the route you have in mind.</p>
+    <div data-reveal><h2>Private tours across Ireland.</h2><p>Start with Cork and Waterford or plan a trip further afield. Explore ideas for Kerry, the west coast, the midlands, Donegal and Northern Ireland, then tell us the route you have in mind.</p>
       <div class="actions">${link('/tours/', 'View Tours', 'button button--gold')}${link(tourPath('custom'), 'Custom Tour', 'button button--outline')}</div>
     </div>
   </div></section>
   ${section('Ideas for a day out', tourTiles(tours.filter(([slug]) => ['cork', 'waterford', 'youghal'].includes(slug))))}
   ${section('Popular routes', `<div class="route-list">${routes.map(([pickup, destination]) => {
     const query = new URLSearchParams({ pickup, destination, trip: destination.includes('Airport') ? 'Airport Transfer' : 'Local Taxi' });
-    return link(`/book/?${query}`, `${pickup} → ${destination}`, '', destination.includes('Airport') ? '✈️' : '🚕');
-  }).join('')}</div>`)}
+    return link(`/book/?${query}`, `${pickup} → ${destination}`, '', destination.includes('Airport') ? 'plane' : 'taxi');
+  }).join('')}</div><p class="section-note">Youghal is our base. Our main pickup areas also include Cork, Waterford and Dungarvan.</p><p class="section-note">${link('/service-areas/', 'View all service areas', 'text-link', 'pin')}</p>`)}
   ${section('How it works', process(), 'surface')}
   ${section('Vehicle options', fleet() + `<p class="section-note">${link('/fleet/', 'View Fleet', 'button button--dark')}</p>`, '', 'fleet')}
   ${section('Frequently asked questions', questions(), 'surface', 'faq')}`;
