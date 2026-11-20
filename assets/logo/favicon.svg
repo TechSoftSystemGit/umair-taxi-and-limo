@@ -1,17 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <defs>
-    <linearGradient id="favGold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFE094"/>
-      <stop offset="50%" stop-color="#D4AF37"/>
-      <stop offset="100%" stop-color="#A8833C"/>
+    <linearGradient id="utFavGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE8B3"/>
+      <stop offset="50%" stop-color="#C5A059"/>
+      <stop offset="100%" stop-color="#9E782E"/>
     </linearGradient>
   </defs>
-
-  <rect width="32" height="32" rx="7" fill="#0A0B0E"/>
-
-  <g transform="translate(1, 1)">
-    <path d="M 6 5 L 10.5 7.5 L 10.5 17 C 10.5 20.2 12.5 22.5 15 22.5 C 17.5 22.5 19.5 20.2 19.5 17 L 19.5 7.5 L 24 5 L 24 17 C 24 23 19.8 26.5 15 26.5 C 10.2 26.5 6 23 6 17 Z" 
-          fill="url(#favGold)"/>
-    <polygon points="15,6.5 16.5,10.5 20.5,12 16.5,13.5 15,17.5 13.5,13.5 9.5,12 13.5,10.5" fill="#FFFFFF"/>
-  </g>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#080808" stroke="url(#utFavGrad)" stroke-width="2"/>
+  <path d="M 18 16 L 18 36 C 18 45 25 49 32 49 C 39 49 46 45 46 36 L 46 16" fill="none" stroke="url(#utFavGrad)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 25 26 L 39 26" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 32 30 L 32 40" stroke="url(#utFavGrad)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="3 3"/>
 </svg>

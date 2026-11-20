@@ -1,50 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 72" width="380" height="72">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" width="320" height="60">
   <defs>
-    <linearGradient id="champagneGoldLight" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#D4AF37"/>
-      <stop offset="25%" stop-color="#B88E3E"/>
-      <stop offset="60%" stop-color="#A57F35"/>
-      <stop offset="100%" stop-color="#8F6B2A"/>
+    <linearGradient id="utGoldGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9E782E"/>
+      <stop offset="50%" stop-color="#805F1E"/>
+      <stop offset="100%" stop-color="#614713"/>
     </linearGradient>
   </defs>
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@500;600;700&display=swap');
-    .brand-title-dark {
-      font-family: 'Cinzel', serif;
-      font-size: 27px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      fill: #11141C;
-    }
-    .brand-subtitle-dark {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.36em;
-      fill: #A57F35;
-      text-transform: uppercase;
-    }
-    .divider-line-dark {
-      stroke: #A57F35;
-      stroke-width: 1.25;
-      stroke-linecap: round;
-      opacity: 0.75;
-    }
-  </style>
-
-  <g id="brand-symbol" transform="translate(10, 10)">
-    <path d="M 11 8 L 20 13 L 20 34.5 C 20 40.5 24 45 28.5 45 C 33 45 37 40.5 37 34.5 L 37 13 L 46 8 L 46 34.5 C 46 44.5 38 51.5 28.5 51.5 C 19 51.5 11 44.5 11 34.5 Z" fill="url(#champagneGoldLight)"/>
-    <path d="M 39 10 L 46 6 L 49.5 14 L 46 15.5 Z" fill="url(#champagneGoldLight)" opacity="0.95"/>
-    <path d="M 11 8 L 17.5 4.5 L 20 13 Z" fill="url(#champagneGoldLight)" opacity="0.95"/>
-    <path d="M 28.5 12 C 28.5 17.5 29.8 19.5 34 19.5 C 29.8 19.5 28.5 21.5 28.5 27 C 28.5 21.5 27.2 19.5 23 19.5 C 27.2 19.5 28.5 17.5 28.5 12 Z" fill="#11141C"/>
-    <path d="M 15 55 C 23.5 57 33.5 57 42 55" stroke="url(#champagneGoldLight)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+  <g transform="translate(4, 6)">
+    <rect x="0" y="0" width="48" height="48" rx="10" fill="#F4F4F4" stroke="url(#utGoldGradLight)" stroke-width="1.5"/>
+    <path d="M 14 13 L 14 27 C 14 34.5 19 38 24 38 C 29 38 34 34.5 34 27 L 34 13" fill="none" stroke="url(#utGoldGradLight)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 19 20 L 29 20" stroke="#121212" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 24 23 L 24 31" stroke="url(#utGoldGradLight)" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2"/>
   </g>
 
-  <line class="divider-line-dark" x1="72" y1="18" x2="72" y2="54"/>
-
-  <g id="brand-text">
-    <text x="88" y="38" class="brand-title-dark">UMAIR</text>
-    <text x="89" y="55" class="brand-subtitle-dark">TAXI &amp; TOURS</text>
+  <g transform="translate(64, 14)">
+    <text x="0" y="21" font-family="'Cinzel', 'Trajan Pro', 'Georgia', serif" font-size="20" font-weight="700" letter-spacing="4" fill="#080808">UMAIR</text>
+    <line x1="108" y1="14" x2="236" y2="14" stroke="#9E782E" stroke-opacity="0.4" stroke-width="1"/>
+    <circle cx="172" cy="14" r="2" fill="#9E782E"/>
+    <text x="0" y="36" font-family="'Montserrat', -apple-system, sans-serif" font-size="8.5" font-weight="600" letter-spacing="5" fill="url(#utGoldGradLight)">TAXI AND LIMO</text>
+    <text x="144" y="36" font-family="'Montserrat', -apple-system, sans-serif" font-size="7" font-weight="500" letter-spacing="2" fill="#555555">&bull; YOUGHAL</text>
   </g>
 </svg>

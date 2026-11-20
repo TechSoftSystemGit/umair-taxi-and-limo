@@ -1,56 +1,71 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 72" width="380" height="72">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" width="320" height="60">
   <defs>
-    <linearGradient id="champagneGold" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="utGoldGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#FCE8B3"/>
-      <stop offset="25%" stop-color="#E2C275"/>
-      <stop offset="50%" stop-color="#C5A059"/>
-      <stop offset="75%" stop-color="#A57F35"/>
-      <stop offset="100%" stop-color="#C5A059"/>
+      <stop offset="40%" stop-color="#E5C378"/>
+      <stop offset="70%" stop-color="#C5A059"/>
+      <stop offset="100%" stop-color="#9E782E"/>
     </linearGradient>
-    <filter id="subtleGlow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.4"/>
-    </filter>
+    <linearGradient id="roadLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C5A059" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#FCE8B3"/>
+      <stop offset="100%" stop-color="#C5A059" stop-opacity="0.2"/>
+    </linearGradient>
   </defs>
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@500;600;700&display=swap');
-    .brand-title {
-      font-family: 'Cinzel', serif;
-      font-size: 27px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      fill: #FFFFFF;
-    }
-    .brand-subtitle {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.36em;
-      fill: url(#champagneGold);
-      text-transform: uppercase;
-    }
-    .divider-line {
-      stroke: url(#champagneGold);
-      stroke-width: 1.25;
-      stroke-linecap: round;
-      opacity: 0.65;
-    }
-  </style>
-
-  <!-- Monogram Symbol -->
-  <g id="brand-symbol" transform="translate(10, 10)">
-    <path d="M 11 8 L 20 13 L 20 34.5 C 20 40.5 24 45 28.5 45 C 33 45 37 40.5 37 34.5 L 37 13 L 46 8 L 46 34.5 C 46 44.5 38 51.5 28.5 51.5 C 19 51.5 11 44.5 11 34.5 Z" 
-          fill="url(#champagneGold)" filter="url(#subtleGlow)"/>
-    <path d="M 39 10 L 46 6 L 49.5 14 L 46 15.5 Z" fill="url(#champagneGold)" opacity="0.95"/>
-    <path d="M 11 8 L 17.5 4.5 L 20 13 Z" fill="url(#champagneGold)" opacity="0.95"/>
-    <path d="M 28.5 12 C 28.5 17.5 29.8 19.5 34 19.5 C 29.8 19.5 28.5 21.5 28.5 27 C 28.5 21.5 27.2 19.5 23 19.5 C 27.2 19.5 28.5 17.5 28.5 12 Z" fill="#FFFFFF"/>
-    <path d="M 15 55 C 23.5 57 33.5 57 42 55" stroke="url(#champagneGold)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+  <!-- Monogram Mark: Elegant U with subtle road path curve -->
+  <g transform="translate(4, 6)">
+    <!-- Outer Emblem Box / Hexagon Minimal -->
+    <rect x="0" y="0" width="48" height="48" rx="10" fill="#121212" stroke="url(#utGoldGradDark)" stroke-width="1.5"/>
+    
+    <!-- Stylized U Letter with Highway/Road Flow Line -->
+    <path d="M 14 13 L 14 27 C 14 34.5 19 38 24 38 C 29 38 34 34.5 34 27 L 34 13" 
+          fill="none" 
+          stroke="url(#utGoldGradDark)" 
+          stroke-width="3" 
+          stroke-linecap="round"/>
+          
+    <!-- Minimal T Bar intersecting softly -->
+    <path d="M 19 20 L 29 20" 
+          stroke="#FFFFFF" 
+          stroke-width="2" 
+          stroke-linecap="round"/>
+          
+    <!-- Center Guide Highway Dash -->
+    <path d="M 24 23 L 24 31" 
+          stroke="url(#utGoldGradDark)" 
+          stroke-width="2" 
+          stroke-linecap="round"
+          stroke-dasharray="2 2"/>
   </g>
 
-  <line class="divider-line" x1="72" y1="18" x2="72" y2="54"/>
+  <!-- Typography Block -->
+  <g transform="translate(64, 14)">
+    <!-- Primary Brand Word -->
+    <text x="0" y="21" 
+          font-family="'Cinzel', 'Trajan Pro', 'Georgia', serif" 
+          font-size="20" 
+          font-weight="700" 
+          letter-spacing="4" 
+          fill="#FFFFFF">UMAIR</text>
+          
+    <!-- Road Divider Line -->
+    <line x1="108" y1="14" x2="236" y2="14" stroke="url(#roadLineGrad)" stroke-width="1"/>
+    <circle cx="172" cy="14" r="2" fill="#FCE8B3"/>
 
-  <g id="brand-text">
-    <text x="88" y="38" class="brand-title">UMAIR</text>
-    <text x="89" y="55" class="brand-subtitle">TAXI &amp; TOURS</text>
+    <!-- Subtitle: TAXI AND LIMO -->
+    <text x="0" y="36" 
+          font-family="'Montserrat', -apple-system, sans-serif" 
+          font-size="8.5" 
+          font-weight="600" 
+          letter-spacing="5" 
+          fill="url(#utGoldGradDark)">TAXI AND LIMO</text>
+          
+    <text x="144" y="36" 
+          font-family="'Montserrat', -apple-system, sans-serif" 
+          font-size="7" 
+          font-weight="500" 
+          letter-spacing="2" 
+          fill="#8E94A5">&bull; YOUGHAL</text>
   </g>
 </svg>

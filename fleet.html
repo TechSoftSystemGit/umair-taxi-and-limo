@@ -3,220 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Modern Fleet · Saloon Taxis &amp; 7-8 Seater Tour Vans | Umair Taxi &amp; Tours</title>
-  <meta name="description" content="Explore our clean, comfortable taxi and tour vehicles: Mercedes E-Class &amp; Skoda saloons, 7-8 seater Mercedes V-Class tour vans, and executive VIP cars. Based in Youghal, Co. Cork.">
+  <title>Our Fleet · Clean, Comfortable Saloons &amp; MPVs | Umair Taxi and Limo</title>
+  <meta name="description" content="Explore our vehicle fleet: Saloon Taxis for 1-4 passengers, spacious MPVs for 5-8 passengers and golf bags, and large group vehicles for Ireland tours. Call 089 264 6246.">
   <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-
-  <style>
-    .fleet-full-list {
-      display: flex;
-      flex-direction: column;
-      gap: 50px;
-    }
-    .fleet-item-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-dark);
-      border-radius: 16px;
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      transition: border-color 0.3s;
-    }
-    .fleet-item-card:hover {
-      border-color: var(--gold-primary);
-    }
-    .fleet-item-media {
-      height: 100%;
-      min-height: 360px;
-      position: relative;
-      background: #000;
-    }
-    .fleet-item-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    .fleet-item-card:hover .fleet-item-media img {
-      transform: scale(1.04);
-    }
-    .fleet-item-badge {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      background: rgba(8, 10, 14, 0.9);
-      border: 1px solid var(--border-gold);
-      border-radius: 20px;
-      padding: 4px 12px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-    }
-    .fleet-item-content {
-      padding: 36px 32px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .fleet-title {
-      font-family: var(--font-serif);
-      font-size: 25px;
-      font-weight: 700;
-      color: #FFF;
-      margin-bottom: 4px;
-    }
-    .fleet-submodels {
-      font-size: 13px;
-      color: var(--gold-primary);
-      margin-bottom: 16px;
-      font-weight: 600;
-    }
-    .capacity-pills {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 18px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border-dark);
-    }
-    .cap-pill {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      color: #D1D5DB;
-    }
-    .fleet-long-desc {
-      font-size: 13.5px;
-      color: var(--text-muted);
-      line-height: 1.65;
-      margin-bottom: 20px;
-    }
-    .fleet-features-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 24px;
-    }
-    .fleet-feature-point {
-      font-size: 12.5px;
-      color: #D1D5DB;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .fleet-feature-point::before {
-      content: '✓';
-      color: var(--gold-primary);
-      font-weight: bold;
-    }
-    .fleet-card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid var(--border-dark);
-      padding-top: 18px;
-    }
-    .fleet-rate-text {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-    .fleet-rate-text strong {
-      font-family: var(--font-serif);
-      font-size: 20px;
-      color: var(--gold-light);
-      margin-left: 4px;
-    }
-
-    @media (max-width: 900px) {
-      .fleet-item-card {
-        grid-template-columns: 1fr;
-      }
-      .fleet-item-media {
-        min-height: 240px;
-      }
-      .fleet-item-content {
-        padding: 24px 20px;
-      }
-      .fleet-card-footer {
-        flex-direction: column;
-        gap: 14px;
-        align-items: stretch;
-      }
-    }
-  </style>
 </head>
 <body>
 
-  <!-- =========================================================
-       1. STICKY COMPACT HEADER WITH BRAND & DROPDOWN MENU
-       ========================================================= -->
+  <!-- Compact Sticky Header (Desktop 76px / Mobile 64px) -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-link" aria-label="Umair Taxi and Tours Home">
-        <svg class="brand-svg-mark" viewBox="0 0 54 54" width="38" height="38" aria-hidden="true">
-          <defs>
-            <linearGradient id="headerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#FCE8B3"/>
-              <stop offset="25%" stop-color="#E2C275"/>
-              <stop offset="50%" stop-color="#C5A059"/>
-              <stop offset="75%" stop-color="#A57F35"/>
-              <stop offset="100%" stop-color="#BF984E"/>
-            </linearGradient>
-          </defs>
-          <path d="M 12 9 L 21 14 L 21 35.5 C 21 41.5 25 46 29.5 46 C 34 46 38 41.5 38 35.5 L 38 14 L 47 9 L 47 35.5 C 47 45.5 39 52.5 29.5 52.5 C 20 52.5 12 45.5 12 35.5 Z" fill="url(#headerGoldGrad)"/>
-          <path d="M 40 11 L 47 7 L 50.5 15 L 47 16.5 Z" fill="url(#headerGoldGrad)" opacity="0.95"/>
-          <path d="M 12 9 L 18.5 5.5 L 21 14 Z" fill="url(#headerGoldGrad)" opacity="0.95"/>
-          <path d="M 29.5 13 C 29.5 18.5 30.8 20.5 35 20.5 C 30.8 20.5 29.5 22.5 29.5 28 C 29.5 22.5 28.2 20.5 24 20.5 C 28.2 20.5 29.5 18.5 29.5 13 Z" fill="#FFFFFF"/>
-          <path d="M 16 56 C 24.5 58 34.5 58 43 56" stroke="url(#headerGoldGrad)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-        </svg>
-
-        <div class="brand-text-block">
-          <span class="brand-word-primary">UMAIR</span>
-          <span class="brand-word-secondary">TAXI &amp; TOURS</span>
-        </div>
+      <a href="index.html" class="brand-link" aria-label="Umair Taxi and Limo Home">
+        <img src="assets/logo/logo-horizontal-dark.svg" alt="Umair Taxi and Limo Youghal" class="brand-header-logo" width="220" height="42">
       </a>
 
-      <!-- Desktop Nav with Dropdowns -->
-      <nav>
+      <!-- Desktop Navigation with Multi-level Dropdowns -->
+      <nav aria-label="Main Navigation">
         <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          
+          <!-- Services Dropdown -->
           <li class="nav-item-dropdown">
             <a href="services.html" class="nav-link">Services <span class="dropdown-chevron">&#9662;</span></a>
             <ul class="dropdown-menu">
-              <li><a href="services/airport-transfers.html">&#9992;&#65039; Airport Transfers (Cork &amp; Dublin)</a></li>
-              <li><a href="services/local-taxi.html">&#128662; Local Taxi (Youghal &amp; Cork)</a></li>
-              <li><a href="services/ireland-tours.html">&#9752;&#65039; Tours Around Ireland</a></li>
-              <li><a href="services/hotel-golf-transfers.html">&#127976; Hotel &amp; Golf Resorts</a></li>
-              <li><a href="services.html">&#128203; All Services Overview</a></li>
+              <li><a href="services/airport-transfers.html">✈️ Airport Transfers (Primary)</a></li>
+              <li><a href="services/local-taxi.html">🚕 Local Taxi (Youghal &amp; Cork)</a></li>
+              <li><a href="services/golf-tours.html">⛳ Golf Tours</a></li>
+              <li><a href="services/corporate-travel.html">💼 Corporate Travel &amp; Events</a></li>
+              <li><a href="services/hospital-runs.html">🏥 Hospital Runs</a></li>
+              <li><a href="services/aircoach-transfers.html">🚌 Aircoach &amp; Station Runs</a></li>
+              <li class="divider"></li>
+              <li><a href="services.html">📋 View All Services</a></li>
             </ul>
           </li>
-          <li><a href="services/ireland-tours.html" class="nav-link">&#9752;&#65039; Ireland Tours</a></li>
-          <li><a href="rates.html" class="nav-link">Fixed Rates</a></li>
-          <li><a href="fleet.html" class="nav-link active">Fleet</a></li>
-          <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
-          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+
+          <!-- Tours Dropdown -->
+          <li class="nav-item-dropdown">
+            <a href="tours.html" class="nav-link">Tours <span class="dropdown-chevron">&#9662;</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="tours.html">🗺️ All Ireland Tours</a></li>
+              <li><a href="tours.html#cork">🏰 Cork &amp; Blarney Tours</a></li>
+              <li><a href="tours.html#waterford">🌊 Waterford &amp; Copper Coast</a></li>
+              <li><a href="tours.html#youghal">⚓ Historic Youghal Tours</a></li>
+              <li><a href="tours.html#dungarvan">🚲 Dungarvan &amp; Greenway</a></li>
+              <li><a href="tours.html#west-cork">🌄 West Cork Scenic Tours</a></li>
+              <li><a href="services/golf-tours.html">⛳ Golf Course Tours</a></li>
+              <li class="divider"></li>
+              <li><a href="tours.html#custom">✨ Custom Private Tours</a></li>
+            </ul>
+          </li>
+
+          <!-- Service Areas Dropdown -->
+          <li class="nav-item-dropdown">
+            <a href="service-areas.html" class="nav-link">Areas <span class="dropdown-chevron">&#9662;</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="service-areas.html#youghal">📍 Youghal (Primary Base)</a></li>
+              <li><a href="service-areas.html#cork">✈️ Cork City &amp; Airport</a></li>
+              <li><a href="service-areas.html#waterford">💎 Waterford City &amp; Co.</a></li>
+              <li><a href="service-areas.html#dungarvan">⛵ Dungarvan &amp; Greenway</a></li>
+              <li><a href="service-areas.html#co-cork">🏡 County Cork Region</a></li>
+              <li><a href="service-areas.html#west-waterford">🌿 West Waterford Region</a></li>
+              <li class="divider"></li>
+              <li><a href="service-areas.html">🗺️ All Service Areas</a></li>
+            </ul>
+          </li>
+
+          <li><a href="fleet.html" class="nav-link">Fleet</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
 
+      <!-- Concise Header CTAs -->
       <div class="header-right">
-        <a href="tel:+353870000000" class="phone-badge">
-          <span>&#128222;</span>
-          <span>+353 (0) 87 000 0000</span>
+        <a href="tel:+353892646246" class="phone-quick-link" aria-label="Call Dispatch 089 264 6246">
+          <span>📞</span>
+          <span>089 264 6246</span>
         </a>
-        <a href="tel:+353870000000" class="mobile-phone-btn" aria-label="Call Dispatch">
-          <span>&#128222;</span>
+
+        <a href="tel:+353892646246" class="mobile-phone-btn" aria-label="Call Dispatch">
+          <span>📞</span>
         </a>
-        <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20inquire%20about%20your%20fleet." target="_blank" class="btn-header-cta">
-          <span class="cta-desktop-text">Book on WhatsApp</span>
-          <span class="cta-mobile-text">Book</span>
+
+        <a href="https://wa.me/353892646246?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20inquire%20about%20a%20booking." target="_blank" rel="noopener noreferrer" class="btn-gold" style="padding: 9px 18px; font-size: 13px;">
+          WhatsApp
         </a>
-        <button class="burger-btn" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+
+        <button class="burger-btn" aria-label="Toggle mobile menu" onclick="toggleMobileNav()">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -225,292 +101,265 @@
 
   <!-- Mobile Drawer -->
   <div class="mobile-drawer" id="mobileDrawer">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <span style="color: var(--gold-primary); font-weight: 700; font-size: 14px; letter-spacing: 0.1em;">MENU</span>
+      <button onclick="toggleMobileNav()" style="background: none; border: none; color: #FFF; font-size: 24px; cursor: pointer;">&times;</button>
+    </div>
     <ul class="mobile-drawer-links">
-      <li class="mobile-dropdown">
-        <div class="mobile-dropdown-header" onclick="toggleSubMenu()">
-          <span>&#128662; Services Menu</span>
-          <span id="subArrow">&#9662;</span>
-        </div>
-        <ul class="mobile-submenu" id="mobileSubMenu">
-          <li><a href="services/airport-transfers.html">&#9992;&#65039; Airport Transfers (Cork &amp; Dublin)</a></li>
-          <li><a href="services/local-taxi.html">&#128662; Local Taxi (Youghal &amp; Cork)</a></li>
-          <li><a href="services/ireland-tours.html">&#9752;&#65039; Tours Around Ireland</a></li>
-          <li><a href="services/hotel-golf-transfers.html">&#127976; Hotel &amp; Golf Resorts</a></li>
-          <li><a href="services.html">&#128203; All Services Overview</a></li>
-        </ul>
-      </li>
-      <li><a href="services/ireland-tours.html">&#9752;&#65039; Tours Around Ireland <span>&rarr;</span></a></li>
-      <li><a href="rates.html">Fixed Rates <span>&rarr;</span></a></li>
-      <li><a href="fleet.html" style="color: var(--gold-primary);">Our Fleet <span>&rarr;</span></a></li>
-      <li><a href="how-it-works.html">How It Works <span>&rarr;</span></a></li>
-      <li><a href="contact.html">Contact Us <span>&rarr;</span></a></li>
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="services.html">📋 All Services</a></li>
+      <li style="padding-left: 14px;"><a href="services/airport-transfers.html">✈️ Airport Transfers</a></li>
+      <li style="padding-left: 14px;"><a href="services/local-taxi.html">🚕 Local Taxi (Youghal)</a></li>
+      <li style="padding-left: 14px;"><a href="services/golf-tours.html">⛳ Golf Tours</a></li>
+      <li style="padding-left: 14px;"><a href="services/corporate-travel.html">💼 Corporate Travel</a></li>
+      <li style="padding-left: 14px;"><a href="services/hospital-runs.html">🏥 Hospital Runs</a></li>
+      <li style="padding-left: 14px;"><a href="services/aircoach-transfers.html">🚌 Aircoach Runs</a></li>
+      <li><a href="tours.html">🗺️ Ireland Tours</a></li>
+      <li><a href="service-areas.html">📍 Service Areas</a></li>
+      <li><a href="fleet.html">🚘 Fleet</a></li>
+      <li><a href="about.html">ℹ️ About Us</a></li>
+      <li><a href="contact.html">📞 Contact</a></li>
     </ul>
-    <div style="margin-top: 18px; display: flex; flex-direction: column; gap: 10px;">
-      <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20need%20a%20vehicle%20booking." target="_blank" class="btn-gold" style="width: 100%;">
-        &#128172; Book on WhatsApp
+
+    <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 10px;">
+      <a href="https://wa.me/353892646246?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20inquire%20about%20a%20booking." target="_blank" rel="noopener noreferrer" class="btn-gold" style="width: 100%; justify-content: center;">
+        💬 WhatsApp: 089 264 6246
       </a>
-      <a href="tel:+353870000000" class="btn-outline" style="width: 100%; justify-content: center;">
-        &#128222; Call Dispatch
+      <a href="tel:+353892646246" class="btn-outline" style="width: 100%; justify-content: center;">
+        📞 Call: 089 264 6246
       </a>
     </div>
   </div>
 
-  <!-- PAGE HERO -->
-  <section class="page-hero" style="padding: 70px 0 50px; text-align: center; background: #080A0E; border-bottom: 1px solid var(--border-gold);">
+  <section class="section" style="padding-top: 50px;">
     <div class="container">
-      <span class="section-tag">&#128662; Spotless &bull; Comfortable &bull; Insured</span>
-      <h1 class="page-title" style="font-family: var(--font-serif); font-size: 38px; color: #FFF; margin: 12px 0 16px;">
-        Our Clean Cars &amp; Tour Minivans
-      </h1>
-      <p style="font-size: 15px; color: var(--text-muted); max-width: 720px; margin: 0 auto 20px;">
-        Every vehicle is fully licensed by the National Transport Authority (NTA Ireland), valeted to immaculate condition, and driven by a friendly local driver.
-      </p>
+      <div class="section-head">
+        <span class="section-tag">Comfort &amp; Reliability</span>
+        <h1 class="section-title">Our Vehicle Fleet</h1>
+        <p class="section-desc">
+          Every vehicle in our fleet is fully licensed, insured, sanitized, and maintained to the highest safety standards by the National Transport Authority (NTA Ireland).
+        </p>
+      </div>
 
-      <div class="service-areas-pills" style="justify-content: center;">
-        <span class="area-pill base">&#128205; Base: Youghal, Co. Cork</span>
-        <span class="area-pill">&#128662; Modern Saloon Taxis</span>
-        <span class="area-pill">&#9752;&#65039; 7-8 Seater Tour MPVs</span>
-        <span class="area-pill">&#128081; Executive VIP Cars</span>
+      <div class="fleet-grid">
+        <!-- Fleet 1: Saloon Taxi -->
+        <div class="fleet-card">
+          <div class="fleet-media">
+            <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=800" alt="Comfortable Saloon Taxi">
+          </div>
+          <div class="fleet-body">
+            <div>
+              <div class="fleet-cat-badge">🚕 Everyday Comfort</div>
+              <h2 class="fleet-name">Saloon Taxi</h2>
+              <div class="fleet-meta-row">
+                <span>👥 1–4 Passengers</span>
+                <span>🧳 2 Large Bags</span>
+                <span>❄️ A/C Climate</span>
+              </div>
+              <p class="fleet-desc">
+                Ideal for local Youghal errands, Cork Airport transfers, doctor consultations, train station drops, and individual business trips.
+              </p>
+            </div>
+            <div>
+              <a href="https://wa.me/353892646246?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20inquire%20about%20a%20booking." target="_blank" rel="noopener noreferrer" class="btn-gold" style="width: 100%; justify-content: center;">
+                Book Saloon Taxi
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fleet 2: MPV / People Carrier -->
+        <div class="fleet-card" style="border-color: var(--border-gold);">
+          <div class="fleet-media">
+            <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&q=80&w=800" alt="Spacious Tour MPV">
+          </div>
+          <div class="fleet-body">
+            <div>
+              <div class="fleet-cat-badge">🚐 Families &amp; Golfers</div>
+              <h2 class="fleet-name">MPV / People Carrier</h2>
+              <div class="fleet-meta-row">
+                <span>👥 5–8 Passengers</span>
+                <span>🧳 6–8 Large Bags</span>
+                <span>⛳ Golf Clubs OK</span>
+              </div>
+              <p class="fleet-desc">
+                Spacious seating and huge luggage capacity. Perfect for family airport arrivals, golf luggage, and full-day private tours across Ireland.
+              </p>
+            </div>
+            <div>
+              <a href="https://wa.me/353892646246?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20inquire%20about%20a%20booking." target="_blank" rel="noopener noreferrer" class="btn-gold" style="width: 100%; justify-content: center;">
+                Book MPV
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fleet 3: Large Group Vehicle -->
+        <div class="fleet-card">
+          <div class="fleet-media">
+            <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&q=80&w=800" alt="Group Vehicle">
+          </div>
+          <div class="fleet-body">
+            <div>
+              <div class="fleet-cat-badge">🚌 Group Transport</div>
+              <h2 class="fleet-name">Large Group Vehicle</h2>
+              <div class="fleet-meta-row">
+                <span>👥 8+ Passengers</span>
+                <span>🧳 Full Luggage</span>
+                <span>✨ Dedicated Hire</span>
+              </div>
+              <p class="fleet-desc">
+                Dedicated group transport for wedding parties, corporate events, family reunions, and extended multi-day Ireland tour itineraries.
+              </p>
+            </div>
+            <div>
+              <a href="https://wa.me/353892646246?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20inquire%20about%20a%20booking." target="_blank" rel="noopener noreferrer" class="btn-gold" style="width: 100%; justify-content: center;">
+                Inquire Group Hire
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FLEET SHOWCASE -->
-  <section class="section">
-    <div class="container">
-      <div class="fleet-full-list">
-
-        <!-- Vehicle 1: Executive Saloon / Sedan Taxi -->
-        <div class="fleet-item-card">
-          <div class="fleet-item-media">
-            <span class="fleet-item-badge">&#128662; Local &amp; Airport Saloon</span>
-            <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=1000" alt="Executive Saloon Taxi">
-          </div>
-          <div class="fleet-item-content">
-            <div>
-              <h2 class="fleet-title">Executive Saloon Taxi</h2>
-              <div class="fleet-submodels">Mercedes-Benz E-Class &bull; Skoda Superb</div>
-              <div class="capacity-pills">
-                <div class="cap-pill">
-                  <span>&#128100; Up to 4 Passengers</span>
-                </div>
-                <div class="cap-pill">
-                  <span>&#129523; 2 Large Bags + Carry-ons</span>
-                </div>
-              </div>
-              <p class="fleet-long-desc">
-                The ideal choice for local taxi trips around Youghal, Dungarvan, Midleton, and Cork Airport transfers. Smooth ride, quiet cabin, clean leather interior, and dual-zone air conditioning.
-              </p>
-              <div class="fleet-features-grid">
-                <div class="fleet-feature-point">Daily valeted &amp; smoke-free</div>
-                <div class="fleet-feature-point">Contactless &amp; card payment</div>
-                <div class="fleet-feature-point">USB device charging ports</div>
-                <div class="fleet-feature-point">Flight tracking on airport runs</div>
-              </div>
-            </div>
-            <div class="fleet-card-footer">
-              <div class="fleet-rate-text">Local runs from <strong>€15</strong> &bull; Airport from <strong>€85</strong></div>
-              <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20book%20a%20Saloon%20Taxi." target="_blank" class="btn-gold">Book Saloon Taxi</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Vehicle 2: 7-8 Seater Tour Van / MPV (HERO VEHICLE FOR TOURS) -->
-        <div class="fleet-item-card" style="border-color: var(--gold-primary);">
-          <div class="fleet-item-media">
-            <span class="fleet-item-badge" style="background: var(--gold-gradient); color: #080A0E; font-weight: 700;">&#9752;&#65039; 7-8 Seater Tour Van</span>
-            <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&q=80&w=1000" alt="Mercedes V-Class Tour Van">
-          </div>
-          <div class="fleet-item-content">
-            <div>
-              <h2 class="fleet-title">7-8 Seater Tour Minivan / MPV</h2>
-              <div class="fleet-submodels">Mercedes-Benz V-Class Extra Long &bull; Ford Tourneo Custom</div>
-              <div class="capacity-pills">
-                <div class="cap-pill">
-                  <span>&#128100; Up to 7-8 Passengers</span>
-                </div>
-                <div class="cap-pill">
-                  <span>&#129523; 8 Large Bags + Golf Clubs</span>
-                </div>
-              </div>
-              <p class="fleet-long-desc">
-                Perfect for private day tours all around Ireland, family airport transfers, and golf trips. Features large panoramic windows for sightseeing, conference seating, massive luggage volume, and independent rear climate control.
-              </p>
-              <div class="fleet-features-grid">
-                <div class="fleet-feature-point">Panoramic sightseeing views</div>
-                <div class="fleet-feature-point">Fits full golf sets &amp; large bags</div>
-                <div class="fleet-feature-point">Friendly local driver-guide</div>
-                <div class="fleet-feature-point">Complimentary child &amp; booster seats</div>
-              </div>
-            </div>
-            <div class="fleet-card-footer">
-              <div class="fleet-rate-text">Airport Runs from <strong>€125</strong> &bull; Tours <strong>Bespoke</strong></div>
-              <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20book%20a%207-8%20Seater%20Tour%20Van." target="_blank" class="btn-gold">Book Tour Van</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Vehicle 3: Executive VIP Sedan -->
-        <div class="fleet-item-card">
-          <div class="fleet-item-media">
-            <span class="fleet-item-badge">&#128081; Executive VIP</span>
-            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80&w=1000" alt="Mercedes S-Class VIP">
-          </div>
-          <div class="fleet-item-content">
-            <div>
-              <h2 class="fleet-title">First-Class Executive VIP</h2>
-              <div class="fleet-submodels">Mercedes-Benz S-Class Long Wheelbase</div>
-              <div class="capacity-pills">
-                <div class="cap-pill">
-                  <span>&#128100; Up to 3 Passengers</span>
-                </div>
-                <div class="cap-pill">
-                  <span>&#129523; 3 Large Bags + Carry-ons</span>
-                </div>
-              </div>
-              <p class="fleet-long-desc">
-                Tailored for wedding cars, visiting VIPs, and corporate executives. Reclining heated seats, rear acoustic privacy glass, bottled Irish spring water, and discreet suited driver service.
-              </p>
-              <div class="fleet-features-grid">
-                <div class="fleet-feature-point">Reclining luxury leather seats</div>
-                <div class="fleet-feature-point">Chilled bottled spring water</div>
-                <div class="fleet-feature-point">Acoustic privacy glass</div>
-                <div class="fleet-feature-point">Suited professional driver</div>
-              </div>
-            </div>
-            <div class="fleet-card-footer">
-              <div class="fleet-rate-text">Transfers from <strong>€95</strong></div>
-              <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20book%20the%20VIP%20S-Class." target="_blank" class="btn-gold">Book VIP Car</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================
-       PRE-FOOTER CALL TO ACTION (USER REQUIREMENT)
-       ========================================================= -->
+  <!-- Pre-Footer Call to Action Section -->
   <section class="pre-footer-cta">
     <div class="container">
-      <div class="cta-inner-card">
-        <span class="cta-eyebrow">&#128662; Fleet Reservations</span>
-        <h2 class="cta-title">Need a specific car or group van for your journey?</h2>
+      <div class="cta-card">
+        <span class="section-tag">📍 Youghal · Cork · Waterford · Ireland</span>
+        <h2 class="cta-heading">Ready to Book Your Journey?</h2>
         <p class="cta-desc">
-          Tell us your passenger count and luggage requirements. We will match you with the ideal vehicle at a guaranteed fixed rate.
+          Whether you need a punctual Cork Airport transfer, a prompt local taxi in Youghal, or a bespoke private tour around Ireland, we are ready to assist you.
         </p>
-        <div class="cta-buttons">
-          <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20inquire%20about%20a%20vehicle%20booking." target="_blank" class="btn-gold">
-            &#128172; Book on WhatsApp
+        <div class="cta-btns">
+          <a href="https://wa.me/353892646246?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20inquire%20about%20a%20booking." target="_blank" rel="noopener noreferrer" class="btn-gold">
+            💬 WhatsApp Now
           </a>
-          <a href="tel:+353870000000" class="btn-outline">
-            &#128222; Call Dispatch: +353 87 000 0000
+          <a href="tel:+353892646246" class="btn-outline">
+            📞 Call: 089 264 6246
           </a>
-          <a href="rates.html" class="btn-outline">
-            &#128205; View Fixed Rates
+          <a href="tours.html" class="btn-outline">
+            🗺️ View Tours
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- Site Footer (Real Verified Business Details) -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="brand-link" style="margin-bottom: 16px;">
-            <svg class="brand-svg-mark" viewBox="0 0 54 54" width="36" height="36" aria-hidden="true">
-              <defs>
-                <linearGradient id="footerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#FCE8B3"/>
-                  <stop offset="25%" stop-color="#E2C275"/>
-                  <stop offset="50%" stop-color="#C5A059"/>
-                  <stop offset="75%" stop-color="#A57F35"/>
-                  <stop offset="100%" stop-color="#BF984E"/>
-                </linearGradient>
-              </defs>
-              <path d="M 12 9 L 21 14 L 21 35.5 C 21 41.5 25 46 29.5 46 C 34 46 38 41.5 38 35.5 L 38 14 L 47 9 L 47 35.5 C 47 45.5 39 52.5 29.5 52.5 C 20 52.5 12 45.5 12 35.5 Z" fill="url(#footerGoldGrad)"/>
-              <path d="M 40 11 L 47 7 L 50.5 15 L 47 16.5 Z" fill="url(#footerGoldGrad)" opacity="0.95"/>
-              <path d="M 12 9 L 18.5 5.5 L 21 14 Z" fill="url(#footerGoldGrad)" opacity="0.95"/>
-              <path d="M 29.5 13 C 29.5 18.5 30.8 20.5 35 20.5 C 30.8 20.5 29.5 22.5 29.5 28 C 29.5 22.5 28.2 20.5 24 20.5 C 28.2 20.5 29.5 18.5 29.5 13 Z" fill="#FFFFFF"/>
-              <path d="M 16 56 C 24.5 58 34.5 58 43 56" stroke="url(#footerGoldGrad)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-            </svg>
-            <div class="brand-text-block">
-              <span class="brand-word-primary">UMAIR</span>
-              <span class="brand-word-secondary">TAXI &amp; TOURS</span>
-            </div>
+        <div>
+          <a href="index.html">
+            <img src="assets/logo/logo-horizontal-dark.svg" alt="Umair Taxi and Limo" class="footer-brand-logo">
           </a>
-          <p>
-            Reliable local taxi service, Cork &amp; Dublin airport transfers, and private tours all around Ireland. Proudly based in Youghal, Co. Cork. Licensed by the National Transport Authority (NTA Ireland).
+          <p class="footer-about-text">
+            Dependable local taxi service, Cork &amp; Dublin airport transfers, and private tours all around Ireland. Proudly based in Youghal, County Cork. Fully licensed by the National Transport Authority (NTA Ireland).
           </p>
+          <div style="font-size: 12px; color: var(--gold-light);">
+            📍 Base: Youghal, County Cork, Ireland
+          </div>
         </div>
 
         <div>
-          <h4 class="footer-heading">Services</h4>
-          <ul class="footer-links">
-            <li><a href="services/airport-transfers.html">Airport Transfers (Cork &amp; Dublin)</a></li>
-            <li><a href="services/local-taxi.html">Local Taxi Service (Youghal)</a></li>
-            <li><a href="services/ireland-tours.html">Private Ireland Day Tours</a></li>
-            <li><a href="services/hotel-golf-transfers.html">Resort &amp; Golf Transfers</a></li>
-            <li><a href="fleet.html">Our Fleet</a></li>
+          <h4 class="footer-h4">Our Services</h4>
+          <ul class="footer-nav">
+            <li><a href="services/airport-transfers.html">✈️ Airport Transfers</a></li>
+            <li><a href="services/local-taxi.html">🚕 Local Taxi (Youghal)</a></li>
+            <li><a href="services/golf-tours.html">⛳ Golf Course Tours</a></li>
+            <li><a href="services/corporate-travel.html">💼 Corporate Events</a></li>
+            <li><a href="services/hospital-runs.html">🏥 Hospital Appointments</a></li>
+            <li><a href="services/aircoach-transfers.html">🚌 Aircoach Runs</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="footer-heading">Service Areas</h4>
-          <ul class="footer-links">
-            <li><a href="services/local-taxi.html">Youghal, Co. Cork (Base)</a></li>
-            <li><a href="services/airport-transfers.html">Cork Airport (ORK)</a></li>
-            <li><a href="rates.html">Cork City Centre</a></li>
-            <li><a href="rates.html">Dungarvan &amp; Waterford</a></li>
-            <li><a href="services/airport-transfers.html">Dublin Airport (DUB)</a></li>
+          <h4 class="footer-h4">Key Service Areas</h4>
+          <ul class="footer-nav">
+            <li><a href="service-areas.html#youghal">📍 Youghal (Primary Base)</a></li>
+            <li><a href="service-areas.html#cork">✈️ Cork Airport &amp; City</a></li>
+            <li><a href="service-areas.html#waterford">💎 Waterford &amp; Copper Coast</a></li>
+            <li><a href="service-areas.html#dungarvan">⛵ Dungarvan &amp; West Waterford</a></li>
+            <li><a href="tours.html">🗺️ Tours Across Ireland</a></li>
+            <li><a href="service-areas.html">📍 View All Areas</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="footer-heading">24/7 Dispatch</h4>
-          <div class="footer-contact-item">
-            <span>&#128222;</span>
-            <span><strong>+353 (0) 87 000 0000</strong></span>
+          <h4 class="footer-h4">Direct Contact</h4>
+          <div class="footer-contact-row">
+            <span>📞</span>
+            <div>
+              <strong>Phone:</strong><br>
+              <a href="tel:+353892646246" style="color: #FFF;">089 264 6246</a>
+            </div>
           </div>
-          <div class="footer-contact-item">
-            <span>&#128172;</span>
-            <span>WhatsApp: Instant Reply</span>
+          <div class="footer-contact-row">
+            <span>💬</span>
+            <div>
+              <strong>WhatsApp:</strong><br>
+              <a href="https://wa.me/353892646246?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20inquire%20about%20a%20booking." target="_blank" rel="noopener noreferrer" style="color: var(--gold-light);">089 264 6246 (Instant Reply)</a>
+            </div>
           </div>
-          <div class="footer-contact-item">
-            <span>&#128205;</span>
-            <span>Youghal &bull; Cork &bull; Ireland</span>
+          <div class="footer-contact-row">
+            <span>✉️</span>
+            <div>
+              <strong>Email:</strong><br>
+              <a href="mailto:Rana4874@gmail.com" style="color: #FFF;">Rana4874@gmail.com</a>
+            </div>
+          </div>
+          <div class="footer-contact-row">
+            <span>📍</span>
+            <div>
+              <strong>Base Address:</strong><br>
+              Istanbul Bites, Upper Cork Hill, Youghal, Ireland
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="footer-bottom">
-        <div>&copy; 2026 Umair Taxi &amp; Tours. All rights reserved. Licensed SPSV Operator Ireland.</div>
-        <div>Muted Champagne Gold &amp; Obsidian Black</div>
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 Umair Taxi and Limo. All rights reserved. Licensed Irish SPSV Operator.</div>
+        <div>Muted Champagne Gold &bull; Obsidian Black &bull; Warm Ivory</div>
       </div>
     </div>
   </footer>
 
-  <a href="https://wa.me/353870000000?text=Hello%20Umair%20Taxi,%20I%20would%20like%20to%20inquire%20about%20a%20booking." 
-     target="_blank" 
-     class="floating-whatsapp">
-    <span>&#128172;</span>
+  <!-- Floating WhatsApp Pill -->
+  <a href="https://wa.me/353892646246?text=Hello%20Umair%20Taxi%20and%20Limo,%20I%20would%20like%20to%20inquire%20about%20a%20booking." target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+    <span>💬</span>
     <span>WhatsApp Us</span>
   </a>
 
+  <!-- Mobile Toggle Script -->
   <script>
-    function toggleMobileMenu() {
+    function toggleMobileNav() {
       const drawer = document.getElementById('mobileDrawer');
       drawer.classList.toggle('is-open');
     }
-    function toggleSubMenu() {
-      const sub = document.getElementById('mobileSubMenu');
-      const arrow = document.getElementById('subArrow');
-      sub.classList.toggle('is-open');
-      arrow.innerHTML = sub.classList.contains('is-open') ? '&#9652;' : '&#9662;';
+    function toggleFaqItem(btn) {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector('.faq-icon');
+      if (content.style.display === 'block') {
+        content.style.display = 'none';
+        icon.style.transform = 'rotate(0deg)';
+      } else {
+        content.style.display = 'block';
+        icon.style.transform = 'rotate(180deg)';
+      }
+    }
+    function sendEnquiryWhatsApp(e) {
+      e.preventDefault();
+      const pickup = document.getElementById('enqPickup') ? document.getElementById('enqPickup').value : '';
+      const dropoff = document.getElementById('enqDropoff') ? document.getElementById('enqDropoff').value : '';
+      const date = document.getElementById('enqDate') ? document.getElementById('enqDate').value : '';
+      const pax = document.getElementById('enqPax') ? document.getElementById('enqPax').value : '';
+      const msg = `Hello Umair Taxi and Limo, I would like a quote:%0A- Pickup: ${pickup || 'Youghal'}%0A- Destination: ${dropoff || 'Cork Airport'}%0A- Date/Time: ${date || 'Upcoming'}%0A- Passengers: ${pax || '1-4'}`;
+      window.open(`https://wa.me/353892646246?text=${msg}`, '_blank');
     }
   </script>
+
 </body>
 </html>
