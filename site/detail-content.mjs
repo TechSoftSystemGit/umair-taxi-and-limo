@@ -42,3 +42,21 @@ export const areaPlanning = {
   'county-cork': ['Rural and town pickups', 'For accommodation outside a town, send an Eircode or map pin along with any instructions for finding the property. If your route includes multiple villages or a return from Cork Airport, list each stop in order.'],
   'west-waterford': ['Coastal villages and inland stops', 'If you’re meeting in Ardmore, Clashmore or Lismore, send your accommodation address and pickup time. For a day trip involving several villages, share the places you want to visit and where the journey should finish.'],
 };
+
+export const serviceExperience = {
+  'airport-transfers': ['Plan around your flight', 'Get a quote for a private journey to or from Cork Airport, with your pickup, luggage and return trip discussed together.', 'Flight number and terminal arrival time'],
+  'local-taxi-youghal': ['A local starting point', 'We’re based in Youghal. Tell us where you’re heading in town or nearby, and ask about a return when you make your enquiry.', 'Pickup landmark and any return time'],
+  'golf-tours': ['Transport around your tee times', 'Share your courses and the number of golf bags. We can discuss the transport for each round alongside hotel or airport pickups.', 'Tee times, courses and golf bags'],
+  'corporate-travel': ['One contact for your group’s plans', 'Send the schedule for airport arrivals, venues and hotel pickups so we can discuss the itinerary together.', 'Venue schedule and passengers for each leg'],
+  'hospital-runs': ['Agree the pickup before you travel', 'Discuss the hospital entrance, whether someone is travelling with you and how you’ll handle a return if the finish time is uncertain.', 'Appointment time and hospital entrance'],
+  'aircoach-transfers': ['Connect at the stop on your ticket', 'Arrange the local leg from your home or hotel to the coach stop, and ask about collection there when you return.', 'Exact coach stop and scheduled coach time'],
+};
+
+export const areaExperience = {
+  youghal: 'From our base in Youghal, arrange a ride across town, a connection to Cork Airport or the first leg of a private tour along the East Cork coast.',
+  cork: 'Plan a pickup at a Cork City hotel or venue, or start at Cork Airport. We can discuss how the journey fits around your flight, meeting or onward plans.',
+  waterford: 'Share your starting point in Waterford and whether you’re heading to Cork Airport or looking to spend time along the Copper Coast.',
+  dungarvan: 'Arrange a pickup from your accommodation, the harbour or a named Greenway access point. Tell us where the trip needs to finish.',
+  'county-cork': 'Share the Eircode for your pickup or the towns on your route. We can discuss a trip to Cork Airport or transport between several stops in the county.',
+  'west-waterford': 'Ask about pickups in coastal villages or inland towns. Tell us whether you need a direct ride or want to make stops along the way.',
+};

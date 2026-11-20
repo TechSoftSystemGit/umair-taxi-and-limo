@@ -128,6 +128,28 @@ export const process = () => `<ol class="steps">${steps.map(([title, description
 export const questions = () => `<div class="questions">${faqs.map(([title, answer]) => `<details><summary><span>${renderIcon('question')}${title}</span>${renderIcon('plus')}${renderIcon('minus')}</summary><p>${answer}</p></details>`).join('')}</div>`;
 export const section = (title, body, className = '', id = '') => `<section class="section ${className}"${id ? ` id="${id}"` : ''}><div class="shell"><h2>${title}</h2>${body}</div></section>`;
 
+export function journeyFeature(media, title, description, cta) {
+  return `<section class="journey-feature shell" aria-labelledby="journey-feature-title">
+    <div class="journey-feature-photo" data-reveal>${image(...media)}</div>
+    <div class="journey-feature-copy">
+      <p class="eyebrow">Why choose us</p>
+      <h2 id="journey-feature-title">${escape(title)}</h2>
+      <p>${escape(description)}</p>
+      ${link(...cta)}
+    </div>
+  </section>`;
+}
+
+export function journeySteps(title, firstStep) {
+  const items = [
+    ['pin', 'Send the trip details', firstStep],
+    ['chat', 'Agree the arrangements', 'We’ll discuss availability, pickup and the quote with you.'],
+    ['calendar', 'Meet at the agreed spot', 'Keep the booking confirmation and pickup details handy on the day.'],
+  ];
+  return section(escape(title), `<ol class="journey-steps">${items.map(([symbol, heading, detail]) => `
+    <li><div class="journey-step-icon">${renderIcon(symbol)}</div><h3>${heading}</h3><p>${escape(detail)}</p></li>`).join('')}</ol>`, 'journey-planning');
+}
+
 export const tourMedia = {
   ireland: ['irish-atlantic-coast', 'Green headlands overlooking the Irish Atlantic coast'],
   cork: ['cork-harbour-town', 'Pastel buildings and boats in an Irish harbour town'],

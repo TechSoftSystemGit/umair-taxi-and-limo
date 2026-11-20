@@ -1,11 +1,11 @@
 import { cp, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { business, services, tours, areas, faqs, nationwideTours } from './content.mjs';
-import { areaMedia, areaPlanning, serviceHeroMedia, servicePlanning } from './detail-content.mjs';
+import { areaExperience, areaMedia, areaPlanning, serviceExperience, serviceHeroMedia, serviceMedia, servicePlanning } from './detail-content.mjs';
 import { icon } from './icons.mjs';
 import {
   areaPath, areaTiles, bookingForm, contactForm, escape, fleet, footer, header, home, image,
-  link, process, prose, questions, section, servicePath, serviceTiles, tiles, tourMedia, tourPath, tourTiles,
+  journeyFeature, journeySteps, link, process, prose, questions, section, servicePath, serviceTiles, tiles, tourMedia, tourPath, tourTiles,
 } from './templates.mjs';
 
 const output = 'dist';
@@ -21,7 +21,12 @@ function related(items) {
 }
 
 page('/', 'Cork Airport Transfers & Taxi from Youghal', 'Arrange a Cork Airport transfer, local taxi or private Ireland tour with Umair Taxi and Limo in Youghal, County Cork.', home(), { home: true });
-page('/services/', 'Taxi & Transfer Services', 'Explore airport transfers, local taxis, golf transport, corporate trips, hospital runs and Aircoach connections from Youghal.', section('Book a journey', serviceTiles()));
+const serviceGuide = journeySteps('From enquiry to pickup', 'Include your route, preferred date, passenger count and luggage.');
+page('/services/', 'Taxi & Transfer Services', 'Explore airport transfers, local taxis, golf transport, corporate trips, hospital runs and Aircoach connections from Youghal.',
+  section('Book a journey', serviceTiles()) +
+  journeyFeature(serviceHeroMedia['airport-transfers'], 'One place to arrange your travel',
+    'From our base in Youghal, enquire about Cork Airport transfers, local taxi trips or a private Ireland tour. Share the plans you want to make and we’ll discuss the journey with you.',
+    ['/book/', 'Plan a Journey', 'button button--gold', 'calendar']) + serviceGuide);
 for (const [slug, title, icon, description, blocks] of services) {
   const trip = {
     'airport-transfers': 'Airport Transfer', 'local-taxi-youghal': 'Local Taxi',
@@ -29,10 +34,13 @@ for (const [slug, title, icon, description, blocks] of services) {
     'hospital-runs': 'Hospital Run', 'aircoach-transfers': 'Aircoach Run',
   }[slug];
   const booking = '/book/?' + new URLSearchParams({ trip });
+  const [featureTitle, featureCopy, enquiryDetails] = serviceExperience[slug];
   page(servicePath(slug), slug === 'airport-transfers' ? 'Cork Airport Transfers' : title, description,
     `<div class="shell reading service-layout">${prose([...blocks, servicePlanning[slug]])}
       <aside class="quote-band"><div><h2>Request a quote</h2><p>Send your route, travel date and passenger count so we can discuss availability and price.</p></div>
       <div class="actions">${link(booking, 'Get Quote', 'button button--gold', 'calendar')}${link('/service-areas/', 'Service Areas', 'button button--dark', 'pin')}</div></aside></div>
+      ${journeyFeature(serviceMedia[slug], featureTitle, featureCopy, [booking, 'Plan Your Journey', 'button button--gold', 'calendar'])}
+      ${journeySteps('How to arrange your pickup', enquiryDetails + '.')}
       ${section('Explore other services', serviceTiles(services.filter(([otherSlug]) => otherSlug !== slug)), 'surface')}`,
     { parent: ['/services/', 'Services'], schema: 'Service', media: serviceHeroMedia[slug], icon, booking, introStyle: 'service-intro' });
 }
@@ -48,7 +56,13 @@ for (const [slug, title, description, detail] of tours) {
   ])}${related([['/book/?trip=Tour', 'Enquire'], ['/tours/#nationwide', 'Explore Nationwide Tour Ideas']])}</div>`, { parent: ['/tours/', 'Tours'], schema: 'Service', media: tourMedia[slug], booking: '/book/?trip=Tour' });
 }
 
-page('/service-areas/', 'Taxi and Transfer Service Areas', 'Explore pickups from our base in Youghal and across Cork, Waterford, Dungarvan, County Cork and West Waterford.', section('Where we serve', areaTiles()), { crumb: 'Service Areas' });
+page('/service-areas/', 'Taxi and Transfer Service Areas', 'Explore pickups from our base in Youghal and across Cork, Waterford, Dungarvan, County Cork and West Waterford.',
+  section('Where we serve', areaTiles()) +
+  journeyFeature(areaMedia.youghal, 'Based on the East Cork coast',
+    'Start in Youghal or ask about pickups in Cork, Waterford and Dungarvan. If you’re meeting outside a town, an Eircode or map pin will help us discuss the exact pickup point.',
+    [areaPath('youghal'), 'Explore Youghal Pickups', 'button button--gold', 'pin']) +
+  journeySteps('Arranging a pickup', 'Share your address or meeting point, destination, date and passenger count.'),
+  { crumb: 'Service Areas' });
 for (const [slug, place, description, detail, route, tour] of areas) {
   const [pickup, destination] = route.split(' → ');
   const query = new URLSearchParams({ pickup, destination, trip: destination.includes('Airport') ? 'Airport Transfer' : 'Local Taxi' });
@@ -57,6 +71,8 @@ for (const [slug, place, description, detail, route, tour] of areas) {
     `<div class="shell reading detail-layout">${prose([[ `Pickups in ${place}`, detail ], areaPlanning[slug]])}
     <aside class="detail-aside"><h2>Example journey</h2><p>${link('/book/?' + query, route, 'text-link', 'pin')}</p>
       <div class="actions">${link(booking, 'Book Now', 'button button--gold', 'calendar')}${link(whatsapp, 'WhatsApp', 'button button--dark', 'chat')}</div></aside></div>
+    ${journeyFeature(tourMedia[tour], `Plan your pickup in ${place}`, areaExperience[slug], [booking, 'Enquire About a Pickup', 'button button--gold', 'pin'])}
+    ${journeySteps('From pickup to destination', `Include your meeting point in ${place}, the date and where you’re heading.`)}
     ${section(`Travel options in ${place}`, serviceTiles(services.slice(0, 2)) + `<p class="section-note">${link(tourPath(tour), 'Explore Local Tours', 'button button--dark', 'map')}</p>`, 'surface')}`,
     { parent: ['/service-areas/', 'Service Areas'], schema: 'Service', media: areaMedia[slug], icon: 'pin', booking });
 }
@@ -154,7 +170,7 @@ function render(path, data) {
   <meta property="og:image" content="${origin}/assets/photos/${data.media?.[0] || 'cork-coast-drive'}.webp">
   <link rel="icon" type="image/svg+xml" href="/assets/logo/umair-icon.svg?v=2">
   <link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/site.css?v=5">
+  <link rel="stylesheet" href="/assets/site.css?v=6">
   <script src="/assets/site.js?v=2" defer></script>
   <script type="application/ld+json">${schema(path, data, data.home ? [['/', 'Home']] : crumbs)}</script>
 </head>
