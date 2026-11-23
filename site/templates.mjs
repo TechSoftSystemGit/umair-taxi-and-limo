@@ -231,14 +231,19 @@ export function fleetDetails(vehicle, booking) {
       </dialog>
     </div>
     </section>
-    <aside class="fleet-detail-highlights" aria-labelledby="fleet-highlights-title">
-      <h2 id="fleet-highlights-title">Vehicle highlights</h2>
-      ${fleetFacts(vehicle)}
-      <p class="fleet-estimate-note">Typical estimates. Actual capacity varies by vehicle and seating layout.</p>
-    </aside>
+    <div class="fleet-detail-sidebar">
+      <section class="fleet-detail-highlights" aria-labelledby="fleet-highlights-title">
+        <h2 id="fleet-highlights-title">Vehicle highlights</h2>
+        ${fleetFacts(vehicle)}
+        <p class="fleet-estimate-note">Typical estimates. Actual capacity varies by vehicle and seating layout.</p>
+      </section>
+      <section class="fleet-journey-section" aria-labelledby="fleet-journeys-title">
+        <h2 id="fleet-journeys-title">Journeys this vehicle suits</h2>
+        <ul class="journey-steps">${vehicle.journeys.map(([title, text]) =>
+          `<li><h3>${escape(title)}</h3><p>${escape(text)}</p></li>`).join('')}</ul>
+      </section>
+    </div>
   </div></div>
-  ${section('Journeys this vehicle suits', `<ul class="journey-steps">${vehicle.journeys.map(([title, text]) =>
-    `<li><h3>${escape(title)}</h3><p>${escape(text)}</p></li>`).join('')}</ul>`, 'fleet-journey-section')}
   ${journeyFeature(['fleet-east-cork-road', 'Illustrative road above the Irish coastline'], 'Plan your journey from Youghal',
     'Share your pickup, group size and luggage when you enquire about a Cork Airport transfer, a local ride or an Ireland tour.',
     [booking, 'Request a Quote', 'button button--gold', 'calendar'])}`;
