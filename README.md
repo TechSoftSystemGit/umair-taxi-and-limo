@@ -83,6 +83,9 @@ Each location page targets pickup needs in its own area. Tour pages describe iti
 | `/taxi-county-cork/` | Rural and town pickups across County Cork |
 | `/taxi-west-waterford/` | West Waterford pickups |
 | `/fleet/` | Saloon taxi, people carrier and group vehicle enquiries |
+| `/fleet/saloon-taxi/` | Saloon gallery and suitability for smaller parties |
+| `/fleet/people-carrier/` | People carrier gallery and suitability for families and groups |
+| `/fleet/group-vehicle/` | Group vehicle gallery and suitability for larger parties |
 | `/about/` | Youghal business information |
 | `/book/` | Start or complete a booking enquiry |
 | `/contact/` | Phone, WhatsApp, email and address |

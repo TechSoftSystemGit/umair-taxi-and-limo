@@ -97,11 +97,12 @@ for (const form of document.querySelectorAll('[data-quick-booking], [data-full-b
   fields.date.min = today;
   if (!form.hasAttribute('data-full-booking')) continue;
 
-  for (const name of ['trip', 'pickup', 'destination', 'date', 'time']) {
+  for (const name of ['trip', 'pickup', 'destination', 'date', 'time', 'notes']) {
     const value = query.get(name);
     if (!value) continue;
     if (name === 'trip' && ![...fields.trip.options].some((option) => option.value === value)) continue;
-    fields.namedItem(name).value = value.slice(0, 160);
+    const field = fields.namedItem(name);
+    field.value = value.slice(0, field.maxLength > 0 ? field.maxLength : 160);
   }
 
   const flight = form.querySelector('[data-flight]');
@@ -138,6 +139,35 @@ for (const form of document.querySelectorAll('[data-quick-booking], [data-full-b
     location.assign('https://wa.me/353892646246?text=' + encodeURIComponent(message));
   });
   form.querySelector('.form-submit').hidden = false;
+}
+
+for (const gallery of document.querySelectorAll('[data-gallery]')) {
+  const track = gallery.querySelector('.fleet-gallery-track');
+  const controls = gallery.querySelector('.fleet-gallery-controls');
+  const count = gallery.querySelector('[data-gallery-count]');
+  const views = [...gallery.querySelectorAll('[data-gallery-index]')];
+  const [previous, next] = gallery.querySelectorAll('[data-gallery-step]');
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let active = 0;
+  function updateGallery() {
+    const index = Math.min(views.length - 1, Math.max(0, Math.round(track.scrollLeft / track.clientWidth)));
+    if (index === active) return;
+    views[active].removeAttribute('aria-current');
+    active = index;
+    views[active].setAttribute('aria-current', 'true');
+    previous.setAttribute('aria-disabled', String(active === 0));
+    next.setAttribute('aria-disabled', String(active === views.length - 1));
+    count.textContent = `${active + 1} of ${views.length}`;
+  }
+  function showPhoto(index) {
+    if (index < 0 || index >= views.length) return;
+    track.scrollTo({ left: index * track.clientWidth, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+  }
+  track.addEventListener('scroll', updateGallery, { passive: true });
+  views.forEach((button, index) => button.addEventListener('click', () => showPhoto(index)));
+  previous.addEventListener('click', () => showPhoto(active - 1));
+  next.addEventListener('click', () => showPhoto(active + 1));
+  controls.hidden = false;
 }
 
 if ('IntersectionObserver' in window && matchMedia('(prefers-reduced-motion: no-preference)').matches) {

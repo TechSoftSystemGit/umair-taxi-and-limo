@@ -3,9 +3,10 @@ import { join } from 'node:path';
 import { business, services, tours, areas, faqs } from './content.mjs';
 import { areaExperience, areaMedia, areaPlanning, serviceExperience, serviceHeroMedia, serviceMedia, servicePlanning } from './detail-content.mjs';
 import { regionalTours, stopsByTour, tourFeatureMedia, tourMedia } from './tour-content.mjs';
+import { fleetPath, fleetPhotos, vehicles } from './fleet-content.mjs';
 import { icon } from './icons.mjs';
 import {
-  areaPath, areaTiles, bookingForm, contactForm, escape, fleet, footer, header, home, image,
+  areaPath, areaTiles, bookingForm, contactForm, escape, fleet, fleetDetails, footer, header, home, image,
   journeyFeature, journeySteps, link, process, prose, questions, section, servicePath, serviceTiles, tiles, tourPath, tourTiles,
 } from './templates.mjs';
 
@@ -100,6 +101,13 @@ for (const [slug, place, description, detail, route, tour] of areas) {
 }
 
 page('/fleet/', 'Vehicle Options', 'Discuss saloon, people carrier and group vehicle options when enquiring about a taxi, airport transfer or Irish tour.', section('Find a vehicle for your journey', fleet()), { crumb: 'Fleet' });
+for (const vehicle of vehicles) {
+  const booking = '/book/?' + new URLSearchParams({ notes: 'Vehicle preference: ' + vehicle.title });
+  const [[name, alt]] = fleetPhotos(vehicle);
+  page(fleetPath(vehicle.slug), vehicle.title, vehicle.description,
+    fleetDetails(vehicle, booking) + section('Compare other vehicles', fleet(vehicles.filter((option) => option !== vehicle)), 'surface'),
+    { parent: ['/fleet/', 'Fleet'], media: [name, alt], icon: vehicle.icon, booking, introLabel: 'Enquire About This Vehicle', introStyle: 'fleet-intro' });
+}
 page('/about/', 'About Umair Taxi and Limo', 'Meet Umair Taxi and Limo, a Youghal-based taxi, airport transfer and private tour business serving Cork and Waterford.', `
   <section class="shell reading about-story">
     <div><p class="eyebrow">Based in Youghal</p><h2>From the East Cork coast</h2>
@@ -192,8 +200,8 @@ function render(path, data) {
   <meta property="og:image" content="${origin}/assets/photos/${data.media?.[0] || 'cork-coast-drive'}.webp">
   <link rel="icon" type="image/svg+xml" href="/assets/logo/umair-icon.svg?v=3">
   <link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/site.css?v=8">
-  <script src="/assets/site.js?v=2" defer></script>
+  <link rel="stylesheet" href="/assets/site.css?v=9">
+  <script src="/assets/site.js?v=3" defer></script>
   <script type="application/ld+json">${schema(path, data, data.home ? [['/', 'Home']] : crumbs)}</script>
 </head>
 <body>

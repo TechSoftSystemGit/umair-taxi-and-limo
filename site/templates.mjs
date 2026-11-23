@@ -2,6 +2,7 @@ import { business, services, tours, areas, routes, steps, faqs } from './content
 import { areaMedia, serviceMedia } from './detail-content.mjs';
 import { icon as renderIcon } from './icons.mjs';
 import { tourMedia } from './tour-content.mjs';
+import { fleetPath, fleetPhotos, vehicles } from './fleet-content.mjs';
 
 export const escape = (value) => String(value).replace(/[&<>"']/g, (character) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
@@ -158,15 +159,44 @@ export function tourTiles(selection) {
   </article>`).join('')}</div>`;
 }
 
-const vehicles = [
-  ['saloon-taxi', 'Saloon taxi', 'A vehicle category to ask about for local trips and airport transfers with standard luggage.', 'taxi'],
-  ['people-carrier', 'MPV / people carrier', 'Discuss a people carrier for family airport trips and private tours with extra bags.', 'car'],
-  ['group-vehicle', 'Large group vehicle', 'Enquire about transport for a group tour, corporate event or airport trip with several passengers.', 'bus'],
-];
-export function fleet() {
-  return `<div class="tiles fleet-tiles">${vehicles.map(([name, title, description, icon]) => `<article class="tile" data-reveal>
-    ${image(name, `Illustrative example of a ${title.toLowerCase()}`)}<div class="tile-copy"><h3>${renderIcon(icon)}${title}</h3><p>${description}</p></div>
-  </article>`).join('')}</div><p class="section-note">Images illustrate vehicle categories. Share your passenger and luggage requirements to discuss availability.</p>`;
+export function fleet(selection = vehicles) {
+  return `<div class="tiles fleet-tiles">${selection.map((vehicle) => {
+    const [[name, alt]] = fleetPhotos(vehicle);
+    return `<article class="tile" data-reveal>${image(name, alt)}
+      <div class="tile-copy"><h3>${renderIcon(vehicle.icon)}${escape(vehicle.title)}</h3><p>${escape(vehicle.description)}</p>
+      <p>${link(fleetPath(vehicle.slug), 'View Vehicle Details', 'text-link')}</p></div>
+    </article>`;
+  }).join('')}</div><p class="section-note">Images illustrate vehicle categories. Share your passenger and luggage requirements to discuss availability.</p>`;
+}
+
+export function fleetDetails(vehicle, booking) {
+  const photos = fleetPhotos(vehicle);
+  return `<section class="section fleet-gallery-section"><div class="shell">
+    <h2 id="fleet-gallery-title">Vehicle gallery</h2>
+    <p class="section-lead" id="fleet-gallery-note">Scroll or swipe to see the exterior and passenger interior. Photos are illustrative.</p>
+    <div class="fleet-gallery" data-gallery>
+      <div class="fleet-gallery-track" id="fleet-gallery-track" tabindex="0" role="region" aria-labelledby="fleet-gallery-title" aria-describedby="fleet-gallery-note">
+        ${photos.map(([name, alt, label]) => `<figure class="fleet-gallery-slide">${image(name, alt)}<figcaption>${label}</figcaption></figure>`).join('')}
+      </div>
+      <div class="fleet-gallery-controls" hidden>
+        <div class="fleet-gallery-views" role="group" aria-label="Photo view">
+          ${photos.map(([, , label], index) => `<button type="button" data-gallery-index="${index}" aria-controls="fleet-gallery-track"${index === 0 ? ' aria-current="true"' : ''}>${label}</button>`).join('')}
+        </div>
+        <div class="fleet-gallery-navigation" role="group" aria-label="Gallery navigation">
+          <button type="button" data-gallery-step="-1" aria-controls="fleet-gallery-track" aria-disabled="true">Previous</button>
+          <span data-gallery-count role="status">1 of ${photos.length}</span>
+          <button type="button" data-gallery-step="1" aria-controls="fleet-gallery-track" aria-disabled="false">Next</button>
+        </div>
+      </div>
+    </div>
+  </div></section>
+  ${section('Passenger and luggage capacity', `<p class="section-lead">We confirm the exact passenger and luggage limits for the vehicle available for your journey.</p>
+    <dl class="fleet-capacity">
+      <div><dt>${renderIcon('car')}Passengers</dt><dd>${escape(vehicle.passengerFit)}</dd></div>
+      <div><dt>${renderIcon('case')}Luggage</dt><dd>${escape(vehicle.luggageFit)}</dd></div>
+    </dl>${link(booking, 'Ask About Capacity', 'button button--gold fleet-capacity-cta', 'chat')}`, 'surface')}
+  ${section('Journeys this vehicle suits', `<ul class="journey-steps">${vehicle.journeys.map(([title, text]) =>
+    `<li><h3>${escape(title)}</h3><p>${escape(text)}</p></li>`).join('')}</ul>`)}`;
 }
 
 export function home() {
