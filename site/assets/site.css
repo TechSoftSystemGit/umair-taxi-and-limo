@@ -268,6 +268,9 @@ body:has(.fleet-lightbox[open]) { overflow: hidden; }
 .about-story { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: clamp(1.4rem, 6vw, 5.5rem); }
 .about-story figure { order: -1; overflow: hidden; border: 1px solid #ceaa7166; border-radius: 24px; }
 .about-story figure img { width: 100%; aspect-ratio: 1.5; object-fit: cover; }
+.about-photo-credit { position: relative; }
+.about-photo-credit figcaption { position: absolute; inset: auto 0 0; padding: .4rem .75rem; background: #0e0d0be8; color: var(--text); font-size: .75rem; }
+.about-photo-credit a:focus-visible { outline-offset: 1px; }
 .about-story .actions { margin-top: 1.25rem; }
 .page-intro h1 .icon { color: var(--gold); font-size: .58em; vertical-align: .03em; }
 .crumbs { margin-bottom: 1.3rem; font-size: .875rem; color: #ece4d3; }

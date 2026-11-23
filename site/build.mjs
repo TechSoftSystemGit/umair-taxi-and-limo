@@ -122,7 +122,9 @@ page('/about/', 'About Umair Taxi and Limo', 'Meet Umair Taxi and Limo, a Yougha
       <p>For journeys starting in Cork, Waterford or Dungarvan, share your pickup point and the time you need to arrive. For tours, tell us which stops you’d like to include.</p>
       <div class="actions">${link('/service-areas/', 'Service Areas', 'button button--dark', 'pin')}${link('/contact/', 'Contact Us', 'button button--gold', 'mail')}</div>
     </div>
-    <figure>${image('about-journey-detail', 'Illustrative close-up of a passenger door being opened beside luggage')}</figure>
+    <figure class="about-photo-credit">${image('about-youghal-town-harbour', 'Youghal Harbour on the County Cork coast')}
+      <figcaption>${link('https://commons.wikimedia.org/wiki/File:Youghal_town_harbour.jpg', 'Will McGoldrick')} · ${link('https://creativecommons.org/licenses/by-sa/3.0/', 'CC BY-SA 3.0')} · Resized</figcaption>
+    </figure>
   </section>
   ${section('How we can help you travel', tiles([
     ['/airport-transfers/', 'Cork Airport Transfers', services[0][3], 'plane'],
@@ -207,7 +209,7 @@ function render(path, data) {
   <meta property="og:image" content="${origin}/assets/photos/${data.media?.[0] || 'cork-coast-drive'}.webp">
   <link rel="icon" type="image/svg+xml" href="/assets/logo/umair-icon.svg?v=3">
   <link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/site.css?v=13">
+  <link rel="stylesheet" href="/assets/site.css?v=14">
   <script src="/assets/site.js?v=4" defer></script>
   <script type="application/ld+json">${schema(path, data, data.home ? [['/', 'Home']] : crumbs)}</script>
 </head>
