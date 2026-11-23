@@ -198,9 +198,10 @@ export function fleetShowcase() {
 
 export function fleetDetails(vehicle, booking) {
   const photos = fleetPhotos(vehicle);
-  return `<section class="section fleet-gallery-section"><div class="shell">
+  return `<div class="section fleet-gallery-section" id="vehicle-gallery"><div class="shell fleet-detail-grid">
+    <section aria-labelledby="fleet-gallery-title">
     <h2 id="fleet-gallery-title">Vehicle gallery</h2>
-    <p class="section-lead" id="fleet-gallery-note">Scroll or swipe to see the exterior and passenger interior. Photos are illustrative.</p>
+    <p class="section-lead" id="fleet-gallery-note">Browse the front, side, rear and passenger interior. Photos are illustrative.</p>
     <div class="fleet-gallery" data-gallery>
       <div class="fleet-gallery-track" id="fleet-gallery-track" tabindex="0" role="region" aria-labelledby="fleet-gallery-title" aria-describedby="fleet-gallery-note">
         ${photos.map(([name, alt, label]) => `<figure class="fleet-gallery-slide">${image(name, alt)}<figcaption>${label}</figcaption></figure>`).join('')}
@@ -216,14 +217,23 @@ export function fleetDetails(vehicle, booking) {
         </div>
       </div>
     </div>
-  </div></section>
-  ${section('Passenger and luggage capacity', `<p class="section-lead">We confirm the exact passenger and luggage limits for the vehicle available for your journey.</p>
+    </section>
+    <aside class="fleet-detail-highlights" aria-labelledby="fleet-highlights-title">
+      <h2 id="fleet-highlights-title">Vehicle highlights</h2>
+      ${fleetFacts(vehicle)}
+      <h3>Passenger and luggage capacity</h3>
+      <p class="section-lead">We’ll confirm exact seating and luggage limits for the vehicle available for your journey.</p>
     <dl class="fleet-capacity">
       <div><dt>${renderIcon('car')}Passengers</dt><dd>${escape(vehicle.passengerFit)}</dd></div>
       <div><dt>${renderIcon('case')}Luggage</dt><dd>${escape(vehicle.luggageFit)}</dd></div>
-    </dl>${link(booking, 'Ask About Capacity', 'button button--gold fleet-capacity-cta', 'chat')}`, 'surface')}
+    </dl>${link(booking, 'Ask About Capacity', 'button button--gold fleet-capacity-cta', 'chat')}
+    </aside>
+  </div></div>
   ${section('Journeys this vehicle suits', `<ul class="journey-steps">${vehicle.journeys.map(([title, text]) =>
-    `<li><h3>${escape(title)}</h3><p>${escape(text)}</p></li>`).join('')}</ul>`)}`;
+    `<li><h3>${escape(title)}</h3><p>${escape(text)}</p></li>`).join('')}</ul>`, 'fleet-journey-section')}
+  ${journeyFeature(['fleet-east-cork-road', 'Illustrative road above the Irish coastline'], 'Plan your journey from Youghal',
+    'Share your pickup, group size and luggage when you enquire about a Cork Airport transfer, a local ride or an Ireland tour.',
+    [booking, 'Request a Quote', 'button button--gold', 'calendar'])}`;
 }
 
 export function home() {

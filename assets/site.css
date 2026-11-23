@@ -115,8 +115,10 @@ summary::-webkit-details-marker { display: none; }
 .journey-step-icon { color: var(--gold); margin-bottom: .75rem; }
 .journey-steps p { color: var(--muted); margin-top: .55rem; }
 
-.fleet-intro .intro-grid figure { border-color: var(--glass-border); }
 .fleet-overview-intro .intro-grid figure { inset-inline-start: 27%; }
+.fleet-detail-hero .intro-grid figure { inset-inline-start: 29%; }
+.fleet-detail-hero .intro-grid figure img { object-position: 66% center; }
+.fleet-detail-hero .intro-grid figure::after { background: linear-gradient(90deg,#15110c,#15110c85 29%,#17100815 77%), linear-gradient(0deg,#15110c9e,transparent 45%); }
 .fleet-showcase { display: grid; gap: clamp(2rem, 5.5vw, 5rem); }
 .fleet-showcase-item { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: center; gap: clamp(1.5rem, 4vw, 4rem); padding-block: clamp(1.25rem, 3vw, 2.4rem); border-top: 1px solid var(--glass-border); }
 .fleet-showcase-item:nth-child(even) { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); }
@@ -132,6 +134,17 @@ summary::-webkit-details-marker { display: none; }
 .fleet-facts dd { margin: 0; color: var(--text); }
 #main:has(.fleet-showcase) > .journey-feature:last-child { margin-bottom: clamp(2.6rem, 5vw, 5rem); }
 .fleet-gallery-section { padding-top: clamp(2.5rem, 5vw, 4.5rem); }
+.fleet-detail-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); align-items: start; gap: clamp(1.4rem, 4vw, 3.5rem); }
+.fleet-detail-grid > section { min-width: 0; }
+.fleet-detail-grid h2 { margin-bottom: .8rem; }
+.fleet-detail-highlights { padding: clamp(1.1rem, 3vw, 2.15rem); background: var(--glass-panel); border: 1px solid var(--glass-border); border-radius: 22px; }
+.fleet-detail-highlights h2 { font-size: clamp(2.55rem, 4vw, 3.6rem); }
+.fleet-detail-highlights h3 { margin: 1.45rem 0 .55rem; }
+.fleet-detail-highlights .section-lead { color: var(--muted); margin-bottom: .8rem; }
+.fleet-detail-highlights .fleet-capacity { grid-template-columns: 1fr; gap: .7rem; }
+.fleet-detail-highlights .fleet-capacity > div { padding: .9rem; }
+.fleet-journey-section { padding-top: 0; }
+.fleet-journey-section + .journey-feature { margin-bottom: clamp(2.6rem, 5vw, 5rem); }
 .fleet-gallery { max-width: 58rem; }
 .fleet-gallery-track { display: grid; grid-auto-flow: column; grid-auto-columns: 100%; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-inline: contain; border: 1px solid var(--glass-border); border-radius: 22px; scrollbar-color: var(--line) var(--surface); }
 .fleet-gallery-slide { scroll-snap-align: start; min-width: 0; background: var(--raised); }
@@ -298,7 +311,8 @@ summary::-webkit-details-marker { display: none; }
   .tour-itinerary--reverse .tour-stops { order: initial; }
   .tour-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .tour-intro .intro-grid figure::after { display: none; }
-  .fleet-overview-intro .intro-grid figure { inset-inline-start: auto; }
+  .fleet-overview-intro .intro-grid figure, .fleet-detail-hero .intro-grid figure { inset-inline-start: auto; }
+  .fleet-detail-grid { grid-template-columns: 1fr; }
   .fleet-showcase-item, .fleet-showcase-item:nth-child(even) { grid-template-columns: 1fr; }
   .fleet-showcase-item:nth-child(even) .fleet-showcase-photos { order: 0; }
 }
@@ -306,7 +320,7 @@ summary::-webkit-details-marker { display: none; }
   .tour-grid { grid-template-columns: 1fr; }
   .tour-card-image img { aspect-ratio: 1.95; }
   .tour-card-content { padding-bottom: 1.15rem; }
-  .tour-hub-intro .page-intro-copy > .button, .tour-intro .page-intro-copy > .button, .fleet-overview-intro .page-intro-copy > .button { display: flex; width: 100%; }
+  .tour-hub-intro .page-intro-copy > .button, .tour-intro .page-intro-copy > .button, .fleet-overview-intro .page-intro-copy > .button, .fleet-detail-hero .page-intro-copy > .button { display: flex; width: 100%; }
   .fleet-showcase-copy .button { width: 100%; text-align: center; }
   .intro-secondary { margin-inline-start: 0; }
   .page-intro .intro-secondary { margin-top: .6rem; }

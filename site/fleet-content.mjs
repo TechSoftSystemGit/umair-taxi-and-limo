@@ -51,6 +51,9 @@ const views = [
 ];
 
 export const fleetPath = (slug) => `/fleet/${slug}/`;
+export const fleetHero = (vehicle) => [
+  `fleet-${vehicle.slug}-coast`, `Illustrative ${vehicle.title.toLowerCase()} beside the Irish coast`,
+];
 export const fleetPhotos = (vehicle) => views.map(([angle, label]) => [
   `fleet-${vehicle.slug}-${angle}`, `${label} of an illustrative ${vehicle.title.toLowerCase()}`, label,
 ]);
