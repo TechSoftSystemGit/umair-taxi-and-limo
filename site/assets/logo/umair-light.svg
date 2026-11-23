@@ -1,8 +1,8 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" width="188" height="56" viewBox="0 0 188 56">
-  <rect x="2" y="3" width="49" height="49" rx="16" fill="none" stroke="#8d663a" stroke-opacity=".65"/>
-  <path d="M13 15h13m-10 0v14c0 7 3 11 10 11 6 0 10-4 10-11V15m-4 0h8M19 15v14c0 6 2 9 7 9" fill="none" stroke="#8d663a" stroke-width="1.25" stroke-linecap="round"/>
-  <path d="M26 22h13m-6 0v20m-4 0h8" fill="none" stroke="#8d663a" stroke-width="1.35" stroke-linecap="round"/>
-  <path d="M60 12v32" stroke="#8d663a" stroke-opacity=".6"/>
-  <text x="70" y="30" fill="#201d18" font-family="Georgia,serif" font-size="27" letter-spacing="4.6">UMAIR</text>
-  <text x="72" y="46" fill="#8d663a" font-family="Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="2.8">TAXI &amp; LIMO</text>
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="158" height="50" viewBox="0 0 158 50">
+  <rect x="1" y="1" width="48" height="48" rx="15" fill="#fbf3e3" stroke="#8c622c" stroke-opacity=".52"/>
+  <path d="M12 13v11c0 9 6 15 13 15s13-6 13-15V13M17 13v11c0 5 3 10 8 10s8-5 8-10v-3" fill="none" stroke="#8c622c" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="m34 13 4-5 4 5m-4-5v6" fill="none" stroke="#8c622c" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M60 9v32" stroke="#8c622c" stroke-opacity=".65"/>
+  <path d="M71 12v11q0 6 5.5 6t5.5-6V12m7 17V12l6.5 9 6.5-9v17m6 0 6-17 6 17m-9.5-6h7m8-11v17m7 0V12h6q4 0 4 4.5t-4 4.5h-6m5 0 6 8" fill="none" stroke="#1d160f" stroke-width="2.05" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="70" y="43" fill="#8c622c" font-family="Arial,sans-serif" font-size="8.2" font-weight="700" letter-spacing="2.25">TAXI &amp; LIMO</text>
 </svg>

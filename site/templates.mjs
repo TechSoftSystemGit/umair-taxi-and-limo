@@ -26,7 +26,7 @@ function navGroup(label, items) {
 export function header() {
   return `<a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header"><div class="shell header-inner">
-      <a href="/" class="brand"><img src="/assets/logo/umair-dark.svg?v=3" width="188" height="56" alt="Umair Taxi and Limo home"></a>
+      <a href="/" class="brand"><img src="/assets/logo/umair-dark.svg?v=4" width="158" height="50" alt="Umair Taxi and Limo home"></a>
       <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" hidden>Menu</button>
       <nav id="site-nav" aria-label="Main navigation"><ul class="nav-list">
         <li>${link('/', 'Home')}</li>
@@ -50,7 +50,7 @@ export function footer() {
     </div></section>
     <footer class="site-footer"><div class="shell">
       <div class="footer-grid">
-        <div><a href="/"><img src="/assets/logo/umair-dark.svg?v=3" width="188" height="56" alt="Umair Taxi and Limo home"></a><p>Airport transfers, local taxis and private tours from Youghal, Ireland.</p></div>
+        <div><a href="/"><img src="/assets/logo/umair-dark.svg?v=4" width="158" height="50" alt="Umair Taxi and Limo home"></a><p>Airport transfers, local taxis and private tours from Youghal, Ireland.</p></div>
         <div><h2>Explore</h2>${link('/airport-transfers/', 'Airport Transfers')}${link('/local-taxi-youghal/', 'Local Taxi')}${link('/tours/', 'Ireland Tours')}${link('/service-areas/', 'Service Areas')}</div>
         <div><h2>Plan your journey</h2>${link('/fleet/', 'Fleet')}${link('/how-it-works/', 'How It Works')}${link('/rates/', 'Get a Quote')}${link('/faq/', 'FAQs')}</div>
         <div><h2>Contact</h2><address>${renderIcon('pin')}${escape(business.address)}<br>${link(call, business.phone, '', 'phone')}${link(`mailto:${business.email}`, business.email, '', 'mail')}</address></div>
@@ -127,7 +127,7 @@ export const serviceTiles = (selection = services) => tiles(selection.map(([slug
 export const areaTiles = () => tiles(areas.map(([slug, title, description]) => [areaPath(slug), title, description, 'pin', slug === 'county-cork' ? 'co-cork' : slug, areaMedia[slug]]));
 export const process = () => `<ol class="steps">${steps.map(([title, description]) => `<li data-reveal><h3>${title}</h3><p>${description}</p></li>`).join('')}</ol>`;
 export const questions = () => `<div class="questions">${faqs.map(([title, answer]) => `<details><summary><span>${renderIcon('question')}${title}</span>${renderIcon('plus')}${renderIcon('minus')}</summary><p>${answer}</p></details>`).join('')}</div>`;
-export const section = (title, body, className = '', id = '') => `<section class="section ${className}"${id ? ` id="${id}"` : ''}><div class="shell"><h2>${title}</h2>${body}</div></section>`;
+export const section = (title, body, className = '', id = '') => `<section class="section ${className}"${id ? ` id="${id}"` : ''}><div class="shell"><h2 data-reveal>${title}</h2>${body}</div></section>`;
 
 export function journeyFeature(media, title, description, cta) {
   return `<section class="journey-feature shell" aria-labelledby="journey-feature-title">
@@ -183,7 +183,7 @@ export function home() {
     </div>
   </section>
   <section class="section"><div class="shell">
-    <h2>Find the right ride</h2>
+    <h2 data-reveal>Find the right ride</h2>
     ${tiles([
       ['/airport-transfers/', 'Airport Transfers', services[0][3], 'plane'],
       ['/local-taxi-youghal/', 'Local Taxi', services[1][3], 'taxi'],

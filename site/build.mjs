@@ -190,9 +190,9 @@ function render(path, data) {
   <meta property="og:description" content="${escape(data.description)}">
   <meta property="og:url" content="${url}">
   <meta property="og:image" content="${origin}/assets/photos/${data.media?.[0] || 'cork-coast-drive'}.webp">
-  <link rel="icon" type="image/svg+xml" href="/assets/logo/umair-icon.svg?v=2">
+  <link rel="icon" type="image/svg+xml" href="/assets/logo/umair-icon.svg?v=3">
   <link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/site.css?v=7">
+  <link rel="stylesheet" href="/assets/site.css?v=8">
   <script src="/assets/site.js?v=2" defer></script>
   <script type="application/ld+json">${schema(path, data, data.home ? [['/', 'Home']] : crumbs)}</script>
 </head>

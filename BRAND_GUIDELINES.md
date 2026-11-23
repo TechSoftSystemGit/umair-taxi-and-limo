@@ -4,7 +4,7 @@ Umair Taxi and Limo is a Youghal-based airport transfer, local taxi and private 
 
 ## Logo
 
-The horizontal wordmark pairs an interlocked UT monogram with a two-line serif wordmark. Use the dark-background version in the header and footer and the light-background version on paper or light layouts. Use the standalone monogram in compact spaces and the icon for browser tabs.
+The horizontal wordmark pairs a U-shaped road mark with a custom geometric wordmark. Use the dark-background version in the header and footer and the light-background version on light surfaces. Use the standalone road mark in compact spaces and the icon for browser tabs.
 
 - Dark and light wordmarks: `site/assets/logo/umair-dark.svg` and `site/assets/logo/umair-light.svg`
 - Monogram and favicon: `site/assets/logo/umair-monogram.svg` and `site/assets/logo/umair-icon.svg`

@@ -94,7 +94,7 @@ Each location page targets pickup needs in its own area. Tour pages describe iti
 
 ## Redesign and handoff
 
-- The interlocking UT wordmark has dark and light variants, a monogram and a favicon in [site/assets/logo](site/assets/logo). The live palette uses black and champagne gold with readable warm ivory text. The published copy follows the airport, local taxi and tour hierarchy and excludes legacy VAT, chauffeur and unconfirmed pricing or availability claims.
+- The U-shaped road wordmark has dark and light variants, a standalone mark and a favicon in [site/assets/logo](site/assets/logo). The live palette uses black and champagne gold with readable warm ivory text. The published copy follows the airport, local taxi and tour hierarchy and excludes legacy VAT, chauffeur and unconfirmed pricing or availability claims.
 - The Services, Tours and Service Areas menus link to dedicated pages. Area pages link to airport and local transport, relevant tours and prefilled quote requests. Popular routes open the full booking form with route details filled in. Twenty permanent redirects preserve the former public page URLs.
 - The new fleet images are illustrative WebP assets matched to saloon, MPV and minibus categories. The Irish coastline visuals are also illustrative. Replace them with approved business and destination photos when available.
 - Each page has unique metadata, a canonical URL, Open Graph metadata, a single H1 and relevant schema. The build emits `/sitemap.xml` and `/robots.txt`. Breadcrumbs and JSON-LD cover the business, site, individual pages, services and visible FAQs where applicable.
