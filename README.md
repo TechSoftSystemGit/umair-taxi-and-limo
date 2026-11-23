@@ -58,7 +58,7 @@ Each location page targets pickup needs in its own area. Tour pages describe iti
 | `/corporate-travel/` | Business travel and event transport |
 | `/hospital-runs/` | Scheduled hospital and clinic taxi journeys |
 | `/aircoach-transfers/` | Taxi connections to and from Aircoach stops |
-| `/tours/` | Browse private tour ideas by region |
+| `/tours/` | Tours around Ireland and destination browse page |
 | `/tours/ireland/` | Private tours across Ireland |
 | `/tours/cork/` | Private Cork tours |
 | `/tours/waterford/` | Private Waterford and Copper Coast tours |
@@ -67,6 +67,14 @@ Each location page targets pickup needs in its own area. Tour pages describe iti
 | `/tours/west-cork/` | West Cork coastal tours |
 | `/tours/scenic/` | Scenic Irish drives |
 | `/tours/custom/` | Custom private tours in Ireland |
+| `/tours/kerry/` | Killarney, Ring of Kerry and Dingle tours |
+| `/tours/clare/` | Cliffs of Moher and Burren tours |
+| `/tours/galway/` | Galway City and Connemara tours |
+| `/tours/mayo-sligo/` | Westport, Achill Island and Sligo tours |
+| `/tours/midlands/` | Midlands and River Shannon tours |
+| `/tours/ancient-east/` | Kilkenny, Cashel and Wicklow tours |
+| `/tours/donegal/` | Donegal coastal and inland tours |
+| `/tours/northern-ireland/` | Belfast, Derry and Causeway Coast tours |
 | `/service-areas/` | Taxi pickup and transfer coverage |
 | `/taxi-youghal/` | Youghal pickups and airport journeys |
 | `/taxi-cork/` | Cork City taxi and transfers |

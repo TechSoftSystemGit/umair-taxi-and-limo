@@ -1,6 +1,7 @@
 import { business, services, tours, areas, routes, steps, faqs } from './content.mjs';
 import { areaMedia, serviceMedia } from './detail-content.mjs';
 import { icon as renderIcon } from './icons.mjs';
+import { tourMedia } from './tour-content.mjs';
 
 export const escape = (value) => String(value).replace(/[&<>"']/g, (character) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
@@ -30,7 +31,7 @@ export function header() {
       <nav id="site-nav" aria-label="Main navigation"><ul class="nav-list">
         <li>${link('/', 'Home')}</li>
         ${navGroup('Services', [['/services/', 'All Services'], ...services.map(([slug, title]) => [servicePath(slug), title])])}
-        ${navGroup('Tours', [['/tours/', 'All Tours'], ...tours.map(([slug, title]) => [tourPath(slug), title]), ['/golf-tours/', 'Golf Tours']])}
+        ${navGroup('Tours', [['/tours/', 'Tours around Ireland'], ['/tours/#local-tours', 'Tours from the South Coast'], ['/tours/#nationwide', 'Browse All Regions'], [tourPath('custom'), 'Custom Ireland Tours'], ['/golf-tours/', 'Golf Tours']])}
         ${navGroup('Service Areas', [['/service-areas/', 'All Service Areas'], ...areas.map(([slug, title]) => [areaPath(slug), title])])}
         <li>${link('/fleet/', 'Fleet')}</li><li>${link('/about/', 'About')}</li><li>${link('/contact/', 'Contact')}</li>
       </ul></nav>
@@ -150,20 +151,10 @@ export function journeySteps(title, firstStep) {
     <li><div class="journey-step-icon">${renderIcon(symbol)}</div><h3>${heading}</h3><p>${escape(detail)}</p></li>`).join('')}</ol>`, 'journey-planning');
 }
 
-export const tourMedia = {
-  ireland: ['irish-atlantic-coast', 'Green headlands overlooking the Irish Atlantic coast'],
-  cork: ['cork-harbour-town', 'Pastel buildings and boats in an Irish harbour town'],
-  waterford: ['waterford-coastal-cliffs', 'Grassy headlands and slate cliffs on an Irish coast'],
-  youghal: ['east-cork-harbour', 'Stone quayside and fishing boats in a coastal town'],
-  dungarvan: ['dungarvan-bay-path', 'Walking trail along a tidal bay with hills in the distance'],
-  'west-cork': ['cork-harbour-town', 'Pastel buildings and boats in an Irish harbour town'],
-  scenic: ['irish-atlantic-coast', 'Green headlands overlooking the Irish Atlantic coast'],
-  custom: ['dungarvan-bay-path', 'Walking trail along a tidal bay with hills in the distance'],
-};
-
-export function tourTiles(selection = tours) {
-  return `<div class="tiles fleet-tiles">${selection.map(([slug, title, description]) => `<article class="tile" id="${slug}" data-reveal>
-    ${image(...tourMedia[slug])}<div class="tile-copy"><h3>${link(tourPath(slug), title, '', 'map')}</h3><p>${escape(description)}</p></div>
+export function tourTiles(selection) {
+  return `<div class="tour-grid">${selection.map(([slug, title, description]) => `<article class="tour-card" id="${slug}" data-reveal>
+    <div class="tour-card-image">${image(...tourMedia[slug])}</div>
+    <div class="tour-card-content"><h3>${link(tourPath(slug), title)}</h3><p>${escape(description)}</p></div>
   </article>`).join('')}</div>`;
 }
 
@@ -202,8 +193,8 @@ export function home() {
   </div></section>
   <section class="tour-feature" id="tours"><div class="shell feature-grid">
     <figure data-reveal>${image('irish-atlantic-coast', 'Green headlands overlooking the Atlantic on the Irish coast')}</figure>
-    <div data-reveal><h2>Private tours across Ireland.</h2><p>Start with Cork and Waterford or plan a trip further afield. Explore ideas for Kerry, the west coast, the midlands, Donegal and Northern Ireland, then tell us the route you have in mind.</p>
-      <div class="actions">${link('/tours/', 'View Tours', 'button button--gold')}${link(tourPath('custom'), 'Custom Tour', 'button button--outline')}</div>
+    <div data-reveal><h2>Tours around Ireland.</h2><p>Start with Cork and Waterford or plan a trip further afield. Explore ideas for Kerry, the west coast, the midlands, Donegal and Northern Ireland, then tell us the route you have in mind.</p>
+      <div class="actions">${link('/tours/', 'Browse Tours', 'button button--gold')}${link(tourPath('custom'), 'Custom Tour', 'button button--outline')}</div>
     </div>
   </div></section>
   ${section('Ideas for a day out', tourTiles(tours.filter(([slug]) => ['cork', 'waterford', 'youghal'].includes(slug))))}

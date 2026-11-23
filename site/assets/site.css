@@ -113,6 +113,37 @@ summary::-webkit-details-marker { display: none; }
 .journey-step-icon { color: var(--gold); margin-bottom: .75rem; }
 .journey-steps p { color: var(--muted); margin-top: .55rem; }
 
+.tour-hub-intro .intro-grid:has(figure) { grid-template-columns: minmax(0, 1fr) minmax(0, 1.18fr); }
+.tour-hub-intro .intro-grid figure img { aspect-ratio: 1.52; }
+.intro-secondary { margin-inline-start: .5rem; }
+.tour-jump { display: flex; flex-wrap: wrap; gap: .45rem clamp(.75rem, 3vw, 2rem); padding-block: .6rem; border-bottom: 1px solid #ceaa7155; }
+.tour-jump a { display: inline-flex; align-items: center; min-height: 44px; color: var(--gold); font-size: .91rem; font-weight: 600; }
+.tour-catalogue { padding-block: clamp(2.6rem, 5.5vw, 5rem); }
+.tour-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(.8rem, 2vw, 1.35rem); }
+.tour-card { position: relative; overflow: hidden; border: 1px solid #ceaa715c; border-radius: 18px; background: var(--surface); }
+.tour-card-image { overflow: hidden; }
+.tour-card-image img { width: 100%; aspect-ratio: 1.65; object-fit: cover; }
+.tour-card-content { padding: clamp(1rem, 2.6vw, 1.5rem); }
+.tour-card h3 { font: 400 clamp(1.55rem, 2.4vw, 2.1rem)/1.06 var(--display); }
+.tour-card a { text-decoration: none; }
+.tour-card a::after { content: ''; position: absolute; inset: 0; }
+.tour-card:hover, .tour-card:focus-within { border-color: var(--gold); }
+.tour-card a:hover { color: var(--gold); }
+.tour-card a:focus-visible { outline-offset: 2px; }
+.tour-card p { color: var(--muted); margin-top: .62rem; }
+.tour-intro .intro-grid figure::after { background: linear-gradient(90deg, #15110c 0%, #15110cba 30%, #15110c16 80%), linear-gradient(0deg, #15110c78, transparent 55%); }
+.tour-itinerary { display: grid; grid-template-columns: minmax(0, 1.38fr) minmax(0, 1fr); gap: clamp(1.4rem, 5vw, 4rem); align-items: center; padding-block: clamp(2.7rem, 6vw, 5.6rem); }
+.tour-itinerary--reverse { grid-template-columns: minmax(0, 1fr) minmax(0, 1.38fr); }
+.tour-itinerary--reverse .tour-stops { order: -1; }
+.tour-itinerary p { color: var(--muted); margin-top: .9rem; }
+.tour-stops { border: 1px solid #ceaa7166; border-radius: 18px; background: var(--surface); padding: clamp(1rem, 3vw, 1.75rem); }
+.tour-stops h3 { color: var(--gold); }
+.tour-stops ul { list-style: none; margin: .7rem 0 0; padding: 0; }
+.tour-stops li { display: flex; gap: .58rem; align-items: baseline; padding-block: .52rem; }
+.tour-stops li + li { border-top: 1px solid #ceaa7138; }
+.tour-stops .icon { align-self: center; color: var(--gold); }
+#main:has(.tour-catalogue) > .journey-feature:last-child { margin-bottom: clamp(2.6rem, 5vw, 5rem); }
+
 .tour-feature { background: radial-gradient(ellipse at 85% 0%, #45321b, transparent 70%), var(--raised); color: var(--text); padding-block: clamp(2.5rem, 6vw, 5rem); }
 .feature-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; gap: clamp(1.75rem, 6vw, 5rem); }
 .feature-grid img { width: 100%; aspect-ratio: 1.26; object-fit: cover; border-radius: 22px; }
@@ -226,6 +257,26 @@ summary::-webkit-details-marker { display: none; }
   .journey-feature-photo { position: relative; z-index: auto; aspect-ratio: 1.7; }
   .journey-feature-photo::after { background: linear-gradient(0deg, #18130e, transparent 45%); }
   .journey-feature-copy { padding-top: .4rem; }
+  .tour-hub-intro .intro-grid:has(figure), .tour-itinerary, .tour-itinerary--reverse { grid-template-columns: 1fr; }
+  .tour-itinerary--reverse .tour-stops { order: initial; }
+  .tour-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tour-intro .intro-grid figure::after { display: none; }
+}
+@media (max-width: 560px) {
+  .tour-grid { grid-template-columns: 1fr; }
+  .tour-card-image img { aspect-ratio: 1.95; }
+  .tour-card-content { padding-bottom: 1.15rem; }
+  .tour-hub-intro .page-intro-copy > .button, .tour-intro .page-intro-copy > .button { display: flex; width: 100%; }
+  .intro-secondary { margin-inline-start: 0; }
+  .page-intro .intro-secondary { margin-top: .6rem; }
+  .hero-copy { padding: 1.15rem; border-radius: 24px; border: 1px solid #ceaa7155; background: #17120cd9; }
+  .hero-copy .actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero-copy .actions .button--gold { grid-column: 1 / -1; }
+  .hero h1 { font-size: clamp(2.85rem, 12vw, 5rem); }
+  .hero-media img, .hero-media::after { height: min(43rem, 100%); }
+  @supports (backdrop-filter: blur(10px)) {
+    .hero-copy { backdrop-filter: blur(10px); background: #17120cba; }
+  }
 }
 @media (max-width: 480px) {
   .header-inner { gap: .35rem; padding-inline: .58rem; }

@@ -37,7 +37,7 @@ export const services = [
 ];
 
 export const tours = [
-  ['ireland', 'Private Tours of Ireland', 'Plan a private Ireland tour from Youghal, with pickup and stops tailored to the journey you want to make.', 'Tell us which counties you want to visit, where you are staying and what you most want to see. Coastal drives, historic towns and countryside stops can all be discussed.'],
+  ['ireland', 'Plan a Tour Around Ireland', 'Plan a private Ireland tour from Youghal, with pickup and stops tailored to the journey you want to make.', 'Tell us which counties you want to visit, where you are staying and what you most want to see. Coastal drives, historic towns and countryside stops can all be discussed.'],
   ['cork', 'Cork Tours', 'Explore ideas for a private tour around Cork, from harbour towns to historic landmarks.', 'Cobh, Kinsale and Blarney are ideas to discuss. Pick the stops that interest you and tell us whether you would prefer more time in one town or a wider drive.'],
   ['waterford', 'Waterford Tours', 'Discuss a private tour through Waterford City or along the Copper Coast.', 'Share whether your group prefers a city visit, coastal scenery or a mix of both. Include any walking preferences and your pickup location.'],
   ['youghal', 'Youghal Tours', 'Plan a tour around the historic streets, waterfront and East Cork countryside of Youghal.', 'Ask about starting near the town walls or waterfront and continuing into East Cork. Tell us where you are staying and which stops you would like to include.'],
@@ -45,14 +45,6 @@ export const tours = [
   ['west-cork', 'West Cork Tours', 'Discuss a private trip through West Cork’s harbour towns and coastal roads.', 'Tell us which towns you want to prioritise and whether you would like time for a lunch stop or a short walk.'],
   ['scenic', 'Scenic Ireland Tours', 'Plan a journey around Ireland’s coastal viewpoints and countryside.', 'The Wild Atlantic Way and Ring of Kerry are ideas for a wider itinerary. Share the landscapes you want to see and your preferred start and finish points.'],
   ['custom', 'Custom Ireland Tours', 'Shape a private tour around your interests, your group and your starting point.', 'Send your wish list, pickup address and any dates you already have. Mention your group size and preferred pace so the route can be discussed.'],
-];
-
-export const nationwideTours = [
-  ['Kerry and the southwest', 'Discuss a route through Killarney, the Ring of Kerry or the Dingle Peninsula. Choose the scenic stops your group most wants to spend time at.'],
-  ['Clare and the west coast', 'Build a tour around the Cliffs of Moher, the Burren or Galway. Tell us whether your group prefers a coastal drive, a town visit or time to walk.'],
-  ['The midlands and Ireland’s Ancient East', 'Pair stops such as the Rock of Cashel and Kilkenny, or plan time in Wicklow and Glendalough. Let us know which heritage sites you want to prioritise.'],
-  ['Donegal and the northwest', 'Explore ideas around Donegal’s coastline and Glenveagh. Share your starting point, where you’re staying and how many days you have in mind.'],
-  ['Northern Ireland', 'Ask about a route that takes in the Causeway Coast, Belfast or Derry. Tell us your preferred stops so we can discuss a workable itinerary and availability.'],
 ];
 
 export const areas = [

@@ -1,11 +1,12 @@
 import { cp, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { business, services, tours, areas, faqs, nationwideTours } from './content.mjs';
+import { business, services, tours, areas, faqs } from './content.mjs';
 import { areaExperience, areaMedia, areaPlanning, serviceExperience, serviceHeroMedia, serviceMedia, servicePlanning } from './detail-content.mjs';
+import { regionalTours, stopsByTour, tourFeatureMedia, tourMedia } from './tour-content.mjs';
 import { icon } from './icons.mjs';
 import {
   areaPath, areaTiles, bookingForm, contactForm, escape, fleet, footer, header, home, image,
-  journeyFeature, journeySteps, link, process, prose, questions, section, servicePath, serviceTiles, tiles, tourMedia, tourPath, tourTiles,
+  journeyFeature, journeySteps, link, process, prose, questions, section, servicePath, serviceTiles, tiles, tourPath, tourTiles,
 } from './templates.mjs';
 
 const output = 'dist';
@@ -44,16 +45,37 @@ for (const [slug, title, icon, description, blocks] of services) {
       ${section('Explore other services', serviceTiles(services.filter(([otherSlug]) => otherSlug !== slug)), 'surface')}`,
     { parent: ['/services/', 'Services'], schema: 'Service', media: serviceHeroMedia[slug], icon, booking, introStyle: 'service-intro' });
 }
-const nationwideCards = nationwideTours.map(([title, description]) => [
-  '/book/?' + new URLSearchParams({ trip: 'Tour', destination: title }), title, description, 'map',
-]);
-const nationwideOptions = section('Tour ideas across Ireland', '<p class="section-lead">Use these destinations as starting points for a private tour. Share your preferred stops, pickup point and dates so we can discuss the route and availability.</p>' + tiles(nationwideCards), 'surface', 'nationwide');
-page('/tours/', 'Private Ireland Tours', 'Plan a private tour from Youghal through Cork, Waterford, Dungarvan or further across Ireland.', section('Explore tours from Youghal', tourTiles()) + nationwideOptions, { media: tourMedia.ireland });
-for (const [slug, title, description, detail] of tours) {
-  page(tourPath(slug), title, description, `<div class="shell reading">${prose([
-    ['Ideas for your route', detail],
-    ['Pickup and group details', 'Ask about starting in Youghal, Cork, Waterford or Dungarvan. Share your pickup address, group size, luggage and any mobility needs so we can discuss the trip with you.'],
-  ])}${related([['/book/?trip=Tour', 'Enquire'], ['/tours/#nationwide', 'Explore Nationwide Tour Ideas']])}</div>`, { parent: ['/tours/', 'Tours'], schema: 'Service', media: tourMedia[slug], booking: '/book/?trip=Tour' });
+const allTours = [...tours, ...regionalTours];
+const tourBooking = '/book/?trip=Tour';
+const tourJump = `<nav class="shell tour-jump" aria-label="Tour categories">${link('#local-tours', 'South Coast')}${link('#nationwide', 'All Around Ireland')}${link(tourPath('custom'), 'Custom Tours')}</nav>`;
+const regionalOptions = section('Explore Ireland by region',
+  '<p class="section-lead">Browse example itineraries for the west coast, the north and inland Ireland. Choose a destination to see suggested stops and plan your enquiry.</p>' + tourTiles(regionalTours),
+  'surface tour-catalogue', 'nationwide');
+page('/tours/', 'Tours around Ireland', 'Explore private tour ideas from Youghal and across Ireland, from the south coast to Kerry, Galway, Donegal and the Causeway Coast.',
+  tourJump + section('Tours from the south coast', tourTiles(tours.filter(([slug]) => !['ireland', 'scenic', 'custom'].includes(slug))), 'tour-catalogue', 'local-tours')
+  + regionalOptions + section('Plan your own itinerary', tourTiles(tours.filter(([slug]) => ['ireland', 'scenic', 'custom'].includes(slug))), 'tour-catalogue', 'custom-tours')
+  + journeyFeature(['tour-island-road', 'Illustrative Irish country road leading towards the sea'], 'See the places you came for',
+    'Tell us where you’d like to start, which stops matter most and how much time you have. We’ll discuss the route and availability with you.',
+    [tourBooking, 'Plan a Tour', 'button button--gold', 'calendar']),
+  { media: tourMedia.ireland, introStyle: 'tour-hub-intro', booking: tourBooking, introLabel: 'Plan a Tour', introSecondary: ['#nationwide', 'Browse Destinations'] });
+
+for (const [index, [slug, title, description, detail]] of allTours.entries()) {
+  const booking = '/book/?' + new URLSearchParams({ trip: 'Tour', destination: title });
+  const include = stopsByTour[slug].map((stop) => `<li>${icon('pin')}${escape(stop)}</li>`).join('');
+  const collection = index < tours.length ? tours : regionalTours;
+  const current = index < tours.length ? index : index - tours.length;
+  const otherTours = [collection[(current + 1) % collection.length], collection[(current + 2) % collection.length]];
+  page(tourPath(slug), title, description,
+    `<section class="shell tour-itinerary${index % 2 ? ' tour-itinerary--reverse' : ''}">
+      <div><h2>Ideas for your route</h2><p>${escape(detail)}</p></div>
+      <div class="tour-stops"><h3>Stops to consider</h3><ul>${include}</ul></div>
+    </section>
+    ${journeyFeature(tourFeatureMedia[slug], 'A tour shaped around your group',
+      'Tell us where you’re staying, how much time you have and the stops you want to prioritise. We’ll discuss a route, pickup options and availability for your group.',
+      [booking, 'Enquire About This Tour', 'button button--gold', 'calendar'])}
+    ${journeySteps('How to plan your tour', 'Share your dates, pickup location, group size and must-see stops.')}
+    ${section('Explore more tours', tourTiles(otherTours) + `<p class="section-note">${link('/tours/#nationwide', 'Browse All Destinations', 'button button--dark', 'map')}</p>`, 'surface tour-catalogue')}`,
+    { parent: ['/tours/', 'Tours around Ireland'], schema: 'Service', media: tourMedia[slug], booking, introStyle: 'service-intro tour-intro', introLabel: 'Enquire About This Tour' });
 }
 
 page('/service-areas/', 'Taxi and Transfer Service Areas', 'Explore pickups from our base in Youghal and across Cork, Waterford, Dungarvan, County Cork and West Waterford.',
@@ -170,7 +192,7 @@ function render(path, data) {
   <meta property="og:image" content="${origin}/assets/photos/${data.media?.[0] || 'cork-coast-drive'}.webp">
   <link rel="icon" type="image/svg+xml" href="/assets/logo/umair-icon.svg?v=2">
   <link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/site.css?v=6">
+  <link rel="stylesheet" href="/assets/site.css?v=7">
   <script src="/assets/site.js?v=2" defer></script>
   <script type="application/ld+json">${schema(path, data, data.home ? [['/', 'Home']] : crumbs)}</script>
 </head>
@@ -179,7 +201,8 @@ function render(path, data) {
   <main id="main">${data.home ? '' : `<div class="page-intro${data.introStyle ? ' ' + data.introStyle : ''}"><div class="shell intro-grid">
     <div class="page-intro-copy"><nav class="crumbs" aria-label="Breadcrumb"><ol>${crumbs.map(([href, label], index) => `<li>${index === crumbs.length - 1 ? `<span aria-current="page">${escape(label)}</span>` : link(href, label)}</li>`).join('')}</ol></nav>
     <h1>${icon(data.icon)}${escape(data.title)}</h1><p>${escape(data.description)}</p>
-    ${path === '/book/' || path === '/contact/' ? '' : link(data.booking || '/book/', 'Book Now', 'button button--gold', 'calendar')}</div>
+    ${path === '/book/' || path === '/contact/' ? '' : link(data.booking || '/book/', data.introLabel || 'Book Now', 'button button--gold', 'calendar')}
+    ${data.introSecondary ? link(...data.introSecondary, 'button button--outline intro-secondary', 'map') : ''}</div>
     ${data.media ? `<figure>${image(...data.media, true)}</figure>` : ''}
   </div></div>`}
   ${data.content}
