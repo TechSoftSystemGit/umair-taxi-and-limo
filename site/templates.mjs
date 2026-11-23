@@ -169,6 +169,33 @@ export function fleet(selection = vehicles) {
   }).join('')}</div><p class="section-note">Images illustrate vehicle categories. Share your passenger and luggage requirements to discuss availability.</p>`;
 }
 
+export function fleetFacts(vehicle) {
+  const labels = ['Best for', 'Passengers', 'Luggage'];
+  return `<dl class="fleet-facts">${vehicle.quickFacts.map((value, index) =>
+    `<div><dt>${labels[index]}</dt><dd>${escape(value)}</dd></div>`).join('')}</dl>`;
+}
+
+export function fleetShowcase() {
+  return `<section class="section" id="vehicles" aria-labelledby="fleet-selection-title"><div class="shell">
+    <h2 id="fleet-selection-title" data-reveal>Choose your vehicle</h2>
+    <p class="section-lead">The images illustrate each vehicle category. We’ll confirm the exact seats and luggage space for your journey.</p>
+    <div class="fleet-showcase">${vehicles.map((vehicle) => {
+      const [front, side, , interior] = fleetPhotos(vehicle);
+      return `<article class="fleet-showcase-item">
+        <div class="fleet-showcase-photos" data-reveal>
+          ${[front, side, interior].map(([name, alt]) => image(name, alt)).join('')}
+        </div>
+        <div class="fleet-showcase-copy">
+          <h3>${escape(vehicle.title)}</h3>
+          <p>${escape(vehicle.description)}</p>
+          ${fleetFacts(vehicle)}
+          ${link(fleetPath(vehicle.slug), 'View ' + vehicle.title + ' details', 'button button--gold')}
+        </div>
+      </article>`;
+    }).join('')}</div>
+  </div></section>`;
+}
+
 export function fleetDetails(vehicle, booking) {
   const photos = fleetPhotos(vehicle);
   return `<section class="section fleet-gallery-section"><div class="shell">

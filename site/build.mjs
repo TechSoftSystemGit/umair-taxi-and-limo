@@ -6,7 +6,7 @@ import { regionalTours, stopsByTour, tourFeatureMedia, tourMedia } from './tour-
 import { fleetPath, fleetPhotos, vehicles } from './fleet-content.mjs';
 import { icon } from './icons.mjs';
 import {
-  areaPath, areaTiles, bookingForm, contactForm, escape, fleet, fleetDetails, footer, header, home, image,
+  areaPath, areaTiles, bookingForm, contactForm, escape, fleet, fleetDetails, fleetFacts, fleetShowcase, footer, header, home, image,
   journeyFeature, journeySteps, link, process, prose, questions, section, servicePath, serviceTiles, tiles, tourPath, tourTiles,
 } from './templates.mjs';
 
@@ -100,13 +100,21 @@ for (const [slug, place, description, detail, route, tour] of areas) {
     { parent: ['/service-areas/', 'Service Areas'], schema: 'Service', media: areaMedia[slug], icon: 'pin', booking });
 }
 
-page('/fleet/', 'Vehicle Options', 'Discuss saloon, people carrier and group vehicle options when enquiring about a taxi, airport transfer or Irish tour.', section('Find a vehicle for your journey', fleet()), { crumb: 'Fleet' });
+page('/fleet/', 'Our Fleet', 'Compare vehicle options for a Cork Airport transfer, local taxi ride or private tour, from a saloon to a larger group vehicle.',
+  fleetShowcase() + journeyFeature(
+    ['about-journey-detail', 'Illustrative passenger pickup with luggage beside the vehicle'],
+    'Find the right fit for your trip',
+    'Tell us how many people are travelling and what you’ll bring. We’ll check which vehicle can accommodate your group and luggage before confirming the booking.',
+    ['/book/', 'Request a Quote', 'button button--gold', 'calendar']),
+  { crumb: 'Fleet', media: ['cork-coast-drive-small', 'Illustrative taxi on a coastal road in County Cork'], introStyle: 'service-intro fleet-overview-intro',
+    introLabel: 'Request a Quote', introSecondary: ['#vehicles', 'Explore Vehicles'] });
 for (const vehicle of vehicles) {
   const booking = '/book/?' + new URLSearchParams({ notes: 'Vehicle preference: ' + vehicle.title });
   const [[name, alt]] = fleetPhotos(vehicle);
   page(fleetPath(vehicle.slug), vehicle.title, vehicle.description,
     fleetDetails(vehicle, booking) + section('Compare other vehicles', fleet(vehicles.filter((option) => option !== vehicle)), 'surface'),
-    { parent: ['/fleet/', 'Fleet'], media: [name, alt], icon: vehicle.icon, booking, introLabel: 'Enquire About This Vehicle', introStyle: 'fleet-intro' });
+    { parent: ['/fleet/', 'Fleet'], media: [name, alt], icon: vehicle.icon, booking, introLabel: 'Enquire About This Vehicle',
+      introStyle: 'fleet-intro', introSupplement: fleetFacts(vehicle) });
 }
 page('/about/', 'About Umair Taxi and Limo', 'Meet Umair Taxi and Limo, a Youghal-based taxi, airport transfer and private tour business serving Cork and Waterford.', `
   <section class="shell reading about-story">
@@ -200,7 +208,7 @@ function render(path, data) {
   <meta property="og:image" content="${origin}/assets/photos/${data.media?.[0] || 'cork-coast-drive'}.webp">
   <link rel="icon" type="image/svg+xml" href="/assets/logo/umair-icon.svg?v=3">
   <link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/site.css?v=9">
+  <link rel="stylesheet" href="/assets/site.css?v=10">
   <script src="/assets/site.js?v=3" defer></script>
   <script type="application/ld+json">${schema(path, data, data.home ? [['/', 'Home']] : crumbs)}</script>
 </head>
@@ -209,6 +217,7 @@ function render(path, data) {
   <main id="main">${data.home ? '' : `<div class="page-intro${data.introStyle ? ' ' + data.introStyle : ''}"><div class="shell intro-grid">
     <div class="page-intro-copy"><nav class="crumbs" aria-label="Breadcrumb"><ol>${crumbs.map(([href, label], index) => `<li>${index === crumbs.length - 1 ? `<span aria-current="page">${escape(label)}</span>` : link(href, label)}</li>`).join('')}</ol></nav>
     <h1>${icon(data.icon)}${escape(data.title)}</h1><p>${escape(data.description)}</p>
+    ${data.introSupplement || ''}
     ${path === '/book/' || path === '/contact/' ? '' : link(data.booking || '/book/', data.introLabel || 'Book Now', 'button button--gold', 'calendar')}
     ${data.introSecondary ? link(...data.introSecondary, 'button button--outline intro-secondary', 'map') : ''}</div>
     ${data.media ? `<figure>${image(...data.media, true)}</figure>` : ''}
