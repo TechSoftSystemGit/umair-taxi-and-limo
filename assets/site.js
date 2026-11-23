@@ -146,27 +146,84 @@ for (const gallery of document.querySelectorAll('[data-gallery]')) {
   const controls = gallery.querySelector('.fleet-gallery-controls');
   const count = gallery.querySelector('[data-gallery-count]');
   const views = [...gallery.querySelectorAll('[data-gallery-index]')];
-  const [previous, next] = gallery.querySelectorAll('[data-gallery-step]');
+  const slides = [...track.querySelectorAll('[data-lightbox-index]')];
+  const play = gallery.querySelector('[data-gallery-play]');
+  const dialog = gallery.querySelector('.fleet-lightbox');
+  const largePhoto = dialog.querySelector('[data-lightbox-photo]');
+  const caption = dialog.querySelector('[data-lightbox-caption]');
+  const lightboxCount = dialog.querySelector('[data-lightbox-count]');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   let active = 0;
+  let lightboxIndex = 0;
+  let playing = !reducedMotion.matches;
+  let visible = false;
+  const wrap = (index) => (index + slides.length) % slides.length;
+  function updatePlayback() {
+    play.textContent = playing ? 'Pause Slideshow' : 'Play Slideshow';
+  }
   function updateGallery() {
     const index = Math.min(views.length - 1, Math.max(0, Math.round(track.scrollLeft / track.clientWidth)));
     if (index === active) return;
     views[active].removeAttribute('aria-current');
     active = index;
     views[active].setAttribute('aria-current', 'true');
-    previous.setAttribute('aria-disabled', String(active === 0));
-    next.setAttribute('aria-disabled', String(active === views.length - 1));
     count.textContent = `${active + 1} of ${views.length}`;
   }
   function showPhoto(index) {
-    if (index < 0 || index >= views.length) return;
-    track.scrollTo({ left: index * track.clientWidth, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+    const target = wrap(index);
+    const smooth = !reducedMotion.matches && Math.abs(target - active) <= 1;
+    track.scrollTo({ left: target * track.clientWidth, behavior: smooth ? 'smooth' : 'auto' });
+  }
+  function showLightboxPhoto(index) {
+    lightboxIndex = wrap(index);
+    const slide = slides[lightboxIndex];
+    largePhoto.src = slide.href;
+    largePhoto.alt = slide.querySelector('img').alt;
+    caption.textContent = slide.parentElement.querySelector('figcaption').textContent;
+    lightboxCount.textContent = `${lightboxIndex + 1} of ${slides.length}`;
+  }
+  function openLightbox(index) {
+    showLightboxPhoto(index);
+    dialog.showModal();
   }
   track.addEventListener('scroll', updateGallery, { passive: true });
-  views.forEach((button, index) => button.addEventListener('click', () => showPhoto(index)));
-  previous.addEventListener('click', () => showPhoto(active - 1));
-  next.addEventListener('click', () => showPhoto(active + 1));
+  for (const button of gallery.querySelectorAll('[data-gallery-step]')) {
+    button.addEventListener('click', () => showPhoto(active + Number(button.dataset.galleryStep)));
+  }
+  slides.forEach((slide, index) => slide.addEventListener('click', (event) => {
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    openLightbox(index);
+  }));
+  views.forEach((button, index) => button.addEventListener('click', () => openLightbox(index)));
+  dialog.querySelector('[data-lightbox-close]').addEventListener('click', () => dialog.close());
+  for (const button of dialog.querySelectorAll('[data-lightbox-step]')) {
+    button.addEventListener('click', () => showLightboxPhoto(lightboxIndex + Number(button.dataset.lightboxStep)));
+  }
+  dialog.addEventListener('keydown', (event) => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    event.preventDefault();
+    showLightboxPhoto(lightboxIndex + (event.key === 'ArrowRight' ? 1 : -1));
+  });
+  dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+  dialog.addEventListener('close', () => showPhoto(lightboxIndex));
+  play.addEventListener('click', () => { playing = !playing; updatePlayback(); });
+  reducedMotion.addEventListener('change', (event) => {
+    if (!event.matches) return;
+    playing = false;
+    updatePlayback();
+  });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; }, { threshold: .35 }).observe(track);
+    setInterval(() => {
+      if (!playing || !visible || document.hidden || dialog.open || gallery.contains(document.activeElement)
+        || (matchMedia('(hover: hover)').matches && gallery.matches(':hover'))) return;
+      showPhoto(active + 1);
+    }, 5000);
+  } else {
+    play.hidden = true;
+  }
+  updatePlayback();
   controls.hidden = false;
 }
 

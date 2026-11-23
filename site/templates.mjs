@@ -170,7 +170,7 @@ export function fleet(selection = vehicles) {
 }
 
 export function fleetFacts(vehicle) {
-  const labels = ['Best for', 'Passengers', 'Luggage'];
+  const labels = ['Best for', 'Typical passengers', 'Typical luggage'];
   return `<dl class="fleet-facts">${vehicle.quickFacts.map((value, index) =>
     `<div><dt>${labels[index]}</dt><dd>${escape(value)}</dd></div>`).join('')}</dl>`;
 }
@@ -178,7 +178,7 @@ export function fleetFacts(vehicle) {
 export function fleetShowcase() {
   return `<section class="section" id="vehicles" aria-labelledby="fleet-selection-title"><div class="shell">
     <h2 id="fleet-selection-title" data-reveal>Choose your vehicle</h2>
-    <p class="section-lead">The images illustrate each vehicle category. We’ll confirm the exact seats and luggage space for your journey.</p>
+    <p class="section-lead">Capacity figures are estimates. Actual seating and luggage space vary by vehicle and layout.</p>
     <div class="fleet-showcase">${vehicles.map((vehicle) => {
       const [front, side, , interior] = fleetPhotos(vehicle);
       return `<article class="fleet-showcase-item">
@@ -201,32 +201,40 @@ export function fleetDetails(vehicle, booking) {
   return `<div class="section fleet-gallery-section" id="vehicle-gallery"><div class="shell fleet-detail-grid">
     <section aria-labelledby="fleet-gallery-title">
     <h2 id="fleet-gallery-title">Vehicle gallery</h2>
-    <p class="section-lead" id="fleet-gallery-note">Browse the front, side, rear and passenger interior. Photos are illustrative.</p>
+    <p class="section-lead" id="fleet-gallery-note">Swipe through the gallery or select a photo to enlarge it. Photos are illustrative.</p>
     <div class="fleet-gallery" data-gallery>
       <div class="fleet-gallery-track" id="fleet-gallery-track" tabindex="0" role="region" aria-labelledby="fleet-gallery-title" aria-describedby="fleet-gallery-note">
-        ${photos.map(([name, alt, label]) => `<figure class="fleet-gallery-slide">${image(name, alt)}<figcaption>${label}</figcaption></figure>`).join('')}
+        ${photos.map(([name, alt, label], index) => `<figure class="fleet-gallery-slide">
+          <a class="fleet-gallery-photo" href="/assets/photos/${name}.webp" data-lightbox-index="${index}" aria-label="Enlarge ${label.toLowerCase()} photo">
+            ${image(name, alt)}<span class="fleet-gallery-enlarge" aria-hidden="true">View Larger</span>
+          </a><figcaption>${label}</figcaption></figure>`).join('')}
       </div>
       <div class="fleet-gallery-controls" hidden>
         <div class="fleet-gallery-views" role="group" aria-label="Photo view">
-          ${photos.map(([, , label], index) => `<button type="button" data-gallery-index="${index}" aria-controls="fleet-gallery-track"${index === 0 ? ' aria-current="true"' : ''}>${label}</button>`).join('')}
+          ${photos.map(([name, , label], index) => `<button type="button" data-gallery-index="${index}" aria-label="Enlarge ${label.toLowerCase()} from thumbnail"${index === 0 ? ' aria-current="true"' : ''}>${image(name, '')}</button>`).join('')}
         </div>
         <div class="fleet-gallery-navigation" role="group" aria-label="Gallery navigation">
-          <button type="button" data-gallery-step="-1" aria-controls="fleet-gallery-track" aria-disabled="true">Previous</button>
-          <span data-gallery-count role="status">1 of ${photos.length}</span>
-          <button type="button" data-gallery-step="1" aria-controls="fleet-gallery-track" aria-disabled="false">Next</button>
+          <button type="button" data-gallery-step="-1" aria-controls="fleet-gallery-track">Previous</button>
+          <span data-gallery-count>1 of ${photos.length}</span>
+          <button type="button" data-gallery-step="1" aria-controls="fleet-gallery-track">Next</button>
+          <button type="button" data-gallery-play>Pause Slideshow</button>
         </div>
       </div>
+      <dialog class="fleet-lightbox" aria-labelledby="fleet-lightbox-title">
+        <div class="fleet-lightbox-top"><h3 id="fleet-lightbox-title">Vehicle photos</h3><button type="button" data-lightbox-close autofocus>Close</button></div>
+        <figure><img data-lightbox-photo alt=""><figcaption data-lightbox-caption></figcaption></figure>
+        <div class="fleet-lightbox-nav">
+          <button type="button" data-lightbox-step="-1">Previous</button>
+          <span data-lightbox-count role="status"></span>
+          <button type="button" data-lightbox-step="1">Next</button>
+        </div>
+      </dialog>
     </div>
     </section>
     <aside class="fleet-detail-highlights" aria-labelledby="fleet-highlights-title">
       <h2 id="fleet-highlights-title">Vehicle highlights</h2>
       ${fleetFacts(vehicle)}
-      <h3>Passenger and luggage capacity</h3>
-      <p class="section-lead">We’ll confirm exact seating and luggage limits for the vehicle available for your journey.</p>
-    <dl class="fleet-capacity">
-      <div><dt>${renderIcon('car')}Passengers</dt><dd>${escape(vehicle.passengerFit)}</dd></div>
-      <div><dt>${renderIcon('case')}Luggage</dt><dd>${escape(vehicle.luggageFit)}</dd></div>
-    </dl>${link(booking, 'Ask About Capacity', 'button button--gold fleet-capacity-cta', 'chat')}
+      <p class="fleet-estimate-note">Typical estimates. Actual capacity varies by vehicle and seating layout.</p>
     </aside>
   </div></div>
   ${section('Journeys this vehicle suits', `<ul class="journey-steps">${vehicle.journeys.map(([title, text]) =>

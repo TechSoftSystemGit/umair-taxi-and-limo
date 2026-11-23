@@ -207,8 +207,8 @@ function render(path, data) {
   <meta property="og:image" content="${origin}/assets/photos/${data.media?.[0] || 'cork-coast-drive'}.webp">
   <link rel="icon" type="image/svg+xml" href="/assets/logo/umair-icon.svg?v=3">
   <link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/site.css?v=11">
-  <script src="/assets/site.js?v=3" defer></script>
+  <link rel="stylesheet" href="/assets/site.css?v=12">
+  <script src="/assets/site.js?v=4" defer></script>
   <script type="application/ld+json">${schema(path, data, data.home ? [['/', 'Home']] : crumbs)}</script>
 </head>
 <body>
