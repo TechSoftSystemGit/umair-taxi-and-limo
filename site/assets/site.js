@@ -213,7 +213,7 @@ for (const gallery of document.querySelectorAll('[data-gallery]')) {
     playing = false;
     updatePlayback();
   });
-  if ('IntersectionObserver' in window) {
+  if (slides.length > 1 && 'IntersectionObserver' in window) {
     new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; }, { threshold: .35 }).observe(track);
     setInterval(() => {
       if (!playing || !visible || document.hidden || dialog.open || gallery.contains(document.activeElement)
@@ -224,7 +224,7 @@ for (const gallery of document.querySelectorAll('[data-gallery]')) {
     play.hidden = true;
   }
   updatePlayback();
-  controls.hidden = false;
+  controls.hidden = slides.length === 1;
 }
 
 if ('IntersectionObserver' in window && matchMedia('(prefers-reduced-motion: no-preference)').matches) {

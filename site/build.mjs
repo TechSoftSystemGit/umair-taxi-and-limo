@@ -3,11 +3,12 @@ import { join } from 'node:path';
 import { business, services, tours, areas, faqs } from './content.mjs';
 import { areaExperience, areaMedia, areaPlanning, serviceExperience, serviceHeroMedia, serviceMedia, servicePlanning } from './detail-content.mjs';
 import { regionalTours, stopsByTour, tourFeatureMedia, tourMedia } from './tour-content.mjs';
+import { departures, departurePath } from './day-tours.mjs';
 import { fleetHero, fleetPath, vehicles } from './fleet-content.mjs';
 import { icon } from './icons.mjs';
 import {
   areaPath, areaTiles, bookingForm, contactForm, escape, fleet, fleetDetails, fleetShowcase, footer, header, home, image,
-  journeyFeature, journeySteps, link, process, prose, questions, section, servicePath, serviceTiles, tiles, tourPath, tourTiles,
+  journeyFeature, journeySteps, link, photoPath, process, prose, questions, section, servicePath, serviceTiles, tiles, tourPath, tourTiles,
 } from './templates.mjs';
 
 const output = 'dist';
@@ -48,17 +49,64 @@ for (const [slug, title, icon, description, blocks] of services) {
 }
 const allTours = [...tours, ...regionalTours];
 const tourBooking = '/book/?trip=Tour';
-const tourJump = `<nav class="shell tour-jump" aria-label="Tour categories">${link('#local-tours', 'South Coast')}${link('#nationwide', 'All Around Ireland')}${link(tourPath('custom'), 'Custom Tours')}</nav>`;
+const departurePhotos = {
+  'day-tours': [960, 720, 'Cliffs of Moher above the Atlantic'],
+  belfast: [1440, 958, 'Belfast skyline reflected in the River Lagan'],
+  cork: [1440, 1080, 'The quadrangle at University College Cork'],
+  derry: [1440, 960, 'Foyle Bridge in Derry at dusk'],
+  donegal: [1440, 1080, 'The Slieve League cliffs in Donegal'],
+  dublin: [960, 540, 'Aerial view of Dublin'],
+  galway: [800, 533, 'Galway Cathedral beside the River Corrib'],
+  kilkenny: [960, 640, 'Kilkenny Castle'],
+  'killarney-dingle': [960, 640, 'Killarney lakes from Ladies View'],
+  limerick: [960, 455, 'King John’s Castle across the River Shannon'],
+  waterford: [591, 635, 'Reginald’s Tower in Waterford'],
+  blackwater: [1120, 840, 'Lismore Castle overlooking the Blackwater River'],
+  boyne: [1120, 840, 'Newgrange passage tomb in the Boyne Valley'],
+  causeway: [960, 720, 'Basalt formations at the Giant’s Causeway'],
+  connemara: [1120, 678, 'Kylemore Abbey beside the lake in Connemara'],
+  dingle: [1120, 840, 'Slea Head on the Dingle Peninsula'],
+  glenveagh: [1120, 750, 'Landscape in Glenveagh National Park'],
+  kinsale: [960, 510, 'Kinsale harbour in County Cork'],
+  wicklow: [960, 639, 'St Kevin’s Church at Glendalough, County Wicklow'],
+};
+function departureImage(slug, eager = false) {
+  const [width, height, alt] = departurePhotos[slug];
+  return `<img src="/assets/photos/day-${slug}.jpg" alt="${escape(alt)}" width="${width}" height="${height}" ${eager ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"'}>`;
+}
+const departureCards = departures.map(([slug, place, description]) => `<article class="day-card">
+    ${departureImage(slug)}
+    <div><h3>${link(departurePath(slug), 'From ' + place)}</h3><p>${escape(description)}</p>
+    ${link(departurePath(slug), 'See tours from ' + place, 'button button--dark')}</div>
+  </article>`).join('');
 const regionalOptions = section('Explore Ireland by region',
   '<p class="section-lead">Browse example itineraries for the west coast, the north and inland Ireland. Choose a destination to see suggested stops and plan your enquiry.</p>' + tourTiles(regionalTours),
   'surface tour-catalogue', 'nationwide');
-page('/tours/', 'Tours around Ireland', 'Explore private tour ideas from Youghal and across Ireland, from the south coast to Kerry, Galway, Donegal and the Causeway Coast.',
-  tourJump + section('Tours from the south coast', tourTiles(tours.filter(([slug]) => !['ireland', 'scenic', 'custom'].includes(slug))), 'tour-catalogue', 'local-tours')
+page('/tours/', 'Private Day Tours of Ireland', 'Choose an Irish departure point and enquire about a private day tour with Umair Taxi and Limo.',
+  section('Choose your starting point', '<p class="section-lead">Pick a departure point to see day trip ideas. Tell us which sights you want to visit and where you’d like to be picked up.</p><div class="day-grid">' + departureCards + '</div>', 'day-catalogue', 'departures')
+  + section('Plan a custom day tour', `<p class="section-lead">Have a different route in mind? Share your pickup point and preferred stops.</p>${link(tourPath('custom'), 'Explore Custom Tours', 'button button--gold')}`, 'surface day-custom')
+  + section('Tours from the south coast', tourTiles(tours.filter(([slug]) => !['ireland', 'scenic', 'custom'].includes(slug))), 'tour-catalogue', 'local-tours')
   + regionalOptions + section('Plan your own itinerary', tourTiles(tours.filter(([slug]) => ['ireland', 'scenic', 'custom'].includes(slug))), 'tour-catalogue', 'custom-tours')
   + journeyFeature(['tour-island-road', 'Illustrative Irish country road leading towards the sea'], 'See the places you came for',
     'Tell us where you’d like to start, which stops matter most and how much time you have. We’ll discuss the route and availability with you.',
     [tourBooking, 'Plan a Tour', 'button button--gold', 'calendar']),
-  { media: tourMedia.ireland, introStyle: 'tour-hub-intro', booking: tourBooking, introLabel: 'Plan a Tour', introSecondary: ['#nationwide', 'Browse Destinations'] });
+  { departure: 'day-tours', introStyle: 'day-intro', booking: tourBooking, introLabel: 'Plan a Tour', introSecondary: ['#departures', 'Browse Starting Points'] });
+
+for (const [slug, place, description, itineraries] of departures) {
+  const booking = '/book/?' + new URLSearchParams({ trip: 'Tour', pickup: place });
+  page(departurePath(slug), 'Private Day Tours from ' + place, description,
+    section('Our tours from ' + place, `<p class="section-lead">Choose a route to enquire about pickup, timing and the stops you’d like to include.</p>
+    <div class="day-itineraries">${itineraries.map(([title, stops, overview, photo = slug]) => `<article class="day-itinerary">
+      ${departureImage(photo)}
+      <div class="day-itinerary-copy"><h3>${escape(title)}</h3>
+        <p>${escape(overview)}</p>
+        <p><strong>Suggested stops</strong><br>${escape(stops)}</p>
+        ${link(booking + '&destination=' + encodeURIComponent(title), 'Enquire About This Route', 'button button--gold', 'calendar')}
+      </div>
+    </article>`).join('')}</div>`, 'day-catalogue', 'tour-options')
+    + section('Choose another starting point', link('/tours/#departures', 'All Day Tours', 'button button--gold'), 'surface day-custom'),
+    { parent: ['/tours/', 'Day Tours'], departure: slug, schema: 'Service', introStyle: 'day-intro', booking, introLabel: 'Enquire About a Tour', introSecondary: ['#tour-options', 'See Tour Options'] });
+}
 
 for (const [index, [slug, title, description, detail]] of allTours.entries()) {
   const booking = '/book/?' + new URLSearchParams({ trip: 'Tour', destination: title });
@@ -106,14 +154,14 @@ page('/fleet/', 'Our Fleet', 'Compare vehicle options for a Cork Airport transfe
     'Find the right fit for your trip',
     'Tell us how many people are travelling and what you’ll bring. We’ll check which vehicle can accommodate your group and luggage before confirming the booking.',
     ['/book/', 'Request a Quote', 'button button--gold', 'calendar']),
-  { crumb: 'Fleet', media: ['cork-coast-drive-small', 'Illustrative taxi on a coastal road in County Cork'], introStyle: 'service-intro fleet-overview-intro',
+  { crumb: 'Fleet', media: ['fleet-eight-seater-side.jpg', 'Grey Ford 8-seater taxi'], introStyle: 'service-intro fleet-overview-intro',
     introLabel: 'Request a Quote', introSecondary: ['#vehicles', 'Explore Vehicles'] });
 for (const vehicle of vehicles) {
   const booking = '/book/?' + new URLSearchParams({ notes: 'Vehicle preference: ' + vehicle.title });
   page(fleetPath(vehicle.slug), vehicle.title, vehicle.description,
     fleetDetails(vehicle, booking) + section('Compare other vehicles', fleet(vehicles.filter((option) => option !== vehicle)), 'surface'),
     { parent: ['/fleet/', 'Fleet'], media: fleetHero(vehicle), icon: vehicle.icon, booking, introLabel: 'Enquire About This Vehicle',
-      introStyle: 'service-intro fleet-detail-hero', introSecondary: ['#vehicle-gallery', 'View Vehicle Gallery'] });
+      introStyle: 'fleet-detail-hero', introSecondary: ['#vehicle-gallery', 'View Vehicle Gallery'] });
 }
 page('/about/', 'About Umair Taxi and Limo', 'Meet Umair Taxi and Limo, a Youghal-based taxi, airport transfer and private tour business serving Cork and Waterford.', `
   <section class="shell reading about-story">
@@ -122,9 +170,7 @@ page('/about/', 'About Umair Taxi and Limo', 'Meet Umair Taxi and Limo, a Yougha
       <p>For journeys starting in Cork, Waterford or Dungarvan, share your pickup point and the time you need to arrive. For tours, tell us which stops you’d like to include.</p>
       <div class="actions">${link('/service-areas/', 'Service Areas', 'button button--dark', 'pin')}${link('/contact/', 'Contact Us', 'button button--gold', 'mail')}</div>
     </div>
-    <figure class="about-photo-credit">${image('about-youghal-town-harbour', 'Youghal Harbour on the County Cork coast')}
-      <figcaption>${link('https://commons.wikimedia.org/wiki/File:Youghal_town_harbour.jpg', 'Will McGoldrick')} · ${link('https://creativecommons.org/licenses/by-sa/3.0/', 'CC BY-SA 3.0')} · Resized</figcaption>
-    </figure>
+    <figure>${image('youghal-taxi-at-dawn', 'Illustrative taxi on a waterfront town street in early morning light')}</figure>
   </section>
   ${section('How we can help you travel', tiles([
     ['/airport-transfers/', 'Cork Airport Transfers', services[0][3], 'plane'],
@@ -206,11 +252,10 @@ function render(path, data) {
   <meta property="og:title" content="${escape(title)}">
   <meta property="og:description" content="${escape(data.description)}">
   <meta property="og:url" content="${url}">
-  <meta property="og:image" content="${origin}/assets/photos/${data.media?.[0] || 'cork-coast-drive'}.webp">
+  <meta property="og:image" content="${origin}${photoPath(data.departure ? 'day-' + data.departure + '.jpg' : data.home ? 'cork-airport-mercedes-rear.jpg' : data.media?.[0] || 'cork-coast-drive')}">
   <link rel="icon" type="image/svg+xml" href="/assets/logo/umair-icon.svg?v=3">
-  <link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/site.css?v=14">
-  <script src="/assets/site.js?v=4" defer></script>
+  <link rel="stylesheet" href="/assets/site.css?v=24">
+  <script src="/assets/site.js?v=5" defer></script>
   <script type="application/ld+json">${schema(path, data, data.home ? [['/', 'Home']] : crumbs)}</script>
 </head>
 <body>
@@ -220,7 +265,7 @@ function render(path, data) {
     <h1>${icon(data.icon)}${escape(data.title)}</h1><p>${escape(data.description)}</p>
     ${path === '/book/' || path === '/contact/' ? '' : link(data.booking || '/book/', data.introLabel || 'Book Now', 'button button--gold', 'calendar')}
     ${data.introSecondary ? link(...data.introSecondary, 'button button--outline intro-secondary', 'map') : ''}</div>
-    ${data.media ? `<figure>${image(...data.media, true)}</figure>` : ''}
+    ${data.departure ? `<figure>${departureImage(data.departure, true)}</figure>` : data.media ? `<figure>${image(...data.media, true)}</figure>` : ''}
   </div></div>`}
   ${data.content}
   </main>

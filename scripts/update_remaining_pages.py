@@ -370,3 +370,4 @@ for file_path, target_url, title in legacy_redirects:
     print(f"{file_path} redirected to {target_url}.")
 
 print("All remaining pages updated successfully.")
+
