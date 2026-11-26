@@ -2,6 +2,7 @@ import { business, services, tours, areas, routes, steps, faqs } from './content
 import { areaMedia, serviceMedia } from './detail-content.mjs';
 import { icon as renderIcon } from './icons.mjs';
 import { tourMedia } from './tour-content.mjs';
+import { departures, departurePath } from './day-tours.mjs';
 import { fleetPath, fleetPhotos, vehicles } from './fleet-content.mjs';
 
 export const escape = (value) => String(value).replace(/[&<>"']/g, (character) => ({
@@ -32,7 +33,7 @@ export function header() {
       <nav id="site-nav" aria-label="Main navigation"><ul class="nav-list">
         <li>${link('/', 'Home')}</li>
         ${navGroup('Services', [['/services/', 'All Services'], ...services.map(([slug, title]) => [servicePath(slug), title])])}
-        ${navGroup('Tours', [['/tours/', 'Tours around Ireland'], ['/tours/#local-tours', 'Tours from the South Coast'], ['/tours/#nationwide', 'Browse All Regions'], [tourPath('custom'), 'Custom Ireland Tours'], ['/golf-tours/', 'Golf Tours']])}
+        ${navGroup('Tours', [['/tours/', 'All Day Tours'], ...departures.map(([slug, place]) => [departurePath(slug), 'From ' + place])])}
         ${navGroup('Service Areas', [['/service-areas/', 'All Service Areas'], ...areas.map(([slug, title]) => [areaPath(slug), title])])}
         <li>${link('/fleet/', 'Fleet')}</li><li>${link('/about/', 'About')}</li><li>${link('/contact/', 'Contact')}</li>
       </ul></nav>
@@ -110,11 +111,14 @@ export function contactForm() {
   </section>`;
 }
 
-export function image(name, alt, eager = false) {
-  const width = name === 'cork-coast-drive' ? 1500 : 760;
-  const height = name === 'cork-coast-drive' ? 1000 : 500;
+export const photoPath = (name) => '/assets/photos/' + (/\.(?:jpg|png)$/.test(name) ? name : name + '.webp');
+
+export function image(name, alt, eager = false, dimensions) {
+  const [width, height] = dimensions ?? (
+    name === 'cork-coast-drive' ? [1500, 1000] : /-studio\.(?:jpg|png)$/.test(name) ? [1140, 750] : [760, 500]
+  );
   const responsive = eager && name === 'cork-coast-drive' ? 'srcset="/assets/photos/cork-coast-drive-small.webp 760w, /assets/photos/cork-coast-drive.webp 1500w" sizes="100vw"' : '';
-  return `<img src="/assets/photos/${name}.webp" alt="${escape(alt)}" width="${width}" height="${height}" ${eager ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"'} ${responsive}>`;
+  return `<img src="${photoPath(name)}" alt="${escape(alt)}" width="${width}" height="${height}" ${eager ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"'} ${responsive}>`;
 }
 
 export function tiles(items) {
@@ -160,18 +164,20 @@ export function tourTiles(selection) {
 }
 
 export function fleet(selection = vehicles) {
-  return `<div class="tiles fleet-tiles">${selection.map((vehicle) => {
-    const [[name, alt]] = fleetPhotos(vehicle);
-    return `<article class="tile" data-reveal>${image(name, alt)}
-      <div class="tile-copy"><h3>${renderIcon(vehicle.icon)}${escape(vehicle.title)}</h3><p>${escape(vehicle.description)}</p>
-      <p>${link(fleetPath(vehicle.slug), 'View Vehicle Details', 'text-link')}</p></div>
+  return `<div class="fleet-cards">${selection.map((vehicle) => {
+    const [name, alt] = vehicle.card;
+    return `<article class="fleet-card">
+      <div class="fleet-card-copy"><h3>${escape(vehicle.title)}</h3><p>${escape(vehicle.description)}</p></div>
+      ${image(name, alt)}
+      <div class="fleet-card-copy fleet-card-details">${fleetFacts(vehicle, true)}
+      ${link(fleetPath(vehicle.slug), 'View ' + vehicle.title + ' details', 'button button--gold')}</div>
     </article>`;
-  }).join('')}</div><p class="section-note">Images illustrate vehicle categories. Share your passenger and luggage requirements to discuss availability.</p>`;
+  }).join('')}</div>`;
 }
 
-export function fleetFacts(vehicle) {
-  const labels = ['Best for', 'Typical passengers', 'Typical luggage'];
-  return `<dl class="fleet-facts">${vehicle.quickFacts.map((value, index) =>
+export function fleetFacts(vehicle, compact = false) {
+  const labels = compact ? ['Passengers', 'Luggage'] : ['Best for', 'Passengers', 'Luggage'];
+  return `<dl class="fleet-facts">${vehicle.quickFacts.slice(compact ? 1 : 0).map((value, index) =>
     `<div><dt>${labels[index]}</dt><dd>${escape(value)}</dd></div>`).join('')}</dl>`;
 }
 
@@ -179,20 +185,7 @@ export function fleetShowcase() {
   return `<section class="section" id="vehicles" aria-labelledby="fleet-selection-title"><div class="shell">
     <h2 id="fleet-selection-title" data-reveal>Choose your vehicle</h2>
     <p class="section-lead">Capacity figures are estimates. Actual seating and luggage space vary by vehicle and layout.</p>
-    <div class="fleet-showcase">${vehicles.map((vehicle) => {
-      const [front, side, , interior] = fleetPhotos(vehicle);
-      return `<article class="fleet-showcase-item">
-        <div class="fleet-showcase-photos" data-reveal>
-          ${[front, side, interior].map(([name, alt]) => image(name, alt)).join('')}
-        </div>
-        <div class="fleet-showcase-copy">
-          <h3>${escape(vehicle.title)}</h3>
-          <p>${escape(vehicle.description)}</p>
-          ${fleetFacts(vehicle)}
-          ${link(fleetPath(vehicle.slug), 'View ' + vehicle.title + ' details', 'button button--gold')}
-        </div>
-      </article>`;
-    }).join('')}</div>
+    ${fleet()}
   </div></section>`;
 }
 
@@ -201,17 +194,17 @@ export function fleetDetails(vehicle, booking) {
   return `<div class="section fleet-gallery-section" id="vehicle-gallery"><div class="shell fleet-detail-grid">
     <section aria-labelledby="fleet-gallery-title">
     <h2 id="fleet-gallery-title">Vehicle gallery</h2>
-    <p class="section-lead" id="fleet-gallery-note">Swipe through the gallery or select a photo to enlarge it. Photos are illustrative.</p>
+    <p class="section-lead" id="fleet-gallery-note">${photos.length > 1 ? 'Swipe through the gallery or select a photo to enlarge it.' : 'Select the vehicle photo to enlarge it.'}</p>
     <div class="fleet-gallery" data-gallery>
       <div class="fleet-gallery-track" id="fleet-gallery-track" tabindex="0" role="region" aria-labelledby="fleet-gallery-title" aria-describedby="fleet-gallery-note">
-        ${photos.map(([name, alt, label], index) => `<figure class="fleet-gallery-slide">
-          <a class="fleet-gallery-photo" href="/assets/photos/${name}.webp" data-lightbox-index="${index}" aria-label="Enlarge ${label.toLowerCase()} photo">
-            ${image(name, alt)}<span class="fleet-gallery-enlarge" aria-hidden="true">View Larger</span>
+        ${photos.map(([name, alt, label, dimensions], index) => `<figure class="fleet-gallery-slide">
+          <a class="fleet-gallery-photo" href="${photoPath(name)}" data-lightbox-index="${index}" aria-label="Enlarge ${label.toLowerCase()} photo">
+            ${image(name, alt, false, dimensions)}<span class="fleet-gallery-enlarge" aria-hidden="true">View Larger</span>
           </a><figcaption>${label}</figcaption></figure>`).join('')}
       </div>
       <div class="fleet-gallery-controls" hidden>
         <div class="fleet-gallery-views" role="group" aria-label="Photo view">
-          ${photos.map(([name, , label], index) => `<button type="button" data-gallery-index="${index}" aria-label="Enlarge ${label.toLowerCase()} from thumbnail"${index === 0 ? ' aria-current="true"' : ''}>${image(name, '')}</button>`).join('')}
+          ${photos.map(([name, , label, dimensions], index) => `<button type="button" data-gallery-index="${index}" aria-label="Enlarge ${label.toLowerCase()} from thumbnail"${index === 0 ? ' aria-current="true"' : ''}>${image(name, '', false, dimensions)}</button>`).join('')}
         </div>
         <div class="fleet-gallery-navigation" role="group" aria-label="Gallery navigation">
           <button type="button" data-gallery-step="-1" aria-controls="fleet-gallery-track">Previous</button>
@@ -223,7 +216,7 @@ export function fleetDetails(vehicle, booking) {
       <dialog class="fleet-lightbox" aria-labelledby="fleet-lightbox-title">
         <div class="fleet-lightbox-top"><h3 id="fleet-lightbox-title">Vehicle photos</h3><button type="button" data-lightbox-close autofocus>Close</button></div>
         <figure><img data-lightbox-photo alt=""><figcaption data-lightbox-caption></figcaption></figure>
-        <div class="fleet-lightbox-nav">
+        <div class="fleet-lightbox-nav"${photos.length === 1 ? ' hidden' : ''}>
           <button type="button" data-lightbox-step="-1">Previous</button>
           <span data-lightbox-count role="status"></span>
           <button type="button" data-lightbox-step="1">Next</button>
@@ -251,17 +244,19 @@ export function fleetDetails(vehicle, booking) {
 
 export function home() {
   return `<section class="hero">
-    <div class="hero-media">${image('cork-coast-drive', '', true)}</div>
     <div class="shell hero-inner">
       <div class="hero-copy">
         <p class="eyebrow">Based in Youghal, Ireland</p>
-        <h1>Cork Airport<br> transfers<br> <em>from Youghal.</em></h1>
-        <p class="hero-intro">Based in Youghal for Cork Airport transfers, local taxi rides and private tours across Ireland. Ask about pickups in Cork, Waterford and Dungarvan.</p>
-        ${actions('#booking')}
+        <h1>Airport Transfers <span>from Youghal</span></h1>
+        <p class="hero-intro">Private transfers to and from Cork Airport, with pickups across Cork and Waterford.</p>
+        ${link('#booking', 'Get a Quote & Book', 'button button--gold hero-book', 'calendar')}
       </div>
-      ${bookingForm(true)}
+      <figure class="hero-scene">
+        <img src="/assets/photos/cork-airport-mercedes-rear.jpg" alt="Black Mercedes-Benz E-Class executive saloon parked beside the curb at Cork Airport" width="1900" height="550" fetchpriority="high">
+      </figure>
     </div>
   </section>
+  <section class="home-booking section"><div class="shell">${bookingForm(true)}</div></section>
   <section class="section"><div class="shell">
     <h2 data-reveal>Find the right ride</h2>
     ${tiles([
