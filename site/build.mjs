@@ -254,7 +254,7 @@ function render(path, data) {
   <meta property="og:url" content="${url}">
   <meta property="og:image" content="${origin}${photoPath(data.departure ? 'day-' + data.departure + '.jpg' : data.home ? 'cork-airport-mercedes-rear.jpg' : data.media?.[0] || 'cork-coast-drive')}">
   <link rel="icon" type="image/svg+xml" href="/assets/logo/umair-icon.svg?v=3">
-  <link rel="stylesheet" href="/assets/site.css?v=24">
+  <link rel="stylesheet" href="/assets/site.css?v=25">
   <script src="/assets/site.js?v=5" defer></script>
   <script type="application/ld+json">${schema(path, data, data.home ? [['/', 'Home']] : crumbs)}</script>
 </head>
